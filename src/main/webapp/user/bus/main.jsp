@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=gb2312"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]>	<html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
@@ -9,8 +10,10 @@
 <head>
 <!-- Set the viewport width to device width for mobile -->
 <meta name="viewport" content="width=device-width" />
-<title>登陆</title>
-<%@ include file="jsps/common/head.jsp" %> 
+<title>主页</title>
+
+<s:include value="/jsps/common/head.jsp" />
+
 </head>
 <body>
 	<header id="brand">
@@ -20,7 +23,6 @@
 			</div>
 		</div>
 	</header>
-	<!-- .end branding header -->
 	<section class="mainbg">
 		<div class="container">
 			<div class="row">
@@ -30,34 +32,19 @@
 				<div class="six columns centered">
 					<div class="app-wrapper ui-corner-top">
 						<div class="blue module ui-corner-top clearfix">
-							<h2>输入用户名和密码</h2>
+							<h2>index</h2>
 						</div>
 						<div class="content">
-
-							<form  action="user/hello.ls">
-								<div class="row">
-									<label for="username" class="required">用户名</label> <input type="text" id="username" autocorrect="off" autocapitalize="off" data-bind='value: username, uniqueName: true' />
-								</div>
-								<label for="password" class="required custdrop">密码</label>
-								<div class="row">
-									<input type="password" id="password" autocorrect="off" autocapitalize="off" data-bind='value: password, uniqueName: true' />
-								</div>
-								<br>
-								<div class="row">
-									<button type="submit" class="nice radius medium blue button" value="Log In">登陆</button>
-									<a href="password.html" class="active tertiary" onclick="">忘记密码?</a> <label for="checkbox1" class="right"> </label>
-								</div>
-							</form>
-							<!-- .end content -->
+								test
 						</div>
-						<!-- .end wrapper -->
 					</div>
 				</div>
 			</div>
-			<!-- .end container -->
 		</div>
 	</section>
-	<%@ include file="jsps/common/footer.jsp" %>
+	
+	<s:include value="/jsps/common/footer.jsp" />
+	
 	<script>
 		$(document).ready(function() {
 

@@ -1,6 +1,6 @@
 <!-- Required CSS Files -->
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/style-theme.css" media="print" />
+<link rel="stylesheet" href="/ls/css/style.css">
+<link rel="stylesheet" href="/ls/css/style-theme.css" media="print" />
 <!--[if lte IE 9]>
 		<link rel="stylesheet" href="https://static.werner.com/werner/2.3/css/foundation/ie.css">
 	<![endif]-->
