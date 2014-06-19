@@ -50,6 +50,9 @@
 					</div>
 				</div>
 			</div>
+			<div class="row">
+				<img alt="test" src="img/20140619171109677.jpg">
+			</div>
 		</div>
 	</section>
 	<%@ include file="jsps/common/footer.jsp"%>
