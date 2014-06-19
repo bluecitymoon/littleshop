@@ -7,10 +7,9 @@
 <html lang="en">
 <!--<![endif]-->
 <head>
-<!-- Set the viewport width to device width for mobile -->
 <meta name="viewport" content="width=device-width" />
 <title>登陆</title>
-<%@ include file="jsps/common/head.jsp" %> 
+<%@ include file="jsps/common/head.jsp"%>
 </head>
 <body>
 	<header id="brand">
@@ -20,7 +19,6 @@
 			</div>
 		</div>
 	</header>
-	<!-- .end branding header -->
 	<section class="mainbg">
 		<div class="container">
 			<div class="row">
@@ -34,13 +32,13 @@
 						</div>
 						<div class="content">
 
-							<form  action="user/hello.ls">
+							<form action="user/hello.ls" method="POST">
 								<div class="row">
-									<label for="username" class="required">用户名</label> <input type="text" id="username" autocorrect="off" autocapitalize="off" data-bind='value: username, uniqueName: true' />
+									<label for="username" class="required">用户名</label> <input type="text" id="username" name="username" autocorrect="off" autocapitalize="off" />
 								</div>
 								<label for="password" class="required custdrop">密码</label>
 								<div class="row">
-									<input type="password" id="password" autocorrect="off" autocapitalize="off" data-bind='value: password, uniqueName: true' />
+									<input type="password" id="password" name="password" autocorrect="off" autocapitalize="off" />
 								</div>
 								<br>
 								<div class="row">
@@ -48,36 +46,12 @@
 									<a href="password.html" class="active tertiary" onclick="">忘记密码?</a> <label for="checkbox1" class="right"> </label>
 								</div>
 							</form>
-							<!-- .end content -->
 						</div>
-						<!-- .end wrapper -->
 					</div>
 				</div>
 			</div>
-			<!-- .end container -->
 		</div>
 	</section>
-	<%@ include file="jsps/common/footer.jsp" %>
-	<script>
-		$(document).ready(function() {
-
-			var userModel = function() {
-
-				var self = this;
-				self.username = ko.observable('test');
-				self.password = ko.observable('');
-				self.maskChecked = ko.observable(true);
-
-				self.login = function() {
-					alert(self.maskChecked());
-				};
-				self.doLogin = function() {
-
-				};
-			};
-
-			ko.applyBindings(new userModel());
-		});
-	</script>
+	<%@ include file="jsps/common/footer.jsp"%>
 </body>
 </html>

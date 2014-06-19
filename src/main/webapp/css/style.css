@@ -128,7 +128,7 @@ blockquote cite {
     font-size: 12px;
 }
 blockquote cite:before {
-    content: "— ";
+    content: "â€” ";
 }
 hr {
     -moz-border-bottom-colors: none;
@@ -488,7 +488,7 @@ ul.breadcrumbs li:first-child a, ul.breadcrumbs li:first-child span {
 }
 ul.breadcrumbs li:before {
     color: #fff;
-    content: "鈥�";
+    content: "éˆ¥ï¿½";
     display: block;
     float: left;
     font-size: 60px;
@@ -630,1195 +630,1195 @@ th .label, .module .label, .subNavigation .label, .moduleNavigation .label, .ui-
     color: #ecc730;
 }
 .icon-truck-poweronly:before {
-    content: "";
+    content: "î „";
 }
 .icon-truck-van:before {
-    content: "";
+    content: "î ‡";
 }
 .icon-truck-van-empty:before {
-    content: "";
+    content: "î ˆ";
 }
 .icon-truck-tcu:before {
-    content: "";
+    content: "î …";
 }
 .icon-truck-tcu-empty:before {
-    content: "";
+    content: "î †";
 }
 .icon-truck-flatbed:before {
-    content: "";
+    content: "î ‚";
 }
 .icon-truck-flatbed-empty:before {
-    content: "";
+    content: "î ƒ";
 }
 .icon-trailer:before {
-    content: "";
+    content: "î •";
 }
 .icon-trailer-empty:before {
-    content: "";
+    content: "î –";
 }
 .icon-trailer-tcu:before {
-    content: "";
+    content: "î ™";
 }
 .icon-trailer-tcu-empty:before {
-    content: "";
+    content: "î š";
 }
 .icon-trailer-flatbed:before {
-    content: "";
+    content: "î —";
 }
 .icon-trailer-flatbed-empty:before {
-    content: "";
+    content: "î ˜";
 }
 .icon-ship:before {
-    content: "";
+    content: "î ”";
 }
 .icon-train-alt:before {
-    content: "";
+    content: "î €";
 }
 .icon-werner:before {
-    content: "";
+    content: "î Š";
 }
 .icon-werner-sign:before {
-    content: "";
+    content: "î ‰";
 }
 .icon-ambulance:before {
-    content: "";
+    content: "î ‹";
 }
 .icon-ambulance-left:before {
-    content: "";
+    content: "î¥Ž";
 }
 .icon-biohazard:before {
-    content: "";
+    content: "î Œ";
 }
 .icon-canada:before {
-    content: "";
+    content: "î �";
 }
 .icon-fire:before {
-    content: "";
+    content: "î Ž";
 }
 .icon-fuel-pump:before {
-    content: "";
+    content: "î �";
 }
 .icon-gasoline:before {
-    content: "";
+    content: "î �";
 }
 .icon-radiation:before {
-    content: "";
+    content: "î ‘";
 }
 .icon-railroad:before {
-    content: "";
+    content: "î ’";
 }
 .icon-railroad-crossing:before {
-    content: "";
+    content: "î “";
 }
 .icon-train:before {
-    content: "";
+    content: "î ›";
 }
 .icon-truck:before {
-    content: "";
+    content: "î �";
 }
 .icon-truck-left:before {
-    content: "";
+    content: "î¤±";
 }
 .icon-lemon:before {
-    content: "";
+    content: "î¦Œ";
 }
 .icon-glass:before {
-    content: "";
+    content: "î œ";
 }
 .icon-music:before {
-    content: "";
+    content: "î �";
 }
 .icon-search:before {
-    content: "";
+    content: "î ž";
 }
 .icon-envelope-alt:before {
-    content: "";
+    content: "î Ÿ";
 }
 .icon-envelope:before {
-    content: "";
+    content: "î  ";
 }
 .icon-heart:before {
-    content: "";
+    content: "î ¡";
 }
 .icon-heart-empty:before {
-    content: "";
+    content: "î ¢";
 }
 .icon-star:before {
-    content: "";
+    content: "î £";
 }
 .icon-star-empty:before {
-    content: "";
+    content: "î ¤";
 }
 .icon-star-half:before {
-    content: "";
+    content: "î ¥";
 }
 .icon-star-half-empty:before, .icon-star-half-full:before {
-    content: "";
+    content: "î ¦";
 }
 .icon-user:before {
-    content: "";
+    content: "î §";
 }
 .icon-group:before {
-    content: "";
+    content: "î ¨";
 }
 .icon-male:before {
-    content: "";
+    content: "î ©";
 }
 .icon-female:before {
-    content: "";
+    content: "î ª";
 }
 .icon-film:before {
-    content: "";
+    content: "î «";
 }
 .icon-facetime-video:before {
-    content: "";
+    content: "î ¬";
 }
 .icon-picture:before {
-    content: "";
+    content: "î ­";
 }
 .icon-camera:before {
-    content: "";
+    content: "î ®";
 }
 .icon-camera-retro:before {
-    content: "";
+    content: "î ¯";
 }
 .icon-th-large:before {
-    content: "";
+    content: "î °";
 }
 .icon-th:before {
-    content: "";
+    content: "î ±";
 }
 .icon-th-list:before {
-    content: "";
+    content: "î ²";
 }
 .icon-ok:before {
-    content: "";
+    content: "î ³";
 }
 .icon-ok-sign:before {
-    content: "";
+    content: "î ´";
 }
 .icon-ok-circle:before {
-    content: "";
+    content: "î µ";
 }
 .icon-check-sign:before {
-    content: "";
+    content: "î ¶";
 }
 .icon-remove:before {
-    content: "";
+    content: "î ·";
 }
 .icon-remove-sign:before {
-    content: "";
+    content: "î ¸";
 }
 .icon-remove-circle:before {
-    content: "";
+    content: "î ¹";
 }
 .icon-plus:before {
-    content: "";
+    content: "î º";
 }
 .icon-plus-sign:before {
-    content: "";
+    content: "î »";
 }
 .icon-plus-sign-alt:before {
-    content: "";
+    content: "î ¼";
 }
 .icon-expand-alt:before {
-    content: "";
+    content: "î ½";
 }
 .icon-minus:before {
-    content: "";
+    content: "î ¾";
 }
 .icon-minus-sign:before {
-    content: "";
+    content: "î ¿";
 }
 .icon-minus-sign-alt:before {
-    content: "";
+    content: "î¡€";
 }
 .icon-check-minus:before {
-    content: "";
+    content: "î¡�";
 }
 .icon-collapse-alt:before {
-    content: "";
+    content: "î¡‚";
 }
 .icon-question:before {
-    content: "";
+    content: "î¡ƒ";
 }
 .icon-question-sign:before {
-    content: "";
+    content: "î¡„";
 }
 .icon-info-sign:before {
-    content: "";
+    content: "î¡…";
 }
 .icon-info:before {
-    content: "";
+    content: "î¡†";
 }
 .icon-home:before {
-    content: "";
+    content: "î¡‡";
 }
 .icon-link:before {
-    content: "";
+    content: "î¡ˆ";
 }
 .icon-unlink:before {
-    content: "";
+    content: "î¡‰";
 }
 .icon-external-link:before {
-    content: "";
+    content: "î¡Š";
 }
 .icon-external-link-sign:before {
-    content: "";
+    content: "î¡‹";
 }
 .icon-paperclip:before, .icon-paper-clip:before {
-    content: "";
+    content: "î¡Œ";
 }
 .icon-lock:before {
-    content: "";
+    content: "î¡�";
 }
 .icon-unlock:before {
-    content: "";
+    content: "î¡Ž";
 }
 .icon-unlock-alt:before {
-    content: "";
+    content: "î¡�";
 }
 .icon-pushpin:before {
-    content: "";
+    content: "î¡�";
 }
 .icon-eye-open:before {
-    content: "";
+    content: "î¡‘";
 }
 .icon-eye-close:before {
-    content: "";
+    content: "î¡’";
 }
 .icon-tag:before {
-    content: "";
+    content: "î¡“";
 }
 .icon-tags:before {
-    content: "";
+    content: "î¡”";
 }
 .icon-bookmark:before {
-    content: "";
+    content: "î¡•";
 }
 .icon-bookmark-empty:before {
-    content: "";
+    content: "î¡–";
 }
 .icon-flag:before {
-    content: "";
+    content: "î¡—";
 }
 .icon-flag-alt:before {
-    content: "";
+    content: "î¡˜";
 }
 .icon-flag-checkered:before {
-    content: "";
+    content: "î¡™";
 }
 .icon-thumbs-up:before {
-    content: "";
+    content: "î¡š";
 }
 .icon-thumbs-down:before {
-    content: "";
+    content: "î¡›";
 }
 .icon-thumbs-up-alt:before {
-    content: "";
+    content: "î¡œ";
 }
 .icon-thumbs-down-alt:before {
-    content: "";
+    content: "î¡�";
 }
 .icon-download-alt:before {
-    content: "";
+    content: "î¡ž";
 }
 .icon-upload-alt:before {
-    content: "";
+    content: "î¡Ÿ";
 }
 .icon-cloud-download:before {
-    content: "";
+    content: "î¡ ";
 }
 .icon-cloud-upload:before {
-    content: "";
+    content: "î¡¡";
 }
 .icon-mail-reply:before, .icon-reply:before {
-    content: "";
+    content: "î¡¢";
 }
 .icon-mail-reply-all:before, .icon-reply-all:before {
-    content: "";
+    content: "î¡£";
 }
 .icon-mail-forward:before, .icon-share-alt:before {
-    content: "";
+    content: "î¡¤";
 }
 .icon-quote-left:before {
-    content: "";
+    content: "î¡¥";
 }
 .icon-quote-right:before {
-    content: "";
+    content: "î¡¦";
 }
 .icon-code:before {
-    content: "";
+    content: "î¡§";
 }
 .icon-share:before {
-    content: "";
+    content: "î¡¨";
 }
 .icon-share-sign:before {
-    content: "";
+    content: "î¡©";
 }
 .icon-pencil:before {
-    content: "";
+    content: "î¡ª";
 }
 .icon-edit-sign:before {
-    content: "";
+    content: "î¡«";
 }
 .icon-edit:before {
-    content: "";
+    content: "î¡¬";
 }
 .icon-print:before {
-    content: "";
+    content: "î¡­";
 }
 .icon-retweet:before {
-    content: "";
+    content: "î¡®";
 }
 .icon-keyboard:before {
-    content: "";
+    content: "î¡¯";
 }
 .icon-gamepad:before {
-    content: "";
+    content: "î¡°";
 }
 .icon-comment:before {
-    content: "";
+    content: "î¡±";
 }
 .icon-comments:before {
-    content: "";
+    content: "î¡²";
 }
 .icon-comment-alt:before {
-    content: "";
+    content: "î¡³";
 }
 .icon-comments-alt:before {
-    content: "";
+    content: "î¡´";
 }
 .icon-bell:before {
-    content: "";
+    content: "î¡µ";
 }
 .icon-bell-alt:before {
-    content: "";
+    content: "î¡¶";
 }
 .icon-exclamation:before {
-    content: "";
+    content: "î¡·";
 }
 .icon-warning-sign:before {
-    content: "";
+    content: "î¡¸";
 }
 .icon-exclamation-sign:before {
-    content: "";
+    content: "î¡¹";
 }
 .icon-map-marker:before {
-    content: "";
+    content: "î¡º";
 }
 .icon-location-arrow:before {
-    content: "";
+    content: "î¡»";
 }
 .icon-compass:before {
-    content: "";
+    content: "î¡¼";
 }
 .icon-trash:before {
-    content: "";
+    content: "î¡½";
 }
 .icon-file-alt:before {
-    content: "";
+    content: "î¡¾";
 }
 .icon-copy:before {
-    content: "";
+    content: "î¡¿";
 }
 .icon-file-text-alt:before {
-    content: "";
+    content: "î¢€";
 }
 .icon-file:before {
-    content: "";
+    content: "î¢�";
 }
 .icon-file-text:before {
-    content: "";
+    content: "î¢‚";
 }
 .icon-folder-close:before {
-    content: "";
+    content: "î¢ƒ";
 }
 .icon-folder-open:before {
-    content: "";
+    content: "î¢„";
 }
 .icon-folder-close-alt:before {
-    content: "";
+    content: "î¢…";
 }
 .icon-folder-open-alt:before {
-    content: "";
+    content: "î¢†";
 }
 .icon-archive:before {
-    content: "";
+    content: "î¢‡";
 }
 .icon-rss:before {
-    content: "";
+    content: "î¢ˆ";
 }
 .icon-rss-sign:before {
-    content: "";
+    content: "î¢‰";
 }
 .icon-phone:before {
-    content: "";
+    content: "î¢Š";
 }
 .icon-phone-sign:before {
-    content: "";
+    content: "î¢‹";
 }
 .icon-reorder:before {
-    content: "";
+    content: "î¢Œ";
 }
 .icon-gear:before, .icon-cog:before {
-    content: "";
+    content: "î¢�";
 }
 .icon-gears:before, .icon-cogs:before {
-    content: "";
+    content: "î¢Ž";
 }
 .icon-wrench:before {
-    content: "";
+    content: "î¢�";
 }
 .icon-shopping-cart:before {
-    content: "";
+    content: "î¢�";
 }
 .icon-calendar:before {
-    content: "";
+    content: "î¢‘";
 }
 .icon-calendar-empty:before {
-    content: "";
+    content: "î¢’";
 }
 .icon-signin:before {
-    content: "";
+    content: "î¢“";
 }
 .icon-signout:before {
-    content: "";
+    content: "î¢”";
 }
 .icon-microphone:before {
-    content: "";
+    content: "î¢•";
 }
 .icon-microphone-off:before {
-    content: "";
+    content: "î¢–";
 }
 .icon-volume-off:before {
-    content: "";
+    content: "î¢—";
 }
 .icon-volume-down:before {
-    content: "";
+    content: "î¢˜";
 }
 .icon-volume-up:before {
-    content: "";
+    content: "î¢™";
 }
 .icon-headphones:before {
-    content: "";
+    content: "î¢š";
 }
 .icon-time:before {
-    content: "";
+    content: "î¢›";
 }
 .icon-lightbulb:before {
-    content: "";
+    content: "î¢œ";
 }
 .icon-ban-circle:before {
-    content: "";
+    content: "î¢�";
 }
 .icon-resize-full:before {
-    content: "";
+    content: "î¢ž";
 }
 .icon-fullscreen:before {
-    content: "";
+    content: "î¢Ÿ";
 }
 .icon-resize-small:before {
-    content: "";
+    content: "î¢ ";
 }
 .icon-resize-vertical:before {
-    content: "";
+    content: "î¢¡";
 }
 .icon-resize-horizontal:before {
-    content: "";
+    content: "î¢¢";
 }
 .icon-move:before {
-    content: "";
+    content: "î¢£";
 }
 .icon-zoom-in:before {
-    content: "";
+    content: "î¢¤";
 }
 .icon-zoom-out:before {
-    content: "";
+    content: "î¢¥";
 }
 .icon-download:before {
-    content: "";
+    content: "î¢¦";
 }
 .icon-upload:before {
-    content: "";
+    content: "î¢§";
 }
 .icon-caret-down:before {
-    content: "";
+    content: "î¢ª";
 }
 .icon-caret-up:before {
-    content: "";
+    content: "î¢«";
 }
 .icon-caret-left:before {
-    content: "";
+    content: "î¢¬";
 }
 .icon-caret-right:before {
-    content: "";
+    content: "î¢­";
 }
 .icon-chevron-down:before {
-    content: "";
+    content: "î¢®";
 }
 .icon-chevron-left:before {
-    content: "";
+    content: "î¢¯";
 }
 .icon-chevron-right:before {
-    content: "";
+    content: "î¢°";
 }
 .icon-chevron-up:before {
-    content: "";
+    content: "î¢±";
 }
 .icon-angle-left:before {
-    content: "";
+    content: "î¢²";
 }
 .icon-angle-right:before {
-    content: "";
+    content: "î¢³";
 }
 .icon-angle-up:before {
-    content: "";
+    content: "î¢´";
 }
 .icon-angle-down:before {
-    content: "";
+    content: "î¢µ";
 }
 .icon-chevron-sign-left:before {
-    content: "";
+    content: "î¢¶";
 }
 .icon-chevron-sign-right:before {
-    content: "";
+    content: "î¢·";
 }
 .icon-chevron-sign-up:before {
-    content: "";
+    content: "î¢¸";
 }
 .icon-chevron-sign-down:before {
-    content: "";
+    content: "î¢¹";
 }
 .icon-double-angle-left:before {
-    content: "";
+    content: "î¢º";
 }
 .icon-double-angle-right:before {
-    content: "";
+    content: "î¢»";
 }
 .icon-double-angle-up:before {
-    content: "";
+    content: "î¢¼";
 }
 .icon-double-angle-down:before {
-    content: "";
+    content: "î¢½";
 }
 .icon-long-arrow-down:before {
-    content: "";
+    content: "î¢¾";
 }
 .icon-long-arrow-left:before {
-    content: "";
+    content: "î£€";
 }
 .icon-long-arrow-right:before {
-    content: "";
+    content: "î¢¿";
 }
 .icon-long-arrow-up:before {
-    content: "";
+    content: "î£�";
 }
 .icon-arrow-down:before {
-    content: "";
+    content: "î£‚";
 }
 .icon-arrow-left:before {
-    content: "";
+    content: "î£ƒ";
 }
 .icon-arrow-right:before {
-    content: "";
+    content: "î£„";
 }
 .icon-arrow-up:before {
-    content: "";
+    content: "î£…";
 }
 .icon-hand-left:before {
-    content: "";
+    content: "î£‡";
 }
 .icon-hand-up:before {
-    content: "";
+    content: "î£ˆ";
 }
 .icon-hand-down:before {
-    content: "";
+    content: "î£‰";
 }
 .icon-hand-right:before {
-    content: "";
+    content: "î£†";
 }
 .icon-circle-arrow-left:before {
-    content: "";
+    content: "î£Š";
 }
 .icon-circle-arrow-right:before {
-    content: "";
+    content: "î£‹";
 }
 .icon-circle-arrow-up:before {
-    content: "";
+    content: "î£Œ";
 }
 .icon-circle-arrow-down:before {
-    content: "";
+    content: "î£�";
 }
 .icon-repeat:before, .icon-rotate-right:before {
-    content: "";
+    content: "î£Ž";
 }
 .icon-undo:before, .icon-rotate-left:before {
-    content: "";
+    content: "î£�";
 }
 .icon-refresh:before {
-    content: "";
+    content: "î£�";
 }
 .icon-level-up:before {
-    content: "";
+    content: "î£‘";
 }
 .icon-level-down:before {
-    content: "";
+    content: "î£’";
 }
 .icon-random:before {
-    content: "";
+    content: "î£“";
 }
 .icon-exchange:before {
-    content: "";
+    content: "î£”";
 }
 .icon-toggle-down:before, .icon-collapse:before {
-    content: "";
+    content: "î£•";
 }
 .icon-toggle-up:before, .icon-collapse-top:before {
-    content: "";
+    content: "î£–";
 }
 .icon-toggle-right:before, .icon-expand:before {
-    content: "";
+    content: "î£—";
 }
 .icon-toggle-left:before, .icon-collapse-left:before {
-    content: "";
+    content: "î£˜";
 }
 .icon-play:before {
-    content: "";
+    content: "î£™";
 }
 .icon-play-sign:before {
-    content: "";
+    content: "î£š";
 }
 .icon-play-circle:before {
-    content: "";
+    content: "î£›";
 }
 .icon-stop:before {
-    content: "";
+    content: "î£œ";
 }
 .icon-pause:before {
-    content: "";
+    content: "î£�";
 }
 .icon-step-forward:before {
-    content: "";
+    content: "î£ž";
 }
 .icon-fast-forward:before {
-    content: "";
+    content: "î£Ÿ";
 }
 .icon-step-backward:before {
-    content: "";
+    content: "î£ ";
 }
 .icon-fast-backward:before {
-    content: "";
+    content: "î£¡";
 }
 .icon-forward:before {
-    content: "";
+    content: "î£¢";
 }
 .icon-backward:before {
-    content: "";
+    content: "î££";
 }
 .icon-eject:before {
-    content: "";
+    content: "î£¤";
 }
 .icon-screenshot:before {
-    content: "";
+    content: "î£¥";
 }
 .icon-signal:before {
-    content: "";
+    content: "î£¦";
 }
 .icon-trophy:before {
-    content: "";
+    content: "î£§";
 }
 .icon-desktop:before {
-    content: "";
+    content: "î£¨";
 }
 .icon-laptop:before {
-    content: "";
+    content: "î£©";
 }
 .icon-tablet:before {
-    content: "";
+    content: "î£ª";
 }
 .icon-mobile-phone:before {
-    content: "";
+    content: "î£«";
 }
 .icon-inbox:before {
-    content: "";
+    content: "î£¬";
 }
 .icon-globe:before {
-    content: "";
+    content: "î£­";
 }
 .icon-sun:before {
-    content: "";
+    content: "î£®";
 }
 .icon-cloud:before {
-    content: "";
+    content: "î£¯";
 }
 .icon-bolt:before {
-    content: "";
+    content: "î£°";
 }
 .icon-moon:before {
-    content: "";
+    content: "î£±";
 }
 .icon-umbrella:before {
-    content: "";
+    content: "î£²";
 }
 .icon-plane:before {
-    content: "";
+    content: "î£³";
 }
 .icon-fighter-jet:before {
-    content: "";
+    content: "î£´";
 }
 .icon-leaf:before {
-    content: "";
+    content: "î£µ";
 }
 .icon-font:before {
-    content: "";
+    content: "î£¶";
 }
 .icon-bold:before {
-    content: "";
+    content: "î£·";
 }
 .icon-italic:before {
-    content: "";
+    content: "î£¸";
 }
 .icon-text-height:before {
-    content: "";
+    content: "î£¹";
 }
 .icon-text-width:before {
-    content: "";
+    content: "î£º";
 }
 .icon-align-left:before {
-    content: "";
+    content: "î£»";
 }
 .icon-align-center:before {
-    content: "";
+    content: "î£¼";
 }
 .icon-align-right:before {
-    content: "";
+    content: "î£½";
 }
 .icon-align-justify:before {
-    content: "";
+    content: "î£¾";
 }
 .icon-list:before {
-    content: "";
+    content: "î£¿";
 }
 .icon-indent-left:before {
-    content: "";
+    content: "î¤€";
 }
 .icon-indent-right:before {
-    content: "";
+    content: "î¤�";
 }
 .icon-list-ul:before {
-    content: "";
+    content: "î¤‚";
 }
 .icon-list-ol:before {
-    content: "";
+    content: "î¤ƒ";
 }
 .icon-strikethrough:before {
-    content: "";
+    content: "î¤„";
 }
 .icon-underline:before {
-    content: "";
+    content: "î¤…";
 }
 .icon-superscript:before {
-    content: "";
+    content: "î¤†";
 }
 .icon-subscript:before {
-    content: "";
+    content: "î¤‡";
 }
 .icon-table:before {
-    content: "";
+    content: "î¤ˆ";
 }
 .icon-columns:before {
-    content: "";
+    content: "î¤‰";
 }
 .icon-crop:before {
-    content: "";
+    content: "î¤Š";
 }
 .icon-cut:before {
-    content: "";
+    content: "î¤‹";
 }
 .icon-paste:before {
-    content: "";
+    content: "î¤Œ";
 }
 .icon-briefcase:before {
-    content: "";
+    content: "î¤�";
 }
 .icon-suitcase:before {
-    content: "";
+    content: "î¤Ž";
 }
 .icon-ellipsis-horizontal:before {
-    content: "";
+    content: "î¤�";
 }
 .icon-ellipsis-vertical:before {
-    content: "";
+    content: "î¤�";
 }
 .icon-power-off:before, .icon-off:before {
-    content: "";
+    content: "î¤‘";
 }
 .icon-road:before {
-    content: "";
+    content: "î¤’";
 }
 .icon-list-alt:before {
-    content: "";
+    content: "î¤“";
 }
 .icon-qrcode:before {
-    content: "";
+    content: "î¤”";
 }
 .icon-barcode:before {
-    content: "";
+    content: "î¤•";
 }
 .icon-book:before {
-    content: "";
+    content: "î¤–";
 }
 .icon-adjust:before {
-    content: "";
+    content: "î¤—";
 }
 .icon-tint:before {
-    content: "";
+    content: "î¤˜";
 }
 .icon-check:before {
-    content: "";
+    content: "î¤™";
 }
 .icon-unchecked:before, .icon-check-empty:before {
-    content: "";
+    content: "î¤š";
 }
 .icon-circle:before {
-    content: "";
+    content: "î¤›";
 }
 .icon-circle-blank:before {
-    content: "";
+    content: "î¤œ";
 }
 .icon-dot-circled:before {
-    content: "";
+    content: "î¤�";
 }
 .icon-asterisk:before {
-    content: "";
+    content: "î¤ž";
 }
 .icon-gift:before {
-    content: "";
+    content: "î¤Ÿ";
 }
 .icon-fire-1:before {
-    content: "";
+    content: "î¤ ";
 }
 .icon-magnet:before {
-    content: "";
+    content: "î¤¡";
 }
 .icon-bar-chart:before {
-    content: "";
+    content: "î¤¢";
 }
 .icon-ticket:before {
-    content: "";
+    content: "î¤£";
 }
 .icon-credit-card:before {
-    content: "";
+    content: "î¤¤";
 }
 .icon-save:before {
-    content: "";
+    content: "î¤¥";
 }
 .icon-bullhorn:before {
-    content: "";
+    content: "î¤¦";
 }
 .icon-hdd:before {
-    content: "";
+    content: "î¤§";
 }
 .icon-key:before {
-    content: "";
+    content: "î¤¨";
 }
 .icon-code-fork:before {
-    content: "";
+    content: "î¤©";
 }
 .icon-rocket:before {
-    content: "";
+    content: "î¤ª";
 }
 .icon-bug:before {
-    content: "";
+    content: "î¤«";
 }
 .icon-certificate:before {
-    content: "";
+    content: "î¤¬";
 }
 .icon-tasks:before {
-    content: "";
+    content: "î¤­";
 }
 .icon-filter:before {
-    content: "";
+    content: "î¤®";
 }
 .icon-beaker:before {
-    content: "";
+    content: "î¤¯";
 }
 .icon-magic:before {
-    content: "";
+    content: "î¤°";
 }
 .icon-money:before {
-    content: "";
+    content: "î¤²";
 }
 .icon-eur:before, .icon-euro:before {
-    content: "";
+    content: "î¤³";
 }
 .icon-gbp:before, .icon-pound:before {
-    content: "";
+    content: "î¤´";
 }
 .icon-usd:before, .icon-dollar:before {
-    content: "";
+    content: "î¤µ";
 }
 .icon-inr:before, .icon-rupee:before {
-    content: "";
+    content: "î¤¶";
 }
 .icon-renminbi:before, .icon-rmb:before, .icon-cny:before, .icon-jpy:before, .icon-yen:before {
-    content: "";
+    content: "î¤·";
 }
 .icon-ruble:before, .icon-rouble:before, .icon-rub:before {
-    content: "";
+    content: "î¤¸";
 }
 .icon-turkish-lira:before, .icon-try:before {
-    content: "";
+    content: "î¤¹";
 }
 .icon-krw:before, .icon-won:before {
-    content: "";
+    content: "î¤º";
 }
 .icon-btc:before, .icon-bitcoin:before {
-    content: "";
+    content: "î¤»";
 }
 .icon-sort:before {
-    content: "";
+    content: "î¤¼";
 }
 .icon-sort-down:before {
-    content: "";
+    content: "î¤½";
 }
 .icon-sort-up:before {
-    content: "";
+    content: "î¤¾";
 }
 .icon-sort-by-attributes:before {
-    content: "";
+    content: "î¤¿";
 }
 .icon-sort-by-attributes-alt:before {
-    content: "";
+    content: "î¥€";
 }
 .icon-sort-by-alphabet:before {
-    content: "";
+    content: "î¥�";
 }
 .icon-sort-by-alphabet-alt:before {
-    content: "";
+    content: "î¥‚";
 }
 .icon-sort-by-order:before {
-    content: "";
+    content: "î¥ƒ";
 }
 .icon-sort-by-order-alt:before {
-    content: "";
+    content: "î¥„";
 }
 .icon-legal:before {
-    content: "";
+    content: "î¥…";
 }
 .icon-dashboard:before {
-    content: "";
+    content: "î¥†";
 }
 .icon-sitemap:before {
-    content: "";
+    content: "î¥‡";
 }
 .icon-spinner:before {
-    content: "";
+    content: "î¥ˆ";
 }
 .icon-coffee:before {
-    content: "";
+    content: "î¥‰";
 }
 .icon-food:before {
-    content: "";
+    content: "î¥Š";
 }
 .icon-beer:before {
-    content: "";
+    content: "î¥‹";
 }
 .icon-user-md:before {
-    content: "";
+    content: "î¥Œ";
 }
 .icon-stethoscope:before {
-    content: "";
+    content: "î¥�";
 }
 .icon-medkit:before {
-    content: "";
+    content: "î¥�";
 }
 .icon-h-sigh:before {
-    content: "";
+    content: "î¥�";
 }
 .icon-hospital:before {
-    content: "";
+    content: "î¥‘";
 }
 .icon-building:before {
-    content: "";
+    content: "î¥’";
 }
 .icon-smile:before {
-    content: "";
+    content: "î¥“";
 }
 .icon-frown:before {
-    content: "";
+    content: "î¥”";
 }
 .icon-meh:before {
-    content: "";
+    content: "î¥•";
 }
 .icon-anchor:before {
-    content: "";
+    content: "î¥–";
 }
 .icon-terminal:before {
-    content: "";
+    content: "î¥—";
 }
 .icon-eraser:before {
-    content: "";
+    content: "î¥˜";
 }
 .icon-puzzle-piece:before {
-    content: "";
+    content: "î¥™";
 }
 .icon-shield:before {
-    content: "";
+    content: "î¥š";
 }
 .icon-fire-extinguisher:before {
-    content: "";
+    content: "î¥›";
 }
 .icon-bullseye:before {
-    content: "";
+    content: "î¥œ";
 }
 .icon-wheelchair:before {
-    content: "";
+    content: "î¥�";
 }
 .icon-adn:before {
-    content: "";
+    content: "î¥ž";
 }
 .icon-android:before {
-    content: "";
+    content: "î¥Ÿ";
 }
 .icon-apple:before {
-    content: "";
+    content: "î¥ ";
 }
 .icon-bitbucket:before {
-    content: "";
+    content: "î¥¡";
 }
 .icon-bitbucket-squared:before {
-    content: "";
+    content: "î¥¢";
 }
 .icon-css3:before {
-    content: "";
+    content: "î¥£";
 }
 .icon-dribbble:before {
-    content: "";
+    content: "î¥¤";
 }
 .icon-dropbox:before {
-    content: "";
+    content: "î¥¥";
 }
 .icon-facebook:before {
-    content: "";
+    content: "î¥¦";
 }
 .icon-facebook-squared:before {
-    content: "";
+    content: "î¥§";
 }
 .icon-flickr:before {
-    content: "";
+    content: "î¥¨";
 }
 .icon-foursquare:before {
-    content: "";
+    content: "î¥©";
 }
 .icon-github:before {
-    content: "";
+    content: "î¥ª";
 }
 .icon-github-squared:before {
-    content: "";
+    content: "î¥«";
 }
 .icon-github-circled:before {
-    content: "";
+    content: "î¥¬";
 }
 .icon-gittip:before {
-    content: "";
+    content: "î¥­";
 }
 .icon-gplus-squared:before {
-    content: "";
+    content: "î¥®";
 }
 .icon-gplus:before {
-    content: "";
+    content: "î¥¯";
 }
 .icon-html5:before {
-    content: "";
+    content: "î¥°";
 }
 .icon-instagramm:before {
-    content: "";
+    content: "î¥±";
 }
 .icon-linkedin-squared:before {
-    content: "";
+    content: "î¥²";
 }
 .icon-linux:before {
-    content: "";
+    content: "î¥³";
 }
 .icon-linkedin:before {
-    content: "";
+    content: "î¥´";
 }
 .icon-maxcdn:before {
-    content: "";
+    content: "î¥µ";
 }
 .icon-pagelines:before {
-    content: "";
+    content: "î¥¶";
 }
 .icon-pinterest-circled:before {
-    content: "";
+    content: "î¥·";
 }
 .icon-pinterest-squared:before {
-    content: "";
+    content: "î¥¸";
 }
 .icon-renren:before {
-    content: "";
+    content: "î¥¹";
 }
 .icon-skype:before {
-    content: "";
+    content: "î¥º";
 }
 .icon-stackexchange:before {
-    content: "";
+    content: "î¥»";
 }
 .icon-stackoverflow:before {
-    content: "";
+    content: "î¥¼";
 }
 .icon-trello:before {
-    content: "";
+    content: "î¥½";
 }
 .icon-tumblr:before {
-    content: "";
+    content: "î¥¾";
 }
 .icon-tumblr-squared:before {
-    content: "";
+    content: "î¥¿";
 }
 .icon-twitter-squared:before {
-    content: "";
+    content: "î¦€";
 }
 .icon-twitter:before {
-    content: "";
+    content: "î¦�";
 }
 .icon-vimeo-squared:before {
-    content: "";
+    content: "î¦‚";
 }
 .icon-vkontakte:before {
-    content: "";
+    content: "î¦ƒ";
 }
 .icon-weibo:before {
-    content: "";
+    content: "î¦„";
 }
 .icon-windows:before {
-    content: "";
+    content: "î¦…";
 }
 .icon-xing:before {
-    content: "";
+    content: "î¦†";
 }
 .icon-xing-squared:before {
-    content: "";
+    content: "î¦‡";
 }
 .icon-youtube:before {
-    content: "";
+    content: "î¦ˆ";
 }
 .icon-youtube-squared:before {
-    content: "";
+    content: "î¦‰";
 }
 .icon-youtube-play:before {
-    content: "";
+    content: "î¦Š";
 }
 .icon-sign-blank:before {
-    content: "";
+    content: "î¦‹";
 }
 .icon-left-circled2:before {
-    content: "";
+    content: "î¢¨";
 }
 .icon-right-circled2:before {
-    content: "";
+    content: "î¢©";
 }
 div.panel {
     border-radius: 5px;
@@ -2063,15 +2063,7 @@ header a:hover {
 #user-mobile, #menu-mobile {
     display: none;
 }
-.site-nav {
-    background: -moz-linear-gradient(center top , #00a5ff 32%, #008edc 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
-    border-bottom: 5px solid #ddd;
-    clear: both;
-    padding-top: 0.2em;
-}
-.site-nav.sub-nav {
-    border-bottom: 32px solid #ddd;
-}
+
 .ui-tabs {
     font-size: 1em;
     padding: 0;
@@ -2118,81 +2110,55 @@ header a:hover {
 .ui-tabs .ui-tabs-nav li a, .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a, .toolsarrow {
     cursor: pointer;
 }
-.site-nav .ui-tabs-nav li a {
-    color: #fff;
-    font-weight: bold;
-    text-transform: uppercase;
+.rg-site-nav {
+		padding-top: 0.2em;
+		clear: both;
+		background: #00A5FF; /* Old browsers */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(32%, #00A5FF), color-stop(100%, #008EDC)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top, #00A5FF 32%, #008EDC 100%); /* Chrome10+,Safari5.1+ */
+		background: -moz-linear-gradient(top, #00A5FF 32%, #008EDC 100%); /* FF3.6+ */
+		background: -ms-linear-gradient(top, #00A5FF 32%, #008EDC 100%); /* IE10+ */
+		background: linear-gradient(top, #00A5FF 32%, #008EDC 100%); /* W3C */
+		border-bottom: 5px solid #DDD;
+	}
+
+/* Increase bottom border of rg-site-nav when sub-navigation is present */
+.rg-site-nav.sub-nav { border-bottom: 32px solid #DDD; }
+.rg-site-nav .ui-tabs-nav li a{ font-weight: bold; color: #FFF; }
+.rg-site-nav .ui-tabs-nav li a:hover{ color: #e5e5e5; -webkit-transition: color .15s ease-in-out; -moz-transition: color .15s ease-in-out; -o-transition: color .15s ease-in-out; }
+
+.rg-site-nav li{ float: left; margin: 0; }
+.rg-site-nav li a{ font-weight: bold; text-decoration: none; border-top-left-radius: 5px; border-top-right-radius: 5px; }
+.rg-site-nav li a:link,
+.rg-site-nav li a:visited{ color: #FFF; }
+.rg-site-nav li a:hover{ background: rgba(0,0,0,0.10); }
+.rg-site-nav li a.active{ color: #000; background: rgb(255,255,255); /* Old browsers */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(7%,#FFF), color-stop(76%,rgba(221,221,221,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #FFF 7%,rgba(221,221,221,1) 76%); /* Chrome10+,Safari5.1+ */
+	background: -moz-linear-gradient(top, #FFF 7%, rgba(221,221,221,1) 76%); /* FF3.6+ */
+	background: -ms-linear-gradient(top, #FFF 7%, rgba(221,221,221,1) 76%); /* IE10+ */
+	background: linear-gradient(top, #FFF 7%,rgba(221,221,221,1) 76%); /* W3C */ }
+	
+.rg-site-nav li li{ position: static; font-weight: bold; width: auto; height: auto; }
+.rg-site-nav li li a{ width: auto; height: auto; text-transform: none; font-weight: normal; margin-top: 2px;}
+.rg-site-nav li li a:link,
+.rg-site-nav li li a:visited{ color: #666; }
+.rg-site-nav li li.ui-tabs-selected a {
+	color: #6D6D6D !important;
+	background: #FAFAFA; /* Old browsers */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FFF), color-stop(100%, #FAFAFA)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #FFF 0%, #FAFAFA 100%); /* Chrome10+,Safari5.1+ */
+	background: -moz-linear-gradient(top, #FFF 0%, #FAFAFA 100%); /* FF3.6+ */
+	background: -ms-linear-gradient(top, #FFF 0%, #FAFAFA 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #FFF 0%, #FAFAFA 100%); /* W3C */
+	font-weight: bold;
 }
-.site-nav .ui-tabs-nav li a:hover {
-    color: #e5e5e5;
-    transition: color 0.15s ease-in-out 0s;
-}
-.site-nav ul {
-    height: 30px;
-    line-height: 1;
-    margin: 0;
-    position: relative;
-}
-.site-nav li {
-    float: left;
-    margin: 0;
-}
-.site-nav li a {
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    font-weight: bold;
-    text-decoration: none;
-    text-transform: uppercase;
-}
-.site-nav li a:link, .site-nav li a:visited {
-    color: #fff;
-}
-.site-nav li a:hover {
-    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.1);
-}
-.site-nav li a.active {
-    background: -moz-linear-gradient(center top , #fff 7%, rgba(221, 221, 221, 1) 76%) repeat scroll 0 0 rgba(0, 0, 0, 0);
-    color: #000;
-}
-.site-nav li li {
-    font-weight: bold;
-    height: auto;
-    position: static;
-    width: auto;
-}
-.site-nav li li a {
-    font-weight: normal;
-    height: auto;
-    margin-top: 2px;
-    text-transform: none;
-    width: auto;
-}
-.site-nav li li a:link, .site-nav li li a:visited {
-    color: #666;
-}
-.site-nav li li.ui-tabs-selected a {
-    background: linear-gradient(to bottom, #fff 0%, #fafafa 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
-    color: #6d6d6d !important;
-    font-weight: bold;
-}
-.site-nav ul ul {
-    display: none;
-    height: 32px;
-    left: 0;
-    margin: 0;
-    overflow: hidden;
-    position: absolute;
-}
-.site-nav ul ul.selected, .site-nav ul ul.active {
-    display: block;
-}
-.site-nav li a {
-    display: block;
-    padding: 10px;
-}
-.site-nav .active, .site-nav .ui-state-active a {
-    cursor: default;
-}
+.rg-site-nav ul ul.selected,
+.rg-site-nav ul ul.active{ display: block; }
+.rg-site-nav li a{ display: block; padding: 10px; }
+.rg-site-nav .active,
+.rg-site-nav .ui-state-active a{ cursor: default; }
+
 .mainbg {
     background-color: #fafafa;
     padding: 18px;
@@ -2222,12 +2188,12 @@ footer .logo {
     text-decoration: none;
 }
 .toolsarrow:before {
-    content: "";
+    content: "î¢­";
     font-family: FontAwesome;
     padding-right: 5px;
 }
 .toolsarrow-active:before {
-    content: "";
+    content: "î¢ª";
 }
 .tools-active {
     padding-bottom: 0;
@@ -2455,12 +2421,12 @@ h2.loading {
     color: #fff;
 }
 .ui-tabs .vertical-nav a.active:before, .ui-tabs .vertical-nav .ui-state-active a:before, .vertical-nav a.active:before, .vertical-nav .ui-state-active a:before {
-    content: "";
+    content: "î¢°";
     float: right;
     font-family: FontAwesome;
 }
 .right .ui-tabs .vertical-nav a.active:before, .right .ui-tabs .vertical-nav .ui-state-active a:before, .right .vertical-nav a.active:before, .right .vertical-nav .ui-state-active a:before {
-    content: "";
+    content: "î¢¯";
     float: left;
     padding-right: 1em;
 }
@@ -2539,20 +2505,20 @@ h2.loading {
     padding-left: 0;
 }
 .ui-accordion-header a:before {
-    content: "";
+    content: "î¢­";
     font-family: FontAwesome;
     padding: 0 10px 0 1.25em;
 }
 .ui-accordion-header h2:before {
-    content: "";
+    content: "î¢­";
     font-family: FontAwesome;
     padding: 0 10px 0 0;
 }
 .ui-accordion .ui-state-active a:before {
-    content: "";
+    content: "î¢ª";
 }
 .ui-accordion .ui-state-active h2:before {
-    content: "";
+    content: "î¢ª";
 }
 .ui-accordion-header h2.right a:before, .ui-accordion-header h2.right:before {
     content: "";
@@ -3595,7 +3561,7 @@ a span.blue.button-addon.prefix:hover, a span.blue.button-addon.postfix:hover {
     text-indent: 0;
 }
 .ui-dialog .ui-widget-content span.ui-icon.ui-icon-alert:before {
-    content: "";
+    content: "î¡¸";
     font-family: FontAwesome;
     font-weight: normal;
 }
@@ -3608,7 +3574,7 @@ a span.blue.button-addon.prefix:hover, a span.blue.button-addon.postfix:hover {
 }
 .ui-dialog .ui-widget-header .ui-dialog-titlebar-close:before {
     color: #fff;
-    content: "";
+    content: "î ·";
     font-family: FontAwesome;
     font-weight: normal;
     text-shadow: 1px 0.5px 0 rgba(0, 0, 0, 0.25);
@@ -3780,15 +3746,15 @@ html[xmlns] .dataTables_wrapper {
     font-size: 14px;
 }
 .dataTable .sorting:before {
-    content: "";
+    content: "î¤¼";
 }
 .dataTable .sorting_desc:before {
     color: #7a80dd;
-    content: "";
+    content: "î¤½";
 }
 .dataTable .sorting_asc:before {
     color: #7a80dd;
-    content: "";
+    content: "î¤¾";
 }
 .dataTables_scroll .dataTables_scrollBody .sorting:before, .dataTables_scroll .dataTables_scrollBody .sorting_asc:before, .dataTables_scroll .dataTables_scrollBody .sorting_desc:before {
     content: "";
@@ -4004,11 +3970,11 @@ td input, td .button {
     margin-top: 0;
 }
 .asc:after {
-    content: " ";
+    content: " î¤¾";
     font-family: FontAwesome;
 }
 .desc:after {
-    content: " ";
+    content: " î¤½";
     font-family: FontAwesome;
 }
 .icon-sort {
@@ -4270,10 +4236,10 @@ div.progress.red .meter {
     right: 4px;
 }
 .ui-datepicker .ui-datepicker-prev:before {
-    content: "";
+    content: "î¢¯";
 }
 .ui-datepicker .ui-datepicker-next:before {
-    content: "";
+    content: "î¢°";
 }
 .ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span {
     display: block;

@@ -11,8 +11,8 @@
 		<action name="login">
 			<result>index.jsp</result>
 		</action>
-		<action name="hello" class="com.ls.controller.WelcomeUserAction">
-			<result name="SUCCESS">bus/main.jsp</result>
+		<action name="hello" class="com.ls.controller.WelcomeUserAction" method="doLogin">
+			<result name="success">bus/main.jsp</result>
 		</action>
 	</package>
  
