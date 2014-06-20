@@ -101,7 +101,7 @@
 <nav class="rg-site-nav" id="nav">
 	<div class="row">
 		<ul id="dropdown">
-			<li><a class="" title="" href="index.html"><s:text key="jerry"></s:text></a>
+			<li><a class="" title="" href="index.html">bbb</a>
 				<ul id="dropdown">
 			<li><a class="" title="" href="index.html">aaa</a>
 			

@@ -2,7 +2,7 @@ package com.ls.controller;
 
 import com.opensymphony.xwork2.ActionContext;
 
-public class WelcomeUserAction extends BaseAction {
+public class UserAction extends BaseAction {
 
 	private static final long serialVersionUID = -3519886427026056067L;
 	private String username;
@@ -28,6 +28,13 @@ public class WelcomeUserAction extends BaseAction {
 		return SUCCESS;
 	}
 
+	public String loadGrabPage() {
+		return SUCCESS;
+	}
+	
+	public String loadAssignLocationToUser() {
+		return SUCCESS;
+	}
 	public String getUsername() {
 
 		return username;

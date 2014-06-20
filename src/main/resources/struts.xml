@@ -11,8 +11,14 @@
 		<action name="login">
 			<result>index.jsp</result>
 		</action>
-		<action name="hello" class="com.ls.controller.WelcomeUserAction" method="doLogin">
+		<action name="hello" class="com.ls.controller.UserAction" method="doLogin">
 			<result name="success">bus/main.jsp</result>
+		</action>
+		<action name="loadGrab" class="com.ls.controller.UserAction" method="loadGrabPage">
+			<result name="success">bus/user_grab.jsp</result>
+		</action>
+		<action name="loadAssignLocation" class="com.ls.controller.UserAction" method="loadAssignLocationToUser">
+			<result name="success">bus/assign_location_to_user.jsp</result>
 		</action>
 	</package>
  

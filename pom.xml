@@ -7,6 +7,13 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ls Maven Webapp</name>
 	<url>http://maven.apache.org</url>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<spring.version>3.1.2.RELEASE</spring.version>
+		<slf4j.version>1.7.1</slf4j.version>
+		<mysql.version>5.1.28</mysql.version>
+		<jackson.version>1.9.8</jackson.version>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>

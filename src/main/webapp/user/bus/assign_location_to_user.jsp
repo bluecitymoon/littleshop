@@ -10,7 +10,7 @@
 <head>
 <!-- Set the viewport width to device width for mobile -->
 <meta name="viewport" content="width=device-width" />
-<title>主页</title>
+<title>分配区域</title>
 
 <s:include value="/jsps/common/head.jsp" />
 
@@ -28,24 +28,45 @@
 	<section class="mainbg">
 		<div class="container">
 			<div class="row">
-				<div class="content"></div>
-			</div>
-			<div class="row">
 				<div class="app-wrapper ui-corner-top">
 					<div class="blue module ui-corner-top clearfix">
-						<h2>江</h2>
+						<h2>划分区域</h2>
 					</div>
 					<div class="content">
-						<s:property value="username" />
+						<div class="row">
+							<div class="three columns"></div>
+							<div class="six columns">
+								<div class="row collapse">
+									<div class="eight columns">
+										<input type="text" class="addon-postfix"
+											placeholder="输入员工号或者姓名来进行搜索" data-bind="value : userName" />
+									</div>
+									<div class="four columns">
+										<button class="small nice blue button postfix">搜索</button>
+									</div>
+								</div>
+							</div>
+							<div class="three columns"></div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
+
 	<s:include value="/jsps/common/footer.jsp" />
 
 	<script>
 		$(document).ready(function() {
+			var AssignLocationModel = function() {
+				this.userName = ko.observable(""),
+				this.searchUser = function() {
+					
+				};
+				
+			};
+			
+			ko.applyBindings(new AssignLocationModel());
 		});
 	</script>
 </body>
