@@ -2,24 +2,36 @@
 <!DOCTYPE struts PUBLIC
 "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
 "http://struts.apache.org/dtds/struts-2.0.dtd">
- 
+
 <struts>
- 	<constant name="struts.custom.i18n.resources" value="i18n.engine,i18n.static,ApplicationMessages" />
+	<constant name="struts.custom.i18n.resources" value="i18n.engine,i18n.static,ApplicationMessages" />
 	<constant name="struts.action.extension" value="ls" />
-	
+	<constant name="struts.objectFactory"
+		value="org.apache.struts2.spring.StrutsSpringObjectFactory" />
 	<package name="user" namespace="/user" extends="struts-default">
 		<action name="login">
 			<result>index.jsp</result>
 		</action>
-		<action name="hello" class="com.ls.controller.UserAction" method="doLogin">
+		<action name="hello" class="userAction" method="doLogin">
 			<result name="success">bus/main.jsp</result>
 		</action>
-		<action name="loadGrab" class="com.ls.controller.UserAction" method="loadGrabPage">
+		<action name="loadGrab" class="userAction" method="loadGrabPage">
 			<result name="success">bus/user_grab.jsp</result>
 		</action>
-		<action name="loadAssignLocation" class="com.ls.controller.UserAction" method="loadAssignLocationToUser">
+		<action name="loadAssignLocation" class="userAction"
+			method="loadAssignLocationToUser">
 			<result name="success">bus/assign_location_to_user.jsp</result>
 		</action>
+		
 	</package>
- 
+	<package name="json" namespace="/" extends="json-default">
+		<result-types>
+			<result-type name="json" class="org.apache.struts2.json.JSONResult" />
+		</result-types>
+		<action name="ajaxFindUser" class="userAction" method="ajaxFindUser">
+			<result name="success" type="json">
+				<param name="root">users</param>
+			</result>
+		</action>
+	</package>
 </struts>
