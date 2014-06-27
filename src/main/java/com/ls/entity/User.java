@@ -20,14 +20,14 @@ public class User implements Serializable {
 	private static final long serialVersionUID = -9150498313341113868L;
 	@Id
 	@GeneratedValue
-	private Integer id;
-	private String name;
-	private String username;
-	private String password;
+	protected Integer id;
+	protected String name;
+	protected String username;
+	protected String password;
 	
 	@ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
-    @JoinTable(name = "ls_user_location", inverseJoinColumns = @JoinColumn(name = "user_id"), joinColumns = @JoinColumn(name = "location_id"))
-	private List<Location> locations;
+    @JoinTable(name = "ls_user_location", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "location_id") )
+	protected List<Location> locations;
 	
 	public List<Location> getLocations() {
 		return locations;

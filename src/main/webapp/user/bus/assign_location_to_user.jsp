@@ -31,6 +31,11 @@
 				<div class="app-wrapper ui-corner-top">
 					<div class="blue module ui-corner-top clearfix">
 						<h2>划分区域</h2>
+						<h2 class="right">
+						<a id="createNewUser" href="#" class="small white button" data-bind="click : createNewUser" title="创建新用户">
+							创建新用户
+						</a>
+					</h2>
 					</div>
 					<div class="content">
 						<div class="row">
@@ -38,8 +43,7 @@
 							<div class="six columns">
 								<div class="row collapse">
 									<div class="eight columns">
-										<input type="text" class="addon-postfix"
-											placeholder="输入员工号或者姓名来进行搜索" data-bind="value : userName" />
+										<input id="userNameInput" type="text" class="addon-postfix" placeholder="请输入完整的账号来进行搜索" data-bind="value : userName" />
 									</div>
 									<div class="four columns">
 										<button class="small nice blue button postfix"
@@ -127,11 +131,11 @@
 	<s:include value="/jsps/common/footer.jsp" />
 	<script src="/ls/js/User.js"></script>
 	<script>
-		$(document).ready(
-				function() {
+		$(document).ready( function() {
 					var AssignLocationModel = function() {
 						var self = this;
 						self.userName = ko.observable("");
+						self.userNameList = ko.observableArray([]);
 						self.users = ko.observableArray([]);
 						self.locations = ko.observableArray([]);
 						self.searchUser = function() {
@@ -144,9 +148,7 @@
 											self.users.removeAll();
 
 											for ( var i in data) {
-												user = new User(data[i].id,
-														data[i].name,
-														data[i].username);
+												user = new User(data[i].id, data[i].name, data[i].username);
 												self.users.push(user);
 											}
 											
@@ -162,10 +164,23 @@
 						self.assignLocation = function(target, event) {
 							$('#assignLocationPopup').dialog({});
 						};
+						
+						self.loadUserAccouts = function() {
+							//apply country auto-complete 
+							$.ajax({                        
+								  url: '/ls/users/getAllUserAccounts.ls',
+								  async: false,      
+								  success: function(data) {   
+									  $("#userNameInput").autocomplete({ source: data, minLength: 2 });
+								  }
+								});
+						};
 
 					};
-
-					ko.applyBindings(new AssignLocationModel());
+					var model = new AssignLocationModel();
+					model.loadUserAccouts();
+					ko.applyBindings(model);
+					
 				});
 	</script>
 </body>

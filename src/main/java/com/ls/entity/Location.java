@@ -18,11 +18,11 @@ public class Location implements Serializable {
 	private static final long serialVersionUID = -168881302111176551L;
 	@Id
 	@GeneratedValue
-	private Integer id;
-	private String name;
+	protected Integer id;
+	protected String name;
 	
 	@ManyToMany(cascade = CascadeType.REFRESH, mappedBy = "locations", fetch = FetchType.EAGER)
-	private List<User> users;
+	protected List<User> users;
 	
 	public List<User> getUsers() {
 		return users;

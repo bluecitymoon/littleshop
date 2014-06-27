@@ -22,13 +22,25 @@
 			method="loadAssignLocationToUser">
 			<result name="success">bus/assign_location_to_user.jsp</result>
 		</action>
-		
+		<action name="loadUser">
+			<result>bus/user.jsp</result>
+		</action>
 	</package>
 	<package name="json" namespace="/" extends="json-default">
 		<result-types>
 			<result-type name="json" class="org.apache.struts2.json.JSONResult" />
 		</result-types>
 		<action name="ajaxFindUser" class="userAction" method="ajaxFindUser">
+			<result name="success" type="json">
+				<param name="root">users</param>
+			</result>
+		</action>
+		<action name="getAllUserAccounts" class="userAction" method="getAllUserAccounts">
+			<result name="success" type="json">
+				<param name="root">usersList</param>
+			</result>
+		</action>
+		<action name="loadAllUsers" class="userAction" method="loadAllUsers">
 			<result name="success" type="json">
 				<param name="root">users</param>
 			</result>
