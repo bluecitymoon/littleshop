@@ -60,7 +60,10 @@
 						<form class="nice custom"></form>
 						<ul class="smartlist nice" data-bind="foreach: companyList">
 							<li>
+								
+								
 								<div class="row" data-bind="click : $root.detail">
+									<label class="input-checkbox" for="cb1">
 									<div class="row">
 										<div class="four columns text-center" ><b>Jerry Company</b></div>
 										<div class="four columns">
@@ -70,7 +73,9 @@
 											<div class="star" data-bind="attr: { 'star' : star }"></div>
 										</div>
 									</div>
+									</label>
 									<div class="row companydetail" style="display: none;">
+										<hr>
 										<form>
 											<fieldset>
 												<legend><b>¾ßÌåÏ¸½Ú</b></legend>
@@ -175,7 +180,7 @@
 
 						self.detail = function(item, event) {
 							var $this = $(event.target);
-							$this.parent().find('.companydetail').toggle(
+							$this.parent().parent().find('.companydetail').toggle(
 									'blind', {}, 200);
 						};
 
