@@ -25,6 +25,8 @@ public class UserAction extends BaseAction {
 
 	private Set<String> usersList;
 	
+	private User user;
+	
 	@Resource(name = "userService")
 	private UserService userService;
 	
@@ -88,6 +90,18 @@ public class UserAction extends BaseAction {
 		return SUCCESS;
 	}
 	
+	public String createUser() {
+		String userName = getParameter("username");
+		String name = getParameter("name");
+		String password = getParameter("password");
+		
+		User userEntity = new User(name, userName, password);
+		
+		user = userRepository.save(userEntity);
+		
+		return SUCCESS;
+	}
+	
 	public String getUsername() {
 
 		return username;
@@ -112,4 +126,13 @@ public class UserAction extends BaseAction {
 
 		this.usersList = usersList;
 	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
 }

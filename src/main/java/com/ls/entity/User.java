@@ -24,9 +24,17 @@ public class User implements Serializable {
 	protected String name;
 	protected String username;
 	protected String password;
-	
+	public User() {
+		super();
+	}
+	public User(String name, String username, String password) {
+		super();
+		this.name = name;
+		this.username = username;
+		this.password = password;
+	}
 	@ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
-    @JoinTable(name = "ls_user_location", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "location_id") )
+    @JoinTable(name = "ls_user_location", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "city_id") )
 	protected List<Location> locations;
 	
 	public List<Location> getLocations() {

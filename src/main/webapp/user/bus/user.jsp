@@ -66,15 +66,13 @@
 												<th>编号</th>
 												<th>姓名</th>
 												<th>账号</th>
-												<th>操作</th>
 											</tr>
 										</thead>
 										<tbody data-bind="foreach : users">
-											<tr data-bind="click : $root.showLocation">
+											<tr data-bind="click : $root.loadForEdit">
 												<td style="text-align: center" data-bind="text : id"></td>
 												<td style="text-align: center" data-bind="text : name"></td>
 												<td style="text-align: center" data-bind="text : username"></td>
-												<td style="text-align: center"><a data-bind="click : $root.changePassword">更换密码</a> <a data-bind="click : $root.changePassword">删除</a> <a data-bind="click : $root.changePassword">更改信息</a></td>
 											</tr>
 										</tbody>
 									</table>
@@ -114,7 +112,8 @@
 									<hr>
 									<div class="row">
 										<p class="mb0">
-											<a id="searchBtn" class="blue button mb0" href="#0" data-bind="click : saveOrUpdateUser">保存</a> <a class="tertiary line" href="#0">关闭</a>
+											<a id="saveBtn" class="blue button mb0" href="#0" data-bind="click : createNewUser">创建新用户</a>
+											<a id="saveBtn" class="tertiary line" href="#0" data-bind="click : updateUser">修改已有用户</a>
 										</p>
 									</div>
 									<div class="row"></div>
@@ -158,8 +157,12 @@
 										}
 									});
 						};
-						self.showLocation = function(target) {
-							alert('test');
+						self.loadForEdit = function(user, target) {
+							self.user_id(user.id);
+							self.userName_new(user.username);
+							self.name_new(user.name);
+							//self.password_new(user.password);
+							//self.password_new_again(user.password);
 						};
 						
 						self.assignLocation = function(target, event) {
@@ -197,7 +200,25 @@
 							alert('TODO');
 						};
 						
-						self.saveOrUpdateUser = function() {
+						self.createNewUser = function() {
+							if (self.password_new() !== self.password_new_again()) {
+								alert('两次输入的密码不一致。');
+								return;
+							}
+							
+							$.ajax({                        
+								  url: '/ls/users/createUser.ls',
+								  async: false,
+								  data: {name : self.name_new(), username : self.userName_new(), password : self.password_new() },
+								  success: function(data) {  
+									  var user = new User(data.id, data.name, data.username);
+									  self.users.push(user);
+									  self.userNameList.push(data.username);
+								  }
+								});
+						};
+						
+						self.updateUser = function() {
 							
 						};
 

@@ -69,7 +69,6 @@
 										<th>编号</th>
 										<th>姓名</th>
 										<th>账号</th>
-										<th>操作</th>
 									</tr>
 
 								</thead>
@@ -78,14 +77,6 @@
 										<td style="text-align: center" data-bind="text : id"></td>
 										<td style="text-align: center" data-bind="text : name"></td>
 										<td style="text-align: center" data-bind="text : username"></td>
-										<td style="text-align: center">
-											<button class="small blue button"
-												data-bind="click : $root.assignLocation">已划分的区域</button>
-											<button class="small blue button"
-												data-bind="click : $root.assignLocation">分配新的区域</button>
-											<button class="small blue button"
-												data-bind="click : $root.assignLocation">修改密码</button>
-										</td>
 									</tr>
 								</tbody>
 							</table>

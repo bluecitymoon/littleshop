@@ -45,6 +45,14 @@
 				<param name="root">users</param>
 			</result>
 		</action>
+		<action name="createUser" class="userAction" method="createUser">
+			<result name="success" type="json">
+				<param name="root">user</param>
+			</result>
+			<result name="error" type="json">
+				<param name="root">users</param>
+			</result>
+		</action>
 	</package>
 	
 	<include file = "data-struts.xml" />
