@@ -1,4 +1,4 @@
-package com.ls.grap;
+package com.ls.grab;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -49,6 +49,43 @@ public class GrapImgUtil {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public static synchronized String grabImgWithSrc(String imgSrc) {
+		HttpClient client = HttpClientBuilder.create().build();
+		HttpGet request = new HttpGet(imgSrc);
+
+		// add request header
+		request.addHeader("User-Agent", "Mozilla/5.0 (Windows; U; Windows NT 5.1) Gecko/20070803 Firefox/1.5.0.12");
+		request.addHeader("Content-Type", " text/html;charset=UTF-8");
+
+		try {
+			HttpResponse response = client.execute(request);
+
+			String name = new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date());
+			
+			File storeFile = new File("..//img/" + name + ".jpg");
+
+			if (!storeFile.exists()) {
+				storeFile.createNewFile();
+			}
+
+			FileOutputStream fileOutputStream = new FileOutputStream(storeFile);
+
+			// InputStreamReader inputStreamReader = new InputStreamReader(response.getEntity().getContent(), "UTF-8");
+			InputStream inputStream = response.getEntity().getContent();
+
+			IOUtils.copy(response.getEntity().getContent(), fileOutputStream);
+
+			IOUtils.closeQuietly(inputStream);
+			IOUtils.closeQuietly(fileOutputStream);
+			
+			return name;
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }

@@ -6,8 +6,14 @@ import javax.annotation.Resource;
 
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.quartz.QuartzJobBean;
 
+import com.ls.entity.Company;
+import com.ls.grab.GrapImgUtil;
+import com.ls.grab.HtmlParserUtil;
+import com.ls.grab.HttpClientGrabUtil;
+import com.ls.repository.CompanyRepository;
 import com.ls.service.GrabService;
 
 public class GrabFeJob extends QuartzJobBean {
@@ -16,6 +22,9 @@ public class GrabFeJob extends QuartzJobBean {
 
 	@Resource(name = "grabService")
 	private GrabService grabService;
+	
+	@Autowired
+	CompanyRepository companyRepository;
 	
 	@Override
 	protected void executeInternal(JobExecutionContext arg0) throws JobExecutionException {
@@ -40,6 +49,35 @@ public class GrabFeJob extends QuartzJobBean {
 			
 			
 		}
+		
+		String testURL = "http://su.58.com/meirongshi/pn0";
+		
+		String htmlForPage = HttpClientGrabUtil.fetchHTMLwithURL(testURL);
+		
+		List<Company> companiesInThisPage = HtmlParserUtil.findPagedCompanyList(htmlForPage);
+		
+		//<input id="pagenum" value="C29C0040637C187E41C97E412398A6D8A" type="hidden" />
+		for (Company company : companiesInThisPage) {
+			
+			String companyDetailUrl = company.getfEurl();
+			String detailPageHtml = HttpClientGrabUtil.fetchHTMLwithURL(companyDetailUrl);
+			
+			String companyName = HtmlParserUtil.findCompanyName(detailPageHtml);
+			company.setName(companyName);
+			
+			String contactor = HtmlParserUtil.findContactorName(detailPageHtml);
+			company.setContactor(contactor);
+			
+			String phoneImgSrc = HtmlParserUtil.findContactorPhoneNumberImgSrc(detailPageHtml);
+			company.setPhoneSrc(phoneImgSrc);
+			
+			String imgFileNameAfterGrabed = GrapImgUtil.grabImgWithSrc(phoneImgSrc);
+			company.setPhoneSrc(imgFileNameAfterGrabed);
+			
+			companyRepository.save(company);
+			
+		}
+		
 		// 3. save to db
 		
 		// 4. save grab log

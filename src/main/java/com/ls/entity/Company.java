@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "ls_company")
@@ -20,7 +21,7 @@ public class Company implements Serializable {
 	protected String name;
 	protected String contactor;
 	protected String email;
-
+	
 	@Column(name = "email_src")
 	protected String emailSrc;
 	protected String phone;
@@ -32,6 +33,29 @@ public class Company implements Serializable {
 	protected Boolean isTracked;
 
 	protected String address;
+	
+	@Transient
+	protected String fEurl;
+	
+	@Transient
+	protected String phoneImgSrc;
+	
+	
+	public String getPhoneImgSrc() {
+		return phoneImgSrc;
+	}
+
+	public void setPhoneImgSrc(String phoneImgSrc) {
+		this.phoneImgSrc = phoneImgSrc;
+	}
+
+	public String getfEurl() {
+		return fEurl;
+	}
+
+	public void setfEurl(String fEurl) {
+		this.fEurl = fEurl;
+	}
 
 	public Integer getId() {
 		return id;

@@ -9,8 +9,8 @@
 //
 //import com.ls.service.UserService;
 //
-////@RunWith(SpringJUnit4ClassRunner.class)
-////@ContextConfiguration(locations = "classpath:applicationContext.xml")
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration(locations = "classpath:applicationContext.xml")
 //public class SysUserTest {
 //	//@Autowired
 //	private UserService userService;

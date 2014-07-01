@@ -156,10 +156,8 @@
 									self.companyList.removeAll();
 
 									$.each(data, function(index, value) {
-										var new_phone_src = "/ls/img/"
-												+ value.phoneSrc;
-										var new_email_src = "/ls/img/"
-												+ value.emailSrc;
+										var new_phone_src = "/ls/img/" + value.phoneSrc;
+										var new_email_src = "/ls/img/" + value.emailSrc;
 										var company = new Company(value.id,
 												value.name, value.contactor,
 												value.email, new_email_src,

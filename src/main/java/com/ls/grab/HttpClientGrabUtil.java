@@ -1,4 +1,4 @@
-package com.ls.grap;
+package com.ls.grab;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -25,7 +25,7 @@ public class HttpClientGrabUtil {
 			HttpGet request = new HttpGet(url);
 
 			// add request header
-		    request.addHeader("User-Agent", "Test");
+		    request.addHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:25.0) Gecko/20100101 Firefox/25.0");
 			request.addHeader("Content-Type", " text/html;charset=UTF-8");
 			//request.addHeader("Transfer-Encoding", " chunked");
 			HttpResponse response = client.execute(request);
@@ -53,6 +53,33 @@ public class HttpClientGrabUtil {
 			e.printStackTrace();
 		}
 
+	}
+	
+	public static String fetchHTMLwithURL(String url) {
+		
+		HttpClient client = HttpClientBuilder.create().build();
+		HttpGet request = new HttpGet(url);
+
+	    request.addHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:25.0) Gecko/20100101 Firefox/25.0");
+		request.addHeader("Content-Type", " text/html;charset=UTF-8");
+		StringBuffer result = new StringBuffer();
+		try {
+			HttpResponse response = client.execute(request);
+			
+			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
+
+			String line = "";
+			while ((line = bufferedReader.readLine()) != null) {
+				result.append(line);
+			}
+
+		} catch (ClientProtocolException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return result.toString();
 	}
 
 }
