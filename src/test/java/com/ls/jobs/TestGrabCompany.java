@@ -1,55 +1,150 @@
 package com.ls.jobs;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.nio.charset.Charset;
 import java.util.List;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.google.common.io.Files;
 import com.ls.entity.Company;
 import com.ls.grab.GrapImgUtil;
-import com.ls.grab.HtmlParserUtil;
+import com.ls.grab.HtmlParserUtilPlanB;
 import com.ls.grab.HttpClientGrabUtil;
 import com.ls.repository.CompanyRepository;
-
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:applicationContext.xml")
 public class TestGrabCompany {
 
+	private File file = new File("D:\\Jerry\\58.txt");
+
 	@Autowired
 	private CompanyRepository companyRepository;
 
 	@Test
-	public void testGrabCompany() {
+	public void testGrabCompanyList() {
 
 		String testURL = "http://su.58.com/meirongshi/pn0";
 
 		String htmlForPage = HttpClientGrabUtil.fetchHTMLwithURL(testURL);
 
-		List<Company> companiesInThisPage = HtmlParserUtil.findPagedCompanyList(htmlForPage);
+		List<Company> companiesInThisPage = HtmlParserUtilPlanB.findPagedCompanyList(htmlForPage);
+		Assert.assertTrue(!companiesInThisPage.isEmpty());
+
+		for (Company company : companiesInThisPage) {
+
+			System.out.println(company.toString());
+		}
+	}
+
+	@Test
+	public void testGrabCompanyName() throws Exception {
+
+		String htmlForPage = Files.toString(file, Charset.defaultCharset());
+
+		Company testcomCompany = HtmlParserUtilPlanB.findPagedCompanyList(htmlForPage).get(0);
+
+		Assert.assertNotNull(testcomCompany.getName());
+		Assert.assertNotNull(testcomCompany.getfEurl());
+	}
+
+	@Test
+	public void testGrabDetailedPage() throws Exception {
+		// http://qy.58.com/9880155593991/?PGTID=14042836308430.7793496957798185&ClickID=2
+		String testURL = "http://qy.58.com/9880155593991/?PGTID=14042836308430.7793496957798185&ClickID=2";
+		String htmlForPage = HttpClientGrabUtil.fetchHTMLwithURL(testURL);
+
+		Assert.assertNotNull(htmlForPage);
+
+		Files.touch(new File("detailedCompanyPageHtml.txt"));
+
+		FileWriter fileWriter = new FileWriter(new File("detailedCompanyPageHtml.txt"));
+
+		fileWriter.write(htmlForPage);
+		fileWriter.close();
+	}
+
+	@Test
+	public void testGrabContractorInDetailedPage() throws Exception {
+		String html = Files.toString(new File("detailedCompanyPageHtml.txt"), Charset.defaultCharset());
+		String contactor = HtmlParserUtilPlanB.findContactorName(html);
+
+		Assert.assertEquals("方老师", contactor);
+	}
+
+	@Test
+	public void testGrabContractorPhoneImgSrcInDetailedPage() throws Exception {
+		String html = Files.toString(new File("detailedCompanyPageHtml.txt"), Charset.defaultCharset());
+		String contactorPhone = HtmlParserUtilPlanB.findContactorPhoneNumberImgSrc(html);
+
+		Assert.assertEquals(contactorPhone, "http://image.58.com/showphone.aspx?t=v55&v=82319568EEFB8401DCC4BEA34EC3736B6");
+	}
+
+	@Test
+	public void testGrabContractorEmailImgSrcInDetailedPage() throws Exception {
+		String html = Files.toString(new File("detailedCompanyPageHtml.txt"), Charset.defaultCharset());
+		String contactorPhone = HtmlParserUtilPlanB.findContactorEmailImgSrc(html);
+
+		Assert.assertEquals(contactorPhone, "http://image.58.com/showphone.aspx?t=v55&v=ADE0982AA4122C1859F727629C15A292B2421493BF67452E");
+	}
+
+	@Test
+	public void testGrabContractorAddressInDetailedPage() throws Exception {
+		String html = Files.toString(new File("detailedCompanyPageHtml.txt"), Charset.defaultCharset());
+		String contactorPhone = HtmlParserUtilPlanB.findCompanyAddress(html);
+
+		Assert.assertEquals(contactorPhone, "上海宝山区共和新路5000号绿地风尚4号楼1316室");
+	}
+	
+	@Test
+	public void testGrabImg() throws Exception {
+		String src = "http://image.58.com/showphone.aspx?t=v55&v=82319568EEFB84016CC4BEA34EC3736B6";
+		String imgFileName = GrapImgUtil.grabImgWithSrc(src);
+		
+		System.out.println(imgFileName);
+	}
+
+	@Test
+	public void testGrabJob() throws Exception {
+
+		String testURL = "http://su.58.com/meirongshi/pn0";
+
+		String htmlForPage = HttpClientGrabUtil.fetchHTMLwithURL(testURL);
+
+		List<Company> companiesInThisPage = HtmlParserUtilPlanB.findPagedCompanyList(htmlForPage);
 
 		for (Company company : companiesInThisPage) {
 
 			String companyDetailUrl = company.getfEurl();
 			String detailPageHtml = HttpClientGrabUtil.fetchHTMLwithURL(companyDetailUrl);
 
-			String companyName = HtmlParserUtil.findCompanyName(detailPageHtml);
-			company.setName(companyName);
-
-			String contactor = HtmlParserUtil.findContactorName(detailPageHtml);
+			String contactor = HtmlParserUtilPlanB.findContactorName(detailPageHtml);
 			company.setContactor(contactor);
 
-			String phoneImgSrc = HtmlParserUtil.findContactorPhoneNumberImgSrc(detailPageHtml);
-			company.setPhoneSrc(phoneImgSrc);
+			String phoneImgSrc = HtmlParserUtilPlanB.findContactorPhoneNumberImgSrc(detailPageHtml);
+			company.setPhoneImgSrc(phoneImgSrc);
+			
+			String address = HtmlParserUtilPlanB.findCompanyAddress(detailPageHtml);
+			company.setAddress(address);
 
-			String imgFileNameAfterGrabed = GrapImgUtil.grabImgWithSrc(phoneImgSrc);
-			company.setPhoneSrc(imgFileNameAfterGrabed);
-
-			companyRepository.save(company);
+			//String imgFileNameAfterGrabed = GrapImgUtil.grabImgWithSrc(phoneImgSrc);
+			//company.setPhoneSrc(imgFileNameAfterGrabed);
+			
+			String emailImgSrc = HtmlParserUtilPlanB.findContactorEmailImgSrc(detailPageHtml);
+			company.setEmailSrc(emailImgSrc);
+			//String emailImgFileNameAfterGrabed = GrapImgUtil.grabImgWithSrc(emailImgSrc);
+			//company.setEmailSrc(emailImgFileNameAfterGrabed);
+			
+			System.out.println(company);
+		//	companyRepository.save(company);
 
 		}
 	}
-
 }

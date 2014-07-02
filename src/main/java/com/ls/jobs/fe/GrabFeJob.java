@@ -11,7 +11,7 @@ import org.springframework.scheduling.quartz.QuartzJobBean;
 
 import com.ls.entity.Company;
 import com.ls.grab.GrapImgUtil;
-import com.ls.grab.HtmlParserUtil;
+import com.ls.grab.HtmlParserUtilPlanB;
 import com.ls.grab.HttpClientGrabUtil;
 import com.ls.repository.CompanyRepository;
 import com.ls.service.GrabService;
@@ -54,7 +54,7 @@ public class GrabFeJob extends QuartzJobBean {
 		
 		String htmlForPage = HttpClientGrabUtil.fetchHTMLwithURL(testURL);
 		
-		List<Company> companiesInThisPage = HtmlParserUtil.findPagedCompanyList(htmlForPage);
+		List<Company> companiesInThisPage = HtmlParserUtilPlanB.findPagedCompanyList(htmlForPage);
 		
 		//<input id="pagenum" value="C29C0040637C187E41C97E412398A6D8A" type="hidden" />
 		for (Company company : companiesInThisPage) {
@@ -62,13 +62,13 @@ public class GrabFeJob extends QuartzJobBean {
 			String companyDetailUrl = company.getfEurl();
 			String detailPageHtml = HttpClientGrabUtil.fetchHTMLwithURL(companyDetailUrl);
 			
-			String companyName = HtmlParserUtil.findCompanyName(detailPageHtml);
-			company.setName(companyName);
+		//	String companyName = HtmlParserUtilPlanB.findCompanyName(detailPageHtml);
+		//	company.setName(companyName);
 			
-			String contactor = HtmlParserUtil.findContactorName(detailPageHtml);
+			String contactor = HtmlParserUtilPlanB.findContactorName(detailPageHtml);
 			company.setContactor(contactor);
 			
-			String phoneImgSrc = HtmlParserUtil.findContactorPhoneNumberImgSrc(detailPageHtml);
+			String phoneImgSrc = HtmlParserUtilPlanB.findContactorPhoneNumberImgSrc(detailPageHtml);
 			company.setPhoneSrc(phoneImgSrc);
 			
 			String imgFileNameAfterGrabed = GrapImgUtil.grabImgWithSrc(phoneImgSrc);

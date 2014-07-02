@@ -129,4 +129,8 @@ public class Company implements Serializable {
 		this.address = address;
 	}
 
+	@Override
+	public String toString() {
+		return "Company [id=" + id + ", name=" + name + ", contactor=" + contactor + ", email=" + email + ", emailSrc=" + emailSrc + ", phone=" + phone + ", phoneSrc=" + phoneSrc + ", isTracked=" + isTracked + ", address=" + address + ", fEurl=" + fEurl + ", phoneImgSrc=" + phoneImgSrc + "]";
+	}
 }
