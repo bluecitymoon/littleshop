@@ -185,7 +185,7 @@ public class HtmlParserUtilPlanB {
 			});
 
 		} catch (ParserException e) {
-
+			e.printStackTrace();
 		}
 
 		return contactorsPhoneImgSrcBuilder.toString();
@@ -253,7 +253,7 @@ public class HtmlParserUtilPlanB {
 			});
 
 		} catch (ParserException e) {
-
+			e.printStackTrace();
 		}
 		System.out.println(contactorsEmailSrcBuilder.toString());
 		

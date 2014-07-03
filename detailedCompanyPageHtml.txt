@@ -2,13 +2,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>上海韩塑美容有限公司2014年最新招聘信息 - 上海58同城</title>
+<title>苏州市金阊区纤悦美容美发设计室2014年最新招聘信息 - 苏州58同城</title>
 <meta name="Keywords"  content="" /> 
-<meta name="Description" content="上海韩塑美容有限公司招聘,58同城官方网站,提供最新招聘职位、公司介绍、电话、地址等信息；我公司为私营企业，属于医疗/保健/卫生/美容行业，目前公司规模:1-49人，公司在“上海宝山区共和新路5000号绿地风尚4号楼1316室”，诚聘:“韩塑国际前台收银”“人事总监”“美容师5000综合店”；了解更多该企业信息，请到58同城。" />
+<meta name="Description" content="苏州市金阊区纤悦美容美发设计室招聘,58同城官方网站,提供最新招聘职位、公司介绍、电话、地址等信息；我公司为个人企业企业，属于医疗/保健/卫生/美容,生物/制药/医疗器械,娱乐休闲/餐饮/服务行业，目前公司规模:50-99人，公司在“苏州金阊区干将西路1095号电大对面”，诚聘:“文员”“前台”“前台”；了解更多该企业信息，请到58同城。" />
 <link rel="stylesheet" type="text/css" href="http://static.58.com/ui7/job/hire/job-compDetail.css">
 <script>
 document.domain = '58.com';
-var ____json4fe = {rootcatentry:{dispid:'',name:'',listname:'job'}, catentry: { dispid: '', name: '', listname: 'content' }, locallist: [{ dispid: '2', name: '上海', listname: 'sh' }],userid:'9880155593991', modules:'qy'}
+var ____json4fe = {rootcatentry:{dispid:'',name:'',listname:'job'}, catentry: { dispid: '', name: '', listname: 'content' }, locallist: [{ dispid: '5', name: '苏州', listname: 'su' }],userid:'19034173134855', modules:'qy'}
 </script>
 <script type="text/javascript" src="http://static.58.com/n/js/jianli/jquery.js"></script>
 <script type="text/javascript" src="/js/entdetail.js?v=20131126"></script>
@@ -26,7 +26,7 @@ var ____json4fe = {rootcatentry:{dispid:'',name:'',listname:'job'}, catentry: { 
 				<img src="http://pic2.58.com/ui7/job/hire/logo-49h.gif" alt="中文最大生活信息门户">
 			</a>
 		</div>
-		<span id="crumbs" class="crumbs" style="display: none;"><a href="/">企业名录</a>&gt;<a href="http://qy.58.com/sh/">上海企业名录</a>&gt;<a href="http://qy.58.com/9880155593991/">上海韩塑美容有限公司</a></span>
+		<span id="crumbs" class="crumbs" style="display: none;"><a href="/">企业名录</a>&gt;<a href="http://qy.58.com/su/">苏州企业名录</a>&gt;<a href="http://qy.58.com/19034173134855/">苏州市金阊区纤悦美容美发设计室</a></span>
 		<div id="searchbar" class="searchbar fl">
 			<form onsubmit="b_query();return false;">
 				<span id="key" class="searchInput">
@@ -48,7 +48,7 @@ var ____json4fe = {rootcatentry:{dispid:'',name:'',listname:'job'}, catentry: { 
 		<div class="compHead">
 			<div class="compT">
 				<h1>
-					<a href="/9880155593991/" title="上海韩塑美容有限公司">上海韩塑美容有限公司 </a>
+					<a href="/19034173134855/" title="苏州市金阊区纤悦美容美发设计室">苏州市金阊区纤悦美容美发设计室 </a>
 				</h1>		
 				<div class="compComm" style="display: none;">			
 					<strong>0%</strong>
@@ -96,52 +96,57 @@ var ____json4fe = {rootcatentry:{dispid:'',name:'',listname:'job'}, catentry: { 
    							   						</td>
    						<th>公司性质</th>
    						<td>
-   							   								私营
+   							   								个人企业
    							   						</td>
    					</tr>
    					<tr>
 						<th>公司行业</th>
    						<td>
    							<span>
-   							   								<a class="c33" target="_blank" href="http://qy.58.com/sh_262/">医疗/保健/卫生/美容</a>
+   							   								<a class="c33" target="_blank" href="http://qy.58.com/su_262/">医疗/保健/卫生/美容</a>、<a class="c33" target="_blank" href="http://qy.58.com/su_263/">生物/制药/医疗器械</a>、<a class="c33" target="_blank" href="http://qy.58.com/su_277/">娱乐休闲/餐饮/服务</a>
    							   							</span>  							
    						</td>
    						<th>公司规模</th><td>
-   							1-49人
+   							50-99人
    						</td>
    					</tr>
    					   					<tr>
 						<th>联系人</th>
    						<td>
-   						   							方老师
+   						   							洪姐
    						   						</td>
    						<th>联系电话</th>
    						<td class="telNum">
-   							<img src="http://image.58.com/showphone.aspx?t=v55&v=82319568EEFB8401DCC4BEA34EC3736B6">
+   							<img src="http://image.58.com/showphone.aspx?t=v55&v=A6A9848335E65E0262AF215DC080618D6"><img src="http://image.58.com/showphone.aspx?t=v55&v=371E91203E2D1C73H0D8601951CE4DBB0">
    						</td>
    					</tr>
    					   					<tr>
-   												<th>邮箱</th>
-   						<td><img src="http://image.58.com/showphone.aspx?t=v55&v=ADE0982AA4122C1859F727629C15A292B2421493BF67452E"></td>
-   						<th>企业网址</th>
-   						<td>
-   							<a href="http://www.ssshansu.com" target="_blank">http://www.ssshansu.com</a>
+   						   						<th>企业网址</th>
+   						<td colspan="3">
+   							<a href="http://szqymr.58.com.cn" target="_blank">http://szqymr.58.com.cn</a>
    						</td>
    						   					</tr>
    					<tr>	
    						<th>公司地址</th>
    						<td class="adress"  colspan="3">
-   							<span>上海宝山区共和新路5000号绿地风尚4号楼1316室</span>
-   								<i class="map"></i><a href="javascript:setbg('公交地图',430,170,'/mapdetail.html?lat=121.451419%2C31.328679&name=%E4%B8%8A%E6%B5%B7%E9%9F%A9%E5%A1%91%E7%BE%8E%E5%AE%B9%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8');">查看地图</a>   							
+   							<span>苏州金阊区干将西路1095号电大对面</span>
+   								<i class="map"></i><a href="javascript:setbg('公交地图',430,170,'/mapdetail.html?lat=120.5939%2C31.308847&name=%E8%8B%8F%E5%B7%9E%E5%B8%82%E9%87%91%E9%98%8A%E5%8C%BA%E7%BA%A4%E6%82%A6%E7%BE%8E%E5%AE%B9%E7%BE%8E%E5%8F%91%E8%AE%BE%E8%AE%A1%E5%AE%A4');">查看地图</a>   							
    						</td>
    					</tr>
    				</table>
    				
 	   				<div class="infoview clearfix" id="infoview">
-	   									</div>
+	   					   					<span class="fl">公司福利：</span>
+	   					<ul class="cbright fl">
+	   					 	   					 							 	   					 							 	   					 							 	   					 							 	   					 							 	   					 							 	   					 							 	   					 							 	   					 							 	   					 							 	   					 														<li><div class="cbSum"><span>在金阊及吴中都有店面</span></div></li>
+														<li><div class="cbSum"><span>工作氛围好</span></div></li>
+														<li><div class="cbSum"><span>环境佳</span></div></li>
+																			</ul>
+										</div>
 				<div class="compIntro">
 					<p>
-					韩塑美颜修身是沪上知名美容、纤体机构成立于2012年8月28日，望有志之士加入团队，本店有广阔的发展空间，公司在2013年8月徐汇店成立，2014年4月宝山长江西路泰熙店成立。已发展至3家连锁，2015年计划发展至8家连锁，望有能力的管理人员加入韩塑精英团队。
+					　　目前纤悦美容养生会所，在金阊区及吴中区分别设有一家分店！同时还将扩大经营。
+<br/>　　我们拥有专业的美容团队和一流的服务态度，拥有先进的美容仪器设备和经营管理模式以及良好的工作氛围，愿真诚团结广大有志于美容事业的同仁们，让每个人在纤悦这个大舞台，尽情地挥洒梦想、施展才华，成就个人事业，实现自我价值。以共同把握机遇，携手开辟中国美容事业的新篇章！期待您的加入！本公司在金阊区和吴中区均有分店，目前两家都在招人！<i style='padding-left:7px;line-height:14px;overflow:hidden;zoom:1;'></i>
 					</p>
 				</div>
    			</div>
@@ -172,10 +177,10 @@ var ____json4fe = {rootcatentry:{dispid:'',name:'',listname:'job'}, catentry: { 
    			<div class="headline">
 		    	<h2>招聘信息</h2> 
 		       	<div class="posCata">
-		       							<a	 class="selcur"  href="/9880155593991/574/pn1">全职职位</a>
+		       							<a	 class="selcur"  href="/19034173134855/574/pn1">全职职位</a>
 		       						</div>
 		    </div>
-		    		    <table class="jobList"><thead><tr><th class="wid1">职位信息</th><th class="wid2">薪资水平</th><th class="wid3">工作地点</th><th class="wid4">学历</th><th class="wid5">工作经验</th><th class="wid6">招聘人数</th><th class="wid7">更新时间</th></tr></thead><tbody><tr><td><div class="ml20"><a target="_blank" href="http://sh.58.com/renli/18465385167363x.shtml" title="韩塑国际前台收银">韩塑国际前台收银</a></div></td><td><div><span>3000-5000</span>元/月</div></td><td><div>共康</div></td><td><div>-</div></td><td><div>3-5年</div></td><td><div>5人</div></td><td><div class="mr20">2014-07-02</div></td></tr><tr><td><div class="ml20"><a target="_blank" href="http://sh.58.com/renli/18391146825858x.shtml" title="人事总监">人事总监</a></div></td><td><div><span>3000-5000</span>元/月</div></td><td><div>共康</div></td><td><div>-</div></td><td><div>3-5年</div></td><td><div>1人</div></td><td><div class="mr20">2014-06-25</div></td></tr><tr><td><div class="ml20"><a target="_blank" href="http://sh.58.com/meirongjianshen/18355315571078x.shtml" title="美容师5000综合店">美容师5000综合店</a></div></td><td><div><span>5000-8000</span>元/月</div></td><td><div>通河新村</div></td><td><div>-</div></td><td><div>3-5年</div></td><td><div>20人</div></td><td><div class="mr20">2014-06-29</div></td></tr><tr><td><div class="ml20"><a target="_blank" href="http://sh.58.com/meirongjianshen/18355232259971x.shtml" title="发型师">发型师</a></div></td><td><div><span>8000-12000</span>元/月</div></td><td><div>通河新村</div></td><td><div>-</div></td><td><div>8-10年</div></td><td><div>10人</div></td><td><div class="mr20">2014-06-22</div></td></tr><tr><td><div class="ml20"><a target="_blank" href="http://sh.58.com/meirongjianshen/17492155533827x.shtml" title="美容师">美容师</a></div></td><td><div><span>5000-8000</span>元/月</div></td><td><div>通河新村</div></td><td><div>-</div></td><td><div>不限</div></td><td><div>20人</div></td><td><div class="mr20">2014-06-17</div></td></tr><tr><td><div class="ml20"><a target="_blank" href="http://sh.58.com/meirongjianshen/18015777840390x.shtml" title="韩塑国际美容有限公司">韩塑国际美容有限公司</a></div></td><td><div><span>8000-12000</span>元/月</div></td><td><div>漕河泾</div></td><td><div>-</div></td><td><div>3-5年</div></td><td><div>10人</div></td><td><div class="mr20">2014-06-17</div></td></tr><tr><td><div class="ml20"><a target="_blank" href="http://sh.58.com/yewu/17746618514309x.shtml" title="营销总监">营销总监</a></div></td><td><div><span>5000-8000</span>元/月</div></td><td><div>通河新村</div></td><td><div>-</div></td><td><div>3-5年</div></td><td><div>3人</div></td><td><div class="mr20">2014-06-17</div></td></tr><tr><td><div class="ml20"><a target="_blank" href="http://sh.58.com/meirongjianshen/17492255210115x.shtml" title="美容师">美容师</a></div></td><td><div><span>5000-8000</span>元/月</div></td><td><div>通河新村</div></td><td><div>-</div></td><td><div>不限</div></td><td><div>20人</div></td><td><div class="mr20">2014-06-17</div></td></tr><tr><td><div class="ml20"><a target="_blank" href="http://sh.58.com/meirongjianshen/11269844839170x.shtml" title="韩塑国际保底5000元诚">韩塑国际保底5000元诚</a></div></td><td><div><span>5000-8000</span>元/月</div></td><td><div>共康</div></td><td><div>-</div></td><td><div>不限</div></td><td><div>10人</div></td><td><div class="mr20">2014-06-26</div></td></tr><tr><td><div class="ml20"><a target="_blank" href="http://sh.58.com/yewu/17746738073480x.shtml" title="电话销售">电话销售</a></div></td><td><div><span>5000-8000</span>元/月</div></td><td><div>通河新村</div></td><td><div>-</div></td><td><div>3-5年</div></td><td><div>5人</div></td><td><div class="mr20">2014-06-17</div></td></tr></tbody></table>
+		    		    <table class="jobList"><thead><tr><th class="wid1">职位信息</th><th class="wid2">薪资水平</th><th class="wid3">工作地点</th><th class="wid4">学历</th><th class="wid5">工作经验</th><th class="wid6">招聘人数</th><th class="wid7">更新时间</th></tr></thead><tbody><tr><td><div class="ml20"><a target="_blank" href="http://su.58.com/renli/17216775553288x.shtml" title="文员">文员</a></div></td><td><div>面议</div></td><td><div>彩香</div></td><td><div>高中</div></td><td><div>1-2年</div></td><td><div>2人</div></td><td><div class="mr20">2014-04-05</div></td></tr><tr><td><div class="ml20"><a target="_blank" href="http://su.58.com/renli/17172241731585x.shtml" title="前台">前台</a></div></td><td><div>面议</div></td><td><div>金阊区</div></td><td><div>不限</div></td><td><div>1-2年</div></td><td><div>2人</div></td><td><div class="mr20">2014-04-05</div></td></tr><tr><td><div class="ml20"><a target="_blank" href="http://su.58.com/renli/17172317227785x.shtml" title="前台">前台</a></div></td><td><div>面议</div></td><td><div>彩香</div></td><td><div>高中</div></td><td><div>1-2年</div></td><td><div>2人</div></td><td><div class="mr20">2014-04-05</div></td></tr><tr><td><div class="ml20"><a target="_blank" href="http://su.58.com/yewu/16077656019207x.shtml" title="高薪诚聘美容顾问+提成">高薪诚聘美容顾问+提成</a></div></td><td><div><span>5000-8000</span>元/月</div></td><td><div>苏州</div></td><td><div>中专</div></td><td><div>1-2年</div></td><td><div>5人</div></td><td><div class="mr20">2014-04-05</div></td></tr><tr><td><div class="ml20"><a target="_blank" href="http://su.58.com/meirongjianshen/16147205215106x.shtml" title="高薪诚聘美容顾问+提成">高薪诚聘美容顾问+提成</a></div></td><td><div><span>5000-8000</span>元/月</div></td><td><div>苏州</div></td><td><div>中专</div></td><td><div>1-2年</div></td><td><div>5人</div></td><td><div class="mr20">2014-04-05</div></td></tr><tr><td><div class="ml20"><a target="_blank" href="http://su.58.com/meirongjianshen/16147200888194x.shtml" title="高薪诚聘美容顾问+提成">高薪诚聘美容顾问+提成</a></div></td><td><div><span>5000-8000</span>元/月</div></td><td><div>苏州</div></td><td><div>中专</div></td><td><div>1-2年</div></td><td><div>5人</div></td><td><div class="mr20">2014-04-05</div></td></tr><tr><td><div class="ml20"><a target="_blank" href="http://su.58.com/meirongjianshen/16147203346435x.shtml" title="高薪诚聘美容顾问+提成">高薪诚聘美容顾问+提成</a></div></td><td><div><span>5000-8000</span>元/月</div></td><td><div>苏州</div></td><td><div>中专</div></td><td><div>1-2年</div></td><td><div>5人</div></td><td><div class="mr20">2014-04-05</div></td></tr><tr><td><div class="ml20"><a target="_blank" href="http://su.58.com/meirongjianshen/16147199944329x.shtml" title="高薪诚聘美容顾问+提成">高薪诚聘美容顾问+提成</a></div></td><td><div><span>5000-8000</span>元/月</div></td><td><div>苏州</div></td><td><div>中专</div></td><td><div>1-2年</div></td><td><div>5人</div></td><td><div class="mr20">2014-04-05</div></td></tr><tr><td><div class="ml20"><a target="_blank" href="http://su.58.com/meirongjianshen/16147201722119x.shtml" title="高薪诚聘美容顾问+提成">高薪诚聘美容顾问+提成</a></div></td><td><div><span>5000-8000</span>元/月</div></td><td><div>苏州</div></td><td><div>中专</div></td><td><div>1-2年</div></td><td><div>5人</div></td><td><div class="mr20">2014-04-05</div></td></tr><tr><td><div class="ml20"><a target="_blank" href="http://su.58.com/meirongjianshen/16147194716805x.shtml" title="高薪美容店长+食宿提成">高薪美容店长+食宿提成</a></div></td><td><div><span>8000-12000</span>元/月</div></td><td><div>苏州</div></td><td><div>高中</div></td><td><div>3-5年</div></td><td><div>1人</div></td><td><div class="mr20">2014-06-01</div></td></tr></tbody></table>
 		    		   	<div class="pagerout">
 				<div id="pager" class="pager">
 					
@@ -193,17 +198,17 @@ var ____json4fe = {rootcatentry:{dispid:'',name:'',listname:'job'}, catentry: { 
 		    	<h2>公司评价</h2> 
 		    </div>
 		    <div class="commCont">
-				<iframe style="background-color:White;" id="dianpingList" name="dianpingList"  src="/zhaopin/enterprise/9880155593991/10/1" width="100%" height="44px" scrolling="no"  frameborder="0">
+				<iframe style="background-color:White;" id="dianpingList" name="dianpingList"  src="/zhaopin/enterprise/19034173134855/10/1" width="100%" height="44px" scrolling="no"  frameborder="0">
 				</iframe>
 			</div>
 		    <!--公司评价iframe嵌入-->
    		</div>
    		<!--公司评价 end-->
    		<!--感兴趣职位 start-->
-   		<div class="recPos bor"><div class="headline"><h2>您可能感兴趣的职位</h2><a target="_blank" href="http://sh.58.com/job/pve_5363_262_pve_5358_0/" class="f12" tongji_tag="RecPCqy_more">查看更多</a></div><div class="recCont"><div class="recInfo"><dl class="clearfix"><dt><a href="http://sh.58.com/meirongjianshen/18468488324743x.shtml?from=RecPCqy" title="3000诚聘发型助理" target="_blank" tongji_tag="RecPCqy_titleToDetail&37500130&C1|C2|C3">3000诚聘发型助理</a></dt><dd class="wid217"><a href="/37500130/" title="上海组合发型顾问有限公司" target="_blank" tongji_tag="RecPCqy_firmToQY&37500130&C1|C2|C3">上海组合发型顾问有限公司</a></dd><dd class="wid156">2000-3000</dd><dd class="wid156">中山公园</dd><dd>2014-07-02</dd></dl><div class="recReason clearfix"><span class="fl">推荐理由：</span><ul class="cbright fl"><li><div class="cbSum"><span class="fl">五险一金</span></div></li><li><div class="cbSum"><span class="fl">包住</span></div></li><li><div class="cbSum"><span class="fl">生活超级便利</span></div></li><li><div class="cbSum"><span class="fl">交通超级便利</span></div></li></ul></div></div><div class="recInfo"><dl class="clearfix"><dt><a href="http://sh.58.com/meirongjianshen/18468468891266x.shtml?from=RecPCqy" title="高薪诚聘美容院销售顾问" target="_blank" tongji_tag="RecPCqy_titleToDetail&24237428600070&C1|C2|C3">高薪诚聘美容院销售顾问</a></dt><dd class="wid217"><a href="/24237428600070/" title="上海昌田乐美容有限公司" target="_blank" tongji_tag="RecPCqy_firmToQY&24237428600070&C1|C2|C3">上海昌田乐美容有限公司</a></dd><dd class="wid156">面议</dd><dd class="wid156">重固</dd><dd>2014-07-02</dd></dl><div class="recReason clearfix"><span class="fl">推荐理由：</span><ul class="cbright fl"><li><div class="cbSum"><span class="fl">包住</span></div></li><li><div class="cbSum"><span class="fl">话补</span></div></li><li><div class="cbSum"><span class="fl">饭补</span></div></li><li><div class="cbSum"><span class="fl">加班补助</span></div></li></ul></div></div><div class="recInfo"><dl class="clearfix"><dt><a href="http://sh.58.com/meirongjianshen/18224987734664x.shtml?from=RecPCqy" title="美容美体芳疗师" target="_blank" tongji_tag="RecPCqy_titleToDetail&19305820230918&C1|C2|C3">美容美体芳疗师</a></dt><dd class="wid217"><a href="/19305820230918/" title="龙翔集团蒂斯威尔国际SPA会所" target="_blank" tongji_tag="RecPCqy_firmToQY&19305820230918&C1|C2|C3">龙翔集团蒂斯威尔国际SPA会所</a></dd><dd class="wid156">面议</dd><dd class="wid156">金山</dd><dd>2014-07-02</dd></dl><div class="recReason clearfix"><span class="fl">推荐理由：</span><ul class="cbright fl"><li><div class="cbSum"><span class="fl">包吃</span></div></li><li><div class="cbSum"><span class="fl">包住</span></div></li><li><div class="cbSum"><span class="fl">饭补</span></div></li><li><div class="cbSum"><span class="fl">提供吃住</span></div></li><li><div class="cbSum"><span class="fl">带薪培训</span></div></li><li><div class="cbSum"><span class="fl">多重福利</span></div></li></ul></div></div><div class="recInfo"><dl class="clearfix"><dt><a href="http://sh.58.com/yewu/18323865403010x.shtml?from=RecPCqy" title="市场经理" target="_blank" tongji_tag="RecPCqy_titleToDetail&21874966469127&C1|C2|C3">市场经理</a></dt><dd class="wid217"><a href="/21874966469127/" title="上海柏妍企业管理咨询有限公司" target="_blank" tongji_tag="RecPCqy_firmToQY&21874966469127&C1|C2|C3">上海柏妍企业管理咨询有限公司</a></dd><dd class="wid156">面议</dd><dd class="wid156">上海</dd><dd>2014-07-02</dd></dl><div class="recReason clearfix"><span class="fl">推荐理由：</span><ul class="cbright fl"><li><div class="cbSum"><span class="fl">话补</span></div></li><li><div class="cbSum"><span class="fl">交通补助</span></div></li></ul></div></div></div></div>
+   		<div class="recPos bor"><div class="headline"><h2>您可能感兴趣的职位</h2><a target="_blank" href="http://su.58.com/job/pve_5363_262_pve_5358_0/" class="f12" tongji_tag="RecPCqy_more">查看更多</a></div><div class="recCont"><div class="recInfo"><dl class="clearfix"><dt><a href="http://su.58.com/zpqiche/17219731360520x.shtml?from=RecPCqy" title="汽车美容学徒" target="_blank" tongji_tag="RecPCqy_titleToDetail&11118041974791&C1|C2|C3">汽车美容学徒</a></dt><dd class="wid217"><a href="/11118041974791/" title="苏州亿车亿贸易有限公司" target="_blank" tongji_tag="RecPCqy_firmToQY&11118041974791&C1|C2|C3">苏州亿车亿贸易有限公司</a></dd><dd class="wid156">面议</dd><dd class="wid156">吴江</dd><dd>2014-07-03</dd></dl><div class="recReason clearfix"><span class="fl">推荐理由：</span><ul class="cbright fl"><li><div class="cbSum"><span class="fl">五险一金</span></div></li><li><div class="cbSum"><span class="fl">房补</span></div></li><li><div class="cbSum"><span class="fl">饭补</span></div></li><li><div class="cbSum"><span class="fl">加班补助</span></div></li><li><div class="cbSum"><span class="fl">生活超级便利</span></div></li><li><div class="cbSum"><span class="fl">交通较好</span></div></li></ul></div></div><div class="recInfo"><dl class="clearfix"><dt><a href="http://su.58.com/tech/18173499310473x.shtml?from=RecPCqy" title="电商运营" target="_blank" tongji_tag="RecPCqy_titleToDetail&21961483255814&C1|C2|C3">电商运营</a></dt><dd class="wid217"><a href="/21961483255814/" title="春天商贸(雷允上顶草公司)" target="_blank" tongji_tag="RecPCqy_firmToQY&21961483255814&C1|C2|C3">春天商贸(雷允上顶草公司)</a></dd><dd class="wid156">面议</dd><dd class="wid156">吴门桥</dd><dd>2014-07-03</dd></dl><div class="recReason clearfix"><span class="fl">推荐理由：</span><ul class="cbright fl"><li><div class="cbSum"><span class="fl">五险一金</span></div></li></ul></div></div><div class="recInfo"><dl class="clearfix"><dt><a href="http://su.58.com/kefu/18150931667073x.shtml?from=RecPCqy" title="淘宝售前售后客服" target="_blank" tongji_tag="RecPCqy_titleToDetail&21961483255814&C1|C2|C3">淘宝售前售后客服</a></dt><dd class="wid217"><a href="/21961483255814/" title="春天商贸(雷允上顶草公司)" target="_blank" tongji_tag="RecPCqy_firmToQY&21961483255814&C1|C2|C3">春天商贸(雷允上顶草公司)</a></dd><dd class="wid156">2000-3000</dd><dd class="wid156">狮山</dd><dd>2014-07-03</dd></dl><div class="recReason clearfix"><span class="fl">推荐理由：</span><ul class="cbright fl"><li><div class="cbSum"><span class="fl">五险一金</span></div></li></ul></div></div><div class="recInfo"><dl class="clearfix"><dt><a href="http://su.58.com/zpwuliucangchu/18173542278536x.shtml?from=RecPCqy" title="仓库整理/打包/发货员" target="_blank" tongji_tag="RecPCqy_titleToDetail&21961483255814&C1|C2|C3">仓库整理/打包/发货员</a></dt><dd class="wid217"><a href="/21961483255814/" title="春天商贸(雷允上顶草公司)" target="_blank" tongji_tag="RecPCqy_firmToQY&21961483255814&C1|C2|C3">春天商贸(雷允上顶草公司)</a></dd><dd class="wid156">2000-3000</dd><dd class="wid156">吴门桥</dd><dd>2014-07-03</dd></dl><div class="recReason clearfix"><span class="fl">推荐理由：</span><ul class="cbright fl"><li><div class="cbSum"><span class="fl">五险一金</span></div></li></ul></div></div></div></div>
    		<!--感兴趣职位  end-->
    		<!--感兴趣企业  start-->
-		<div class="recBusin bor"><div class="headline"><h2>您可能感兴趣的企业</h2></div><div class="businList"><ul><li><a title="上海永琪美容美发经营管理有限公司第一百四十四分公司" target="_blank" href="/15868146517767/">上海永琪美容美发经营管理有限公...</a><a title="上海格非美容美发有限公司" target="_blank" href="/9730831581958/">上海格非美容美发有限公司</a><a title="上海万众医疗投资股份有限公司" target="_blank" href="/22991471608582/">上海万众医疗投资股份有限公司</a></li><li><a title="中国权健自然医学集团上海分公司" target="_blank" href="/18589450507015/">中国权健自然医学集团上海分公司</a><a title="上海韵丽化妆品有限公司" target="_blank" href="/27527101/">上海韵丽化妆品有限公司</a><a title="浮萍实业（上海）有限公司" target="_blank" href="/24250787415559/">浮萍实业（上海）有限公司</a></li><li><a title="香港虹蕴集团公司" target="_blank" href="/19772717246214/">香港虹蕴集团公司</a><a title="上海金仕达卫宁软件科技有限公司" target="_blank" href="/24275607756039/">上海金仕达卫宁软件科技有限公司</a><a title="花荣美发店" target="_blank" href="/2852710532103/">花荣美发店</a></li></ul></div></div>
+		<div class="recBusin bor"><div class="headline"><h2>您可能感兴趣的企业</h2></div><div class="businList"><ul><li><a title="南京信杰恒清洁服务有限公司" target="_blank" href="/13840006761990/">南京信杰恒清洁服务有限公司</a><a title="曼迪丹羽生物科技（上海）有限公司" target="_blank" href="/24295532548358/">曼迪丹羽生物科技（上海）有限公...</a><a title="音之舞舞蹈培训中心" target="_blank" href="/23655749785606/">音之舞舞蹈培训中心</a></li><li><a title="江苏隆力奇生物科技股份有限公司" target="_blank" href="/15205770391303/">江苏隆力奇生物科技股份有限公司</a><a title="陆琴脚艺" target="_blank" href="/15541767500551/">陆琴脚艺</a><a title="苏州奥润酒业" target="_blank" href="/24295390755335/">苏州奥润酒业</a></li><li><a title="名贵商务" target="_blank" href="/23987348658695/">名贵商务</a><a title="苏州翊曼生物科技有限公司" target="_blank" href="/2200679000839/">苏州翊曼生物科技有限公司</a><a title="苏州龙城丽华快餐管理有限公司" target="_blank" href="/24294840112647/">苏州龙城丽华快餐管理有限公司</a></li></ul></div></div>
    		<!--感兴趣企业  end-->
    	</div>
 </div>
@@ -308,8 +313,8 @@ var ____json4fe = {rootcatentry:{dispid:'',name:'',listname:'job'}, catentry: { 
 
 </script>
         <div id="links" class="links">
-	<dl class="sRele"><dt>周边城市招聘：</dt><dd><a href="http://SU.58.com/job.shtml">苏州招聘</a><a href="http://WX.58.com/job.shtml">无锡招聘</a><a href="http://JX.58.com/job.shtml">嘉兴招聘</a><a href="http://HZ.58.com/job.shtml">杭州招聘</a><a href="http://CZ.58.com/job.shtml">常州招聘</a><a href="http://HUZHOU.58.com/job.shtml">湖州招聘</a><a href="http://NJ.58.com/job.shtml">南京招聘</a><a href="http://YZ.58.com/job.shtml">扬州招聘</a><a href="http://NB.58.com/job.shtml">宁波招聘</a></dd></dl>
-</div>		<div class="bottom">申明：该信息由“上海韩塑美容有限公司”自行发布，内容真实性及所涉及承诺均由发布者自行负责，请浏览者自行识别和判断。<p align="center">? 58.com <a href="http://about.58.com/" target="_blank" rel="nofollow">帮助中心</a></p>
+	<dl class="sRele"><dt>周边城市招聘：</dt><dd><a href="http://NJ.58.com/job.shtml">南京招聘</a><a href="http://WX.58.com/job.shtml">无锡招聘</a><a href="http://XZ.58.com/job.shtml">徐州招聘</a><a href="http://SU.58.com/job.shtml">苏州招聘</a><a href="http://YZ.58.com/job.shtml">扬州招聘</a><a href="http://CZ.58.com/job.shtml">常州招聘</a><a href="http://NT.58.com/job.shtml">南通招聘</a><a href="http://LYG.58.com/job.shtml">连云港招聘</a><a href="http://HA.58.com/job.shtml">淮安招聘</a><a href="http://YANCHENG.58.com/job.shtml">盐城招聘</a></dd></dl>
+</div>		<div class="bottom">申明：该信息由“苏州市金阊区纤悦美容美发设计室”自行发布，内容真实性及所涉及承诺均由发布者自行负责，请浏览者自行识别和判断。<p align="center">? 58.com <a href="http://about.58.com/" target="_blank" rel="nofollow">帮助中心</a></p>
 		</div>
 	</div>
 </div>
@@ -338,19 +343,19 @@ var ____json4fe = {rootcatentry:{dispid:'',name:'',listname:'job'}, catentry: { 
 <script type="text/javascript" src="/js/videoshow.js"></script>
 <script type="text/javascript">
 var search=function(){
-	location.href="http://sh.58.com/job/?key="+encodeURI(encodeURI($("#keywordtop").val()))+"&sourcetype=4"
+	location.href="http://su.58.com/job/?key="+encodeURI(encodeURI($("#keywordtop").val()))+"&sourcetype=4"
 }
 
 var mp=3;
 var cp=1;
-var uri="/9880155593991/574/pn";
+var uri="/19034173134855/574/pn";
 setPager(mp,cp,uri);
 
 
 	
 	$(function(){
 	
-							$.qy.home.init('/enterprise/appearance/big/n_s11794093711609626.jpg||-/enterprise/appearance/big/n_s11794093855277594.jpg||-/enterprise/appearance/big/n_s11794094054147097.jpg||-/enterprise/appearance/big/n_s11794094335902487.jpg||-/enterprise/appearance/big/n_s11794094616887321.jpg||-/enterprise/appearance/big/n_s11794094994423834.jpg||-/enterprise/appearance/big/n_s11794095270182938.jpg||');
+							$.qy.home.init('/enterprise/appearance/big/n_s1199147833212930595.jpg||-/enterprise/appearance/big/n_s0199148210443061886.jpg||-/enterprise/appearance/big/n_s0199148216216783163.jpg||-/enterprise/appearance/big/n_s11991482212335641115.jpg||-/enterprise/appearance/big/n_s1199148226232322424.jpg||-/enterprise/appearance/big/n_s11991482315522072134.jpg||-/enterprise/appearance/big/n_s01991482373619736164.jpg||');
 				VideoShow.afterShow=function(){
 			$(".videoup_step3").find(".videocontain").children().attr("wmode","Opaque");
 		}

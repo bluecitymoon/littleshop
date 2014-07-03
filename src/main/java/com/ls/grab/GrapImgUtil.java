@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
@@ -52,7 +53,14 @@ public class GrapImgUtil {
 	}
 	
 	public static synchronized String grabImgWithSrc(String imgSrc) {
+		if (StringUtils.isEmpty(imgSrc)) {
+			System.err.println("img src is null");
+			
+			return "bad data";
+		}
+		
 		HttpClient client = HttpClientBuilder.create().build();
+		
 		HttpGet request = new HttpGet(imgSrc);
 
 		// add request header
@@ -60,6 +68,7 @@ public class GrapImgUtil {
 		request.addHeader("Content-Type", " text/html;charset=UTF-8");
 
 		try {
+			
 			HttpResponse response = client.execute(request);
 
 			String name = new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date());
@@ -80,12 +89,16 @@ public class GrapImgUtil {
 			IOUtils.closeQuietly(inputStream);
 			IOUtils.closeQuietly(fileOutputStream);
 			
-			return name;
+			Thread.sleep(2000);
+			return name + ".jpg";
 
 		} catch (IOException e) {
 			e.printStackTrace();
+			return "fail";
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+			return "fail";
 		}
-		return null;
 	}
 
 }

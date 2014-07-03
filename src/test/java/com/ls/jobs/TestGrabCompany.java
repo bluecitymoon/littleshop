@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.nio.charset.Charset;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -58,7 +59,7 @@ public class TestGrabCompany {
 	@Test
 	public void testGrabDetailedPage() throws Exception {
 		// http://qy.58.com/9880155593991/?PGTID=14042836308430.7793496957798185&ClickID=2
-		String testURL = "http://qy.58.com/9880155593991/?PGTID=14042836308430.7793496957798185&ClickID=2";
+		String testURL = "http://qy.58.com/19034173134855/";
 		String htmlForPage = HttpClientGrabUtil.fetchHTMLwithURL(testURL);
 
 		Assert.assertNotNull(htmlForPage);
@@ -90,9 +91,9 @@ public class TestGrabCompany {
 	@Test
 	public void testGrabContractorEmailImgSrcInDetailedPage() throws Exception {
 		String html = Files.toString(new File("detailedCompanyPageHtml.txt"), Charset.defaultCharset());
-		String contactorPhone = HtmlParserUtilPlanB.findContactorEmailImgSrc(html);
+		String contactorEmail = HtmlParserUtilPlanB.findContactorEmailImgSrc(html);
 
-		Assert.assertEquals(contactorPhone, "http://image.58.com/showphone.aspx?t=v55&v=ADE0982AA4122C1859F727629C15A292B2421493BF67452E");
+		Assert.assertEquals(contactorEmail, "http://image.58.com/showphone.aspx?t=v55&v=ADE0982AA4122C1859F727629C15A292B2421493BF67452E");
 	}
 
 	@Test
@@ -119,32 +120,62 @@ public class TestGrabCompany {
 		String htmlForPage = HttpClientGrabUtil.fetchHTMLwithURL(testURL);
 
 		List<Company> companiesInThisPage = HtmlParserUtilPlanB.findPagedCompanyList(htmlForPage);
-
+		
+		StringBuilder stringBuilder = new StringBuilder();
 		for (Company company : companiesInThisPage) {
-
-			String companyDetailUrl = company.getfEurl();
-			String detailPageHtml = HttpClientGrabUtil.fetchHTMLwithURL(companyDetailUrl);
-
-			String contactor = HtmlParserUtilPlanB.findContactorName(detailPageHtml);
-			company.setContactor(contactor);
-
-			String phoneImgSrc = HtmlParserUtilPlanB.findContactorPhoneNumberImgSrc(detailPageHtml);
-			company.setPhoneImgSrc(phoneImgSrc);
 			
-			String address = HtmlParserUtilPlanB.findCompanyAddress(detailPageHtml);
-			company.setAddress(address);
+			synchronized (this) {
+				try {
+					String companyDetailUrl = company.getfEurl();
+					String detailPageHtml = HttpClientGrabUtil.fetchHTMLwithURL(companyDetailUrl);
 
-			//String imgFileNameAfterGrabed = GrapImgUtil.grabImgWithSrc(phoneImgSrc);
-			//company.setPhoneSrc(imgFileNameAfterGrabed);
-			
-			String emailImgSrc = HtmlParserUtilPlanB.findContactorEmailImgSrc(detailPageHtml);
-			company.setEmailSrc(emailImgSrc);
-			//String emailImgFileNameAfterGrabed = GrapImgUtil.grabImgWithSrc(emailImgSrc);
-			//company.setEmailSrc(emailImgFileNameAfterGrabed);
-			
-			System.out.println(company);
-		//	companyRepository.save(company);
+					String contactor = HtmlParserUtilPlanB.findContactorName(detailPageHtml);
+					company.setContactor(contactor);
 
+					String phoneImgSrc = HtmlParserUtilPlanB.findContactorPhoneNumberImgSrc(detailPageHtml);
+					company.setPhoneImgSrc(phoneImgSrc);
+					
+					String address = HtmlParserUtilPlanB.findCompanyAddress(detailPageHtml);
+					company.setAddress(address);
+
+					String imgFileNameAfterGrabed = GrapImgUtil.grabImgWithSrc(phoneImgSrc);
+					company.setPhoneSrc(imgFileNameAfterGrabed);
+					
+					String emailImgSrc = HtmlParserUtilPlanB.findContactorEmailImgSrc(detailPageHtml);
+					company.setEmailSrc(emailImgSrc);
+					
+					if (StringUtils.isNotBlank(emailImgSrc)) {
+						String emailImgFileNameAfterGrabed = GrapImgUtil.grabImgWithSrc(emailImgSrc);
+						company.setEmailSrc(emailImgFileNameAfterGrabed);
+					}
+					
+					System.out.println(company);
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				
+				companyRepository.save(company);
+				
+				//stringBuilder.append(company.toString() + "\n");
+			}
 		}
+		
+	//	FileWriter fileWriter = new FileWriter(new File("companies.txt"));
+	//	fileWriter.write(stringBuilder.toString());
+	//	fileWriter.close();
 	}
+	
+
+	@Test
+	public void testSaveCompany() throws Exception {
+		Company testCompany = new Company();
+		testCompany.setAddress("丰和路一号");
+		testCompany.setContactor("江李明");
+		testCompany.setEmail("jjiang");
+		testCompany.setPhone("1123345564");
+		
+		companyRepository.save(testCompany);
+	}
+
 }
