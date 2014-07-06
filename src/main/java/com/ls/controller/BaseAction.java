@@ -121,5 +121,4 @@ public class BaseAction extends ActionSupport implements ParameterAware {
 		return resultMap;
 	}
 
-
 }

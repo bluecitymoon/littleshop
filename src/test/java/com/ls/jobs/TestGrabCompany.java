@@ -5,6 +5,8 @@ import java.io.FileWriter;
 import java.nio.charset.Charset;
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.apache.commons.lang.StringUtils;
 import org.junit.Assert;
 import org.junit.Test;
@@ -19,6 +21,8 @@ import com.ls.grab.GrapImgUtil;
 import com.ls.grab.HtmlParserUtilPlanB;
 import com.ls.grab.HttpClientGrabUtil;
 import com.ls.repository.CompanyRepository;
+import com.ls.service.GrabService;
+import com.ls.service.UserService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:applicationContext.xml")
@@ -28,6 +32,9 @@ public class TestGrabCompany {
 
 	@Autowired
 	private CompanyRepository companyRepository;
+	
+	@Resource(name = "grabService")
+	private GrabService grabService;
 
 	@Test
 	public void testGrabCompanyList() {
@@ -59,17 +66,11 @@ public class TestGrabCompany {
 	@Test
 	public void testGrabDetailedPage() throws Exception {
 		// http://qy.58.com/9880155593991/?PGTID=14042836308430.7793496957798185&ClickID=2
-		String testURL = "http://qy.58.com/19034173134855/";
-		String htmlForPage = HttpClientGrabUtil.fetchHTMLwithURL(testURL);
+		String testURL = "http://su.58.com/meirongshi/?PGTID=14046524485590.1552550873423818&ClickID=1";
+		String htmlForPage = HttpClientGrabUtil.fetchHTMLwithURL(testURL, "detailedCompanyPageHtml.txt");
 
 		Assert.assertNotNull(htmlForPage);
 
-		Files.touch(new File("detailedCompanyPageHtml.txt"));
-
-		FileWriter fileWriter = new FileWriter(new File("detailedCompanyPageHtml.txt"));
-
-		fileWriter.write(htmlForPage);
-		fileWriter.close();
 	}
 
 	@Test
@@ -77,7 +78,7 @@ public class TestGrabCompany {
 		String html = Files.toString(new File("detailedCompanyPageHtml.txt"), Charset.defaultCharset());
 		String contactor = HtmlParserUtilPlanB.findContactorName(html);
 
-		Assert.assertEquals("方老师", contactor);
+		Assert.assertEquals("", contactor);
 	}
 
 	@Test
@@ -101,7 +102,7 @@ public class TestGrabCompany {
 		String html = Files.toString(new File("detailedCompanyPageHtml.txt"), Charset.defaultCharset());
 		String contactorPhone = HtmlParserUtilPlanB.findCompanyAddress(html);
 
-		Assert.assertEquals(contactorPhone, "上海宝山区共和新路5000号绿地风尚4号楼1316室");
+		Assert.assertEquals(contactorPhone, "");
 	}
 	
 	@Test
@@ -170,12 +171,18 @@ public class TestGrabCompany {
 	@Test
 	public void testSaveCompany() throws Exception {
 		Company testCompany = new Company();
-		testCompany.setAddress("丰和路一号");
-		testCompany.setContactor("江李明");
+		testCompany.setAddress("aaa");
+		testCompany.setContactor("");
 		testCompany.setEmail("jjiang");
 		testCompany.setPhone("1123345564");
 		
 		companyRepository.save(testCompany);
+	}
+	
+	@Test
+	public void testSaveCompanyURL() throws Exception {
+		
+		grabService.grabAllCompanyResource();
 	}
 
 }

@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.Arrays;
+import java.util.Random;
 
 import javax.tools.JavaCompiler;
 import javax.tools.JavaFileObject;
@@ -14,13 +15,17 @@ public class Test {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void main(String[] args)  throws Exception{
-		compileFile();
+//		compileFile();
+//		
+//		Class test = Class.forName("com.ls.jobs.fe.Jiang");
+//		
+//		Method testMethod = test.getDeclaredMethod("test", null);
+//		
+//		testMethod.invoke(test.getConstructor(null).newInstance(null), null);
 		
-		Class test = Class.forName("com.ls.jobs.fe.Jiang");
+		Random random = new Random();
 		
-		Method testMethod = test.getDeclaredMethod("test", null);
-		
-		testMethod.invoke(test.getConstructor(null).newInstance(null), null);
+		System.out.println(random.nextInt(100));
 		
 	}
 	
