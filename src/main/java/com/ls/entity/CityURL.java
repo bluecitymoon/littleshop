@@ -17,6 +17,7 @@ public class CityURL implements Serializable {
 	@GeneratedValue
 	protected Integer id;
 	protected String name;
+	protected String url;
 	protected String type;
 	
 	public Integer getId() {
@@ -36,6 +37,12 @@ public class CityURL implements Serializable {
 	}
 	public void setType(String type) {
 		this.type = type;
+	}
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
 	}
 	
 }
