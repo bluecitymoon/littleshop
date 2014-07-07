@@ -60,5 +60,10 @@ public class CompanyResource implements Serializable {
 	public void setGrabBy(Integer grabBy) {
 		this.grabBy = grabBy;
 	}
-	
+	@Override
+	public String toString() {
+		return "CompanyResource [id=" + id + ", name=" + name + ", url=" + url
+				+ ", type=" + type + ", grabCount=" + grabCount + ", grabBy="
+				+ grabBy + "]";
+	}
 }

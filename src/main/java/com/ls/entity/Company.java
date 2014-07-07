@@ -50,6 +50,8 @@ public class Company implements Serializable {
 	@Transient
 	protected String phoneImgSrc;
 	
+	@Transient
+	protected String publishDate;
 	
 	public String getPhoneImgSrc() {
 		return phoneImgSrc;
@@ -146,9 +148,23 @@ public class Company implements Serializable {
 	public void setProblems(List<Problem> problems) {
 		this.problems = problems;
 	}
+	
+	public String getPublishDate() {
+		return publishDate;
+	}
+
+	public void setPublishDate(String publishDate) {
+		this.publishDate = publishDate;
+	}
 
 	@Override
 	public String toString() {
-		return "Company [id=" + id + ", name=" + name + ", contactor=" + contactor + ", email=" + email + ", emailSrc=" + emailSrc + ", phone=" + phone + ", phoneSrc=" + phoneSrc + ", isTracked=" + isTracked + ", address=" + address + ", fEurl=" + fEurl + ", phoneImgSrc=" + phoneImgSrc + "]";
+		return "Company [id=" + id + ", name=" + name + ", contactor="
+				+ contactor + ", email=" + email + ", emailSrc=" + emailSrc
+				+ ", phone=" + phone + ", phoneSrc=" + phoneSrc
+				+ ", isTracked=" + isTracked + ", address=" + address
+				+ ", problems=" + problems + ", fEurl=" + fEurl
+				+ ", phoneImgSrc=" + phoneImgSrc + ", publishDate="
+				+ publishDate + "]";
 	}
 }

@@ -10,6 +10,8 @@ import org.htmlparser.NodeFilter;
 import org.htmlparser.Parser;
 import org.htmlparser.Tag;
 import org.htmlparser.nodes.TagNode;
+import org.htmlparser.tags.DefinitionListBullet;
+import org.htmlparser.tags.Div;
 import org.htmlparser.tags.ImageTag;
 import org.htmlparser.tags.InputTag;
 import org.htmlparser.tags.LinkTag;
@@ -64,8 +66,25 @@ public class HtmlParserUtilPlanB {
 						Company company = new Company();
 						company.setName(StringUtils.trimToEmpty(tag.getAttribute("title")));
 						company.setfEurl(tag.getAttribute("href"));
+						
+						Node nodeLink = linkTag.getParent().getParent();
+						
+						Node[] nodes = nodeLink.getChildren().toNodeArray();
+						
+						for (int i = 0; i < nodes.length; i++) {
+							Node node = nodes[i];
+							
+							if (node instanceof DefinitionListBullet) {
+								
+								DefinitionListBullet nodeTranslated = (DefinitionListBullet) node;
+								String className = nodeTranslated.getAttribute("class");
+								if (className!= null && className.equals("w68")) {
+									company.setPublishDate(nodeTranslated.getStringText());
+								}
+							}
+							
+						}
 						companyList.add(company);
-
 					}
 				}
 			};
@@ -152,7 +171,7 @@ public class HtmlParserUtilPlanB {
 								String tdConent = th.getStringText();
 
 								// found!!!!!!
-								if (tdConent.trim().contains("ÁªÏµÈË")) {
+								if (tdConent.trim().contains("ï¿½ï¿½Ïµï¿½ï¿½")) {
 									contactorHeaderFound = true;
 								}
 							}
@@ -223,7 +242,7 @@ public class HtmlParserUtilPlanB {
 								String tdConent = th.getStringText();
 
 								// found!!!!!!
-								if (tdConent.trim().contains("ÓÊÏä")) {
+								if (tdConent.trim().contains("ï¿½ï¿½ï¿½ï¿½")) {
 									contactorHeaderFound = true;
 								}
 							}
@@ -291,7 +310,7 @@ public class HtmlParserUtilPlanB {
 								String tdConent = th.getStringText();
 
 								// found!!!!!!
-								if (tdConent.trim().contains("ÁªÏµÈË")) {
+								if (tdConent.trim().contains("ï¿½ï¿½Ïµï¿½ï¿½")) {
 									contactorHeaderFound = true;
 								}
 							}
@@ -387,7 +406,7 @@ public class HtmlParserUtilPlanB {
 								String tdConent = th.getStringText();
 
 								// found!!!!!!
-								if (tdConent.trim().contains("¹«Ë¾µØÖ·")) {
+								if (tdConent.trim().contains("ï¿½ï¿½Ë¾ï¿½ï¿½Ö·")) {
 									contactorHeaderFound = true;
 								}
 							}

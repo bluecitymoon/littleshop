@@ -191,7 +191,7 @@ CREATE TABLE `ls_user` (
 DROP TABLE IF EXISTS `ls_user_location`;
 
 CREATE TABLE `ls_user_location` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,ls_city
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) unsigned NOT NULL,
   `city_id` int(11) unsigned NOT NULL,
   `location_id` int(11) NOT NULL,
