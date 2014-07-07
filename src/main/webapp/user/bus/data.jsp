@@ -71,11 +71,13 @@
 												<button class="tiny green button" style="margin-left : 20px;" data-bind="$root.showDetail">详细信息</button>
 											</div>
 											<div class="three columns text-center">
-												<b data-bind="text : name"></b>
+												<h5><b data-bind="text : name"></b></h5>
 											</div>
-											<div class="four columns">
-												<span data-bind="text : contractor"></span>, <img alt="电话号码"
-													data-bind="attr: { 'src' : phone_src }">
+											<div class="one columns">
+												<b data-bind="text : contractor"></b>
+											</div>
+											<div class="three columns">
+												<label class="input-checkbox"> <img alt="电话号码" data-bind="attr: { 'src' : phone_src }"> </label>
 											</div>
 											<div class="three columns">
 												<div class="star" data-bind="attr: { 'star' : star }"></div>
@@ -83,48 +85,72 @@
 										</div>
 									</label>
 									<div class="row companydetail" style="display: none;">
-										<hr>
-										<form>
-											<fieldset>
-												<legend>
-													<b>具体细节</b>
-												</legend>
+										<div class="app-wrapper ui-corner-top">
+											<div class="blue module ui-corner-top clearfix">
+												<h2>详细信息<span class="subheader line" data-bind="text : name"></span></h2>
+											</div>
+											<div class="content">
 												<div class="row">
 													<div class="six columns">
-														<label>地址 </label> <input type="text"
+														<div class="row">
+															<label>地址 </label> <input type="text"
 															data-bind="value : address">
+														</div>
+														<div class="row">
+															<label>电子邮件</label><label class="input-checkbox"> <img alt="电子邮箱" data-bind="attr: { 'src' : email_src }"> </label>
+														</div>
+														
 													</div>
 													<div class="six columns">
-														<label>电子邮件</label> <img alt="电子邮箱"
-															data-bind="attr: { 'src' : email_src }">
+														<label>公司简介</label>
+														<textarea class="tall" name="ex-textarea-4"  data-bind="text : name" data-bind="text : name"></textarea>
 													</div>
 												</div>
 												<div class="row">
 													<div class="three columns">
-														<label>关注点</label> <label class="input-checkbox selected"
+														<div class="app-wrapper ui-corner-top">
+															<div class="module ui-corner-top clearfix">
+																<h2>客户关注点</h2>
+															</div>
+															<div class="content">
+																<label class="input-checkbox selected"
 															for="ex-chx-a"> <input type="checkbox"
 															name="ex-checkbox" id="ex-chx-a" value="1" /> 留不住人
 														</label> <label class=".selected input-checkbox" for="ex-chx-b">
 															<input type="checkbox" name="ex-checkbox" id="ex-chx-b"
 															value="2" /> 留不住客户
 														</label>
+															</div>
+														</div>
 													</div>
 													<div class="three columns">
-														<label>进展</label> <label class="input-checkbox selected"
-															for="ex-chx-a"> <input type="checkbox"
-															name="ex-checkbox" id="ex-chx-a" value="1" /> 第一次沟通
-														</label> <label class=".selected input-checkbox" for="ex-chx-b">
-															<input type="checkbox" name="ex-checkbox" id="ex-chx-b"
-															value="2" /> 希望不大
-														</label>
+														<div class="app-wrapper ui-corner-top">
+															<div class="module ui-corner-top clearfix">
+																<h2>跟踪进度</h2>
+															</div>
+																<div class="content">
+																	<label class="input-checkbox selected" for="ex-chx-a"> <input type="checkbox" name="ex-checkbox" id="ex-chx-a" value="1" /> 第一次沟通
+																	</label> <label class=".selected input-checkbox" for="ex-chx-b"> <input type="checkbox" name="ex-checkbox" id="ex-chx-b" value="2" /> 希望不大
+																	</label>
+																</div>
+															</div>	
 													</div>
 													<div class="six columns">
-														<label>跟踪情况</label>
-														<textarea class="tall" name="ex-textarea-4">这个客户基本上没啥希望</textarea>
+														<div class="app-wrapper ui-corner-top">
+															<div class="module ui-corner-top clearfix">
+																<h2>跟踪情况</h2>
+																<h2 class="right">
+																	<a href="" class="nice radius blue tiny button">保存</a>
+																</h2>
+															</div>
+															<div class="content">
+																<textarea class="tall" name="ex-textarea-4">这个客户基本上没啥希望</textarea>
+															</div>
+														</div>
 													</div>
 												</div>
-											</fieldset>
-										</form>
+											</div>
+										</div>
 									</div>
 								</div>
 							</li>

@@ -25,6 +25,9 @@
 		<action name="loadUser">
 			<result>bus/user.jsp</result>
 		</action>
+		<action name="conf">
+			<result>bus/configuration.jsp</result>
+		</action>
 	</package>
 	<package name="json" namespace="/" extends="json-default">
 		<result-types>
@@ -51,6 +54,16 @@
 			</result>
 			<result name="error" type="json">
 				<param name="root">users</param>
+			</result>
+		</action>
+		<action name="saveProblem" class="configurationAction" method="saveProblem">
+			<result name="success" type="json">
+				<param name="root">problemOperating</param>
+			</result>
+		</action>
+		<action name="getAllProblems" class="configurationAction" method="getAllProblems">
+			<result name="success" type="json">
+				<param name="root">problems</param>
 			</result>
 		</action>
 	</package>

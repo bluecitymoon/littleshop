@@ -204,6 +204,26 @@ CREATE TABLE `ls_user_location` (
 
 
 
+DROP TABLE IF EXISTS `ls_problem`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ls_problem` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=gbk;
+
+DROP TABLE IF EXISTS `ls_company_problem`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ls_company_problem` (
+  `id` int(11) NOT NULL,
+  `company_id` int(11) NOT NULL,
+  `problem_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK6A2D4E258B150249` (`problem_id`),
+  CONSTRAINT `FK6A2D4E258B150249` FOREIGN KEY (`problem_id`) REFERENCES `ls_problem` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=gbk;
 
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

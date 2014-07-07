@@ -1,11 +1,17 @@
 package com.ls.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -33,6 +39,10 @@ public class Company implements Serializable {
 	protected Boolean isTracked;
 
 	protected String address;
+	
+	@ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+    @JoinTable(name = "ls_company_problem", joinColumns = @JoinColumn(name = "company_id"), inverseJoinColumns = @JoinColumn(name = "problem_id") )
+	protected List<Problem> problems;
 	
 	@Transient
 	protected String fEurl;
@@ -127,6 +137,14 @@ public class Company implements Serializable {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public List<Problem> getProblems() {
+		return problems;
+	}
+
+	public void setProblems(List<Problem> problems) {
+		this.problems = problems;
 	}
 
 	@Override
