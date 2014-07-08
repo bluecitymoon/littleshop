@@ -20,11 +20,13 @@ import com.google.common.collect.Lists;
 import com.google.common.io.Files;
 import com.ls.entity.Company;
 import com.ls.entity.Problem;
+import com.ls.entity.CompanyResource;
 import com.ls.grab.GrapImgUtil;
 import com.ls.grab.HtmlParserUtilPlanB;
 import com.ls.grab.HttpClientGrabUtil;
 import com.ls.repository.CompanyRepository;
 import com.ls.repository.ProblemRepository;
+import com.ls.repository.CompanyResourceRepository;
 import com.ls.service.GrabService;
 import com.ls.service.UserService;
 
@@ -40,16 +42,32 @@ public class TestGrabCompany {
 	@Autowired
 	private ProblemRepository problemRepository;
 	
+	@Autowired
+	private CompanyResourceRepository companyResourceRepository;
+	
 	@Resource(name = "grabService")
 	private GrabService grabService;
 
 	@Test
-	public void testGrabCompanyList() {
+	public void testGrabCompanyList() throws Exception{
 
 		String testURL = "http://su.58.com/meirongshi/pn0";
 
-		String htmlForPage = HttpClientGrabUtil.fetchHTMLwithURL(testURL);
-
+//		String htmlForPage = HttpClientGrabUtil.fetchHTMLwithURL(testURL);
+		
+		File file = new File("wholePagedcompanyList.html");
+//		if (!file.exists()) {
+//			file.createNewFile();
+//		}
+//		
+//		FileWriter fileWriter = new FileWriter(file);
+//		fileWriter.write(htmlForPage);
+//		fileWriter.close();
+		
+		String htmlForPage = Files.toString(file, Charset.defaultCharset());
+		
+		System.out.println(htmlForPage);
+		
 		List<Company> companiesInThisPage = HtmlParserUtilPlanB.findPagedCompanyList(htmlForPage);
 		Assert.assertTrue(!companiesInThisPage.isEmpty());
 
@@ -190,6 +208,18 @@ public class TestGrabCompany {
 	public void testSaveCompanyURL() throws Exception {
 		
 		grabService.grabAllCompanyResource();
+	}
+	@Test
+	public void testSaveCompanyURLone() throws Exception {
+		
+		CompanyResource companyResource = new CompanyResource();
+		companyResource.setName("π√À’«¯≈∑»™“¡ƒ›√¿»›√¿ÃÂπ› ");
+		companyResource.setUrl("http://qy.58.com/24230403986438/?PGTID=14047374119020.5358016782187727&ClickID=1");
+		companyResource.setType("58");
+		
+		CompanyResource result = companyResourceRepository.save(companyResource);
+		
+		System.out.println(result.toString());
 	}
 	
 	@Test

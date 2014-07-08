@@ -3,7 +3,6 @@ package com.ls.service.impl;
 import java.util.List;
 import java.util.Random;
 
-import org.apache.http.client.utils.HttpClientUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
