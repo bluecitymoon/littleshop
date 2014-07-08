@@ -66,6 +66,17 @@
 				<param name="root">problems</param>
 			</result>
 		</action>
+		<action name="saveStep" class="configurationAction" method="saveStep">
+			<result name="success" type="json">
+				<param name="root">stepOperating</param>
+			</result>
+		</action>
+		<action name="getAllSteps" class="configurationAction" method="getAllSteps">
+			<result name="success" type="json">
+				<param name="root">steps</param>
+			</result>
+		</action>
+		
 	</package>
 	
 	<include file = "data-struts.xml" />

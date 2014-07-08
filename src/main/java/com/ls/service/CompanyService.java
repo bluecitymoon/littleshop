@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 
 import com.ls.entity.Company;
 import com.ls.entity.Problem;
+import com.ls.entity.Step;
 
 public interface CompanyService {
 	List<Company> findCompany(String name);
@@ -14,4 +15,6 @@ public interface CompanyService {
 	Page<Company> getCompanyInPage();
 	
 	Problem saveProblem(Problem problem);
+	
+	Step saveStep(Step step);
 }

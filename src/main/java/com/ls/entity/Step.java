@@ -12,10 +12,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ls_problem")
-public class Problem implements Serializable {
+@Table(name = "ls_step")
+public class Step implements Serializable {
 
-	private static final long serialVersionUID = -5939656727237197540L;
+
+	private static final long serialVersionUID = -2775462549176475484L;
 
 	@Id
 	@GeneratedValue
@@ -23,7 +24,7 @@ public class Problem implements Serializable {
 
 	protected String name;
 
-	@ManyToMany(cascade = CascadeType.REMOVE, mappedBy = "problems", fetch = FetchType.LAZY)
+	@ManyToMany(cascade = CascadeType.REMOVE, mappedBy = "steps", fetch = FetchType.LAZY)
 	protected List<Company> companies;
 
 	public Integer getId() {
@@ -52,6 +53,6 @@ public class Problem implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Problem [id=" + id + ", name=" + name + ", companies=" + companies + "]";
+		return "Step [id=" + id + ", name=" + name + ", companies=" + companies + "]";
 	}
 }

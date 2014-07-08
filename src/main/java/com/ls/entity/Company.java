@@ -40,9 +40,13 @@ public class Company implements Serializable {
 
 	protected String address;
 	
-	@ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+	@ManyToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     @JoinTable(name = "ls_company_problem", joinColumns = @JoinColumn(name = "company_id"), inverseJoinColumns = @JoinColumn(name = "problem_id") )
 	protected List<Problem> problems;
+	
+	@ManyToMany(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @JoinTable(name = "ls_company_step", joinColumns = @JoinColumn(name = "company_id"), inverseJoinColumns = @JoinColumn(name = "step_id") )
+	protected List<Step> steps;
 	
 	@Transient
 	protected String fEurl;
@@ -147,8 +151,18 @@ public class Company implements Serializable {
 		this.problems = problems;
 	}
 
+	public List<Step> getSteps() {
+		return steps;
+	}
+
+	public void setSteps(List<Step> steps) {
+		this.steps = steps;
+	}
+
 	@Override
 	public String toString() {
-		return "Company [id=" + id + ", name=" + name + ", contactor=" + contactor + ", email=" + email + ", emailSrc=" + emailSrc + ", phone=" + phone + ", phoneSrc=" + phoneSrc + ", isTracked=" + isTracked + ", address=" + address + ", fEurl=" + fEurl + ", phoneImgSrc=" + phoneImgSrc + "]";
+		return "Company [id=" + id + ", name=" + name + ", contactor=" + contactor + ", email=" + email + ", emailSrc=" + emailSrc + ", phone=" + phone + ", phoneSrc=" + phoneSrc + ", isTracked=" + isTracked + ", address=" + address + ", problems=" + problems + ", steps=" + steps + ", fEurl=" + fEurl + ", phoneImgSrc=" + phoneImgSrc + "]";
 	}
+
+	
 }

@@ -15,12 +15,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Lists;
 import com.google.common.io.Files;
 import com.ls.entity.Company;
+import com.ls.entity.Problem;
 import com.ls.grab.GrapImgUtil;
 import com.ls.grab.HtmlParserUtilPlanB;
 import com.ls.grab.HttpClientGrabUtil;
 import com.ls.repository.CompanyRepository;
+import com.ls.repository.ProblemRepository;
 import com.ls.service.GrabService;
 import com.ls.service.UserService;
 
@@ -32,6 +36,9 @@ public class TestGrabCompany {
 
 	@Autowired
 	private CompanyRepository companyRepository;
+	
+	@Autowired
+	private ProblemRepository problemRepository;
 	
 	@Resource(name = "grabService")
 	private GrabService grabService;
@@ -183,6 +190,30 @@ public class TestGrabCompany {
 	public void testSaveCompanyURL() throws Exception {
 		
 		grabService.grabAllCompanyResource();
+	}
+	
+	@Test
+	public void testSaveProblem() throws Exception {
+		Problem problem = new Problem();
+		problem.setName("Jerry̫˧");
+		
+		Problem result = problemRepository.save(problem);
+		
+		System.out.println(result.toString());
+		
+		Company testCompany = new Company();
+		testCompany.setAddress("aaa");
+		testCompany.setContactor("");
+		testCompany.setEmail("jjiang");
+		testCompany.setPhone("1123345564");
+		List<Problem> problems = ImmutableList.of(result);
+		testCompany.setProblems(problems);
+		
+		Company companyResult = companyRepository.save(testCompany);
+		
+		System.out.println(companyResult.toString());
+		
+		
 	}
 
 }
