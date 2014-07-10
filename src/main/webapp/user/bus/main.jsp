@@ -16,27 +16,28 @@
 
 </head>
 <body>
+	
 	<header id="brand">
-		<div class="container">
-			<div class="row">
-				<div class="appname hide-on-phones">小店助手</div>
-			</div>
+	<div class="container">
+		<div class="row">
+			<div class="appname hide-on-phones">跟踪助手</div>
+			<address>
+				<span> <strong></strong>欢迎用户， <s:property value="username" /><a href="#" class="login-secure line">退出登陆</a>
+				</span>
+			</address>
 		</div>
-	</header>
-
+	</div>
+</header>
 	<s:include value="/jsps/common/menu.jsp" />
 	<section class="mainbg">
 		<div class="container">
-			<div class="row">
-				<div class="content"></div>
-			</div>
 			<div class="row">
 				<div class="app-wrapper ui-corner-top">
 					<div class="blue module ui-corner-top clearfix">
 						<h2>江</h2>
 					</div>
 					<div class="content">
-						<s:property value="username" />
+						
 					</div>
 				</div>
 			</div>

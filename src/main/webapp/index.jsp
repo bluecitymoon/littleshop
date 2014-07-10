@@ -21,37 +21,50 @@
 	</header>
 	<section class="mainbg">
 		<div class="container">
-			<div class="row">
-				<div class="content"></div>
-			</div>
-			<div class="row">
-				<div class="six columns centered">
-					<div class="app-wrapper ui-corner-top">
-						<div class="blue module ui-corner-top clearfix">
-							<h2>输入用户名和密码</h2>
-						</div>
-						<div class="content">
+			<div class="content">
+				<div class="row">
+					<div class="four columns">
+						<div class="app-wrapper ui-corner-top">
+							<div class="blue module ui-corner-top clearfix">
+								<h2>输入用户名和密码</h2>
+							</div>
+							<div class="content">
 
-							<form action="user/hello.ls" method="POST">
-								<div class="row">
-									<label for="username" class="required">用户名</label> <input type="text" id="username" name="username" autocorrect="off" autocapitalize="off" />
-								</div>
-								<label for="password" class="required custdrop">密码</label>
-								<div class="row">
-									<input type="password" id="password" name="password" autocorrect="off" autocapitalize="off" />
-								</div>
-								<br>
-								<div class="row">
-									<button type="submit" class="nice radius medium blue button" value="Log In">登陆</button>
-									<a href="password.html" class="active tertiary" onclick="">忘记密码?</a> <label for="checkbox1" class="right"> </label>
-								</div>
-							</form>
+								<form action="user/hello.ls" method="POST">
+									<div class="row">
+										<label for="username" class="required">用户名</label> <input type="text" id="username" name="username" autocorrect="off" autocapitalize="off" />
+									</div>
+									<label for="password" class="required custdrop">密码</label>
+									<div class="row">
+										<input type="password" id="password" name="password" autocorrect="off" autocapitalize="off" />
+									</div>
+									<br>
+									<div class="row">
+										<button type="submit" class="nice radius medium blue button" value="Log In">登陆</button>
+										<a class="active tertiary" data-bind="click : forgetPassword">忘记密码?</a> <label for="checkbox1" class="right"> </label>
+									</div>
+								</form>
+							</div>
 						</div>
 					</div>
+					<div class="eight columns">
+
+						<div class="app-wrapper ui-corner-top">
+							<div class="blue module ui-corner-top clearfix">
+								<h2>系统更新信息</h2>
+							</div>
+							<div class="content">
+								<h4>第一版本功能</h4>
+								<hr>
+								<p>客户信息抓取</p>
+								<p>客户追踪及管理</p>
+								<p>数据导入</p>
+								<p>用户管理</p>
+							</div>
+						</div>
+
+					</div>
 				</div>
-			</div>
-			<div class="row">
-				<img alt="test" src="img/20140619171109677.jpg">
 			</div>
 		</div>
 	</section>

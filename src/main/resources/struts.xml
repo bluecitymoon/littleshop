@@ -6,14 +6,33 @@
 <struts>
 	<constant name="struts.custom.i18n.resources" value="i18n.engine,i18n.static,ApplicationMessages" />
 	<constant name="struts.action.extension" value="ls" />
-	<constant name="struts.objectFactory"
-		value="org.apache.struts2.spring.StrutsSpringObjectFactory" />
-	<package name="user" namespace="/user" extends="struts-default">
-		<action name="login">
+	<constant name="struts.objectFactory" value="org.apache.struts2.spring.StrutsSpringObjectFactory" />
+	
+	<package name="" namespace="/" extends="struts-default">
+		<result-types>
+			 <result-type name="json" class="org.apache.struts2.json.JSONResult" />
+			 <result-type name="redirect" class="org.apache.struts2.dispatcher.ServletRedirectResult"/> 
+		</result-types>
+		<action name="home">
 			<result>index.jsp</result>
 		</action>
+	</package>
+	
+	<package name="user" namespace="/user" extends="struts-default">
+		<result-types>
+			 <result-type name="json" class="org.apache.struts2.json.JSONResult" />
+			 <result-type name="redirect" class="org.apache.struts2.dispatcher.ServletRedirectResult"/> 
+		</result-types>
 		<action name="hello" class="userAction" method="doLogin">
 			<result name="success">bus/main.jsp</result>
+			<result name="error" type="redirectAction">
+				<param name="actionName">home</param>
+				<param name="namespace">/</param>
+			</result>
+			<result name="input" type="redirectAction">
+				<param name="actionName">home</param>
+				<param name="namespace">/</param>
+			</result>
 		</action>
 		<action name="loadGrab" class="userAction" method="loadGrabPage">
 			<result name="success">bus/user_grab.jsp</result>
@@ -28,6 +47,7 @@
 		<action name="conf">
 			<result>bus/configuration.jsp</result>
 		</action>
+
 	</package>
 	<package name="json" namespace="/" extends="json-default">
 		<result-types>
@@ -61,7 +81,8 @@
 				<param name="root">problemOperating</param>
 			</result>
 		</action>
-		<action name="getAllProblems" class="configurationAction" method="getAllProblems">
+		<action name="getAllProblems" class="configurationAction"
+			method="getAllProblems">
 			<result name="success" type="json">
 				<param name="root">problems</param>
 			</result>
@@ -76,8 +97,8 @@
 				<param name="root">steps</param>
 			</result>
 		</action>
-		
+
 	</package>
-	
-	<include file = "data-struts.xml" />
+
+	<include file="data-struts.xml" />
 </struts>

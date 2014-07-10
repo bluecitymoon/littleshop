@@ -30,4 +30,25 @@ public class UserServiceImpl implements UserService {
 		return userAccounts;
 	}
 
+	public User findUser(final String username, final String password) {
+		List<User> users = userRepository.findByUsernameAndPassword(username, password);
+		
+		if (users.isEmpty()) {
+			return null;
+		}
+		
+		if (users.size() != 1) {
+			
+		}
+//		Specification<User> specification = new Specification<User>() {
+//
+//			public Predicate toPredicate(Root<User> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+//				Predicate predicate = new ExistsPredicate(cb, null);
+//				return null;
+//			}
+//		};
+	//	userRepository.findOne(spec)
+		return users.get(0);
+	}
+
 }

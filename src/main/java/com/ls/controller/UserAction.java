@@ -13,7 +13,6 @@ import org.springframework.stereotype.Component;
 import com.ls.entity.User;
 import com.ls.repository.UserRepository;
 import com.ls.service.UserService;
-import com.opensymphony.xwork2.ActionContext;
 
 @Component("userAction")
 public class UserAction extends BaseAction {
@@ -41,10 +40,21 @@ public class UserAction extends BaseAction {
 	public String doLogin() {
 
 		String username = getParameter("username");
-		System.out.println(ActionContext.getContext().getParameters().toString());
-
-		System.out.println(username);
-		return SUCCESS;
+		String password = getParameter("password");
+		
+		User user = userService.findUser(username, password);
+		
+		if (null == user) {
+			addActionMessage("你没有通过验证。");
+			System.out.println("user not found : " + username + " " + password);
+			return INPUT;
+			
+		} else {
+			addActionMessage("登陆成功");System.out.println(user.toString());
+			
+			return SUCCESS;
+		}
+		
 	}
 
 	public String loadGrabPage() {
