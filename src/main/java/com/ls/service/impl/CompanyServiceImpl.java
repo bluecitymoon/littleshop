@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.ls.entity.Company;
@@ -35,9 +36,9 @@ public class CompanyServiceImpl implements CompanyService {
 		return companyRepository.findAll();
 	}
 
-	public Page<Company> getCompanyInPage() {
-		//companyRepository.findAll(new PageRequest(page, size))
-		return null;
+	public Page<Company> getCompanyInPage(Integer index) {
+		
+		return companyRepository.findAll(new PageRequest(index, 10));
 	}
 
 	public Problem saveProblem(Problem problem) {

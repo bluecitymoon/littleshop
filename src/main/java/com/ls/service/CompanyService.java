@@ -12,7 +12,7 @@ public interface CompanyService {
 	List<Company> findCompany(String name);
 	List<Company> findAllCompanies();
 	
-	Page<Company> getCompanyInPage();
+	Page<Company> getCompanyInPage(Integer index);
 	
 	Problem saveProblem(Problem problem);
 	

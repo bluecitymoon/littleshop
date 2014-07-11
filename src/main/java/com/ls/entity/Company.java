@@ -40,6 +40,8 @@ public class Company implements Serializable {
 
 	protected String address;
 	
+	protected Integer star;
+	
 	@ManyToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     @JoinTable(name = "ls_company_problem", joinColumns = @JoinColumn(name = "company_id"), inverseJoinColumns = @JoinColumn(name = "problem_id") )
 	protected List<Problem> problems;
@@ -167,6 +169,14 @@ public class Company implements Serializable {
 
 	public void setSteps(List<Step> steps) {
 		this.steps = steps;
+	}
+
+	public Integer getStar() {
+		return star;
+	}
+
+	public void setStar(Integer star) {
+		this.star = star;
 	}
 
 	@Override

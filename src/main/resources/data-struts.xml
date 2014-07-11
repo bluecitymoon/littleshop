@@ -19,6 +19,12 @@
 				<param name="root">companies</param>
 			</result>
 		</action>
+		<action name="loadCompanyInPage" method="loadCompanyInPage" class="companyAction">
+			<result name="success" type="json">
+				<param name="root">company</param>
+			</result>
+		</action>
+		
 	</package>
 	
 </struts>
