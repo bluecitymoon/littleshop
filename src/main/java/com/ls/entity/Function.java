@@ -1,10 +1,14 @@
 package com.ls.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -25,6 +29,9 @@ public class Function implements Serializable {
 	protected Integer url;
 
 	protected Integer description;
+
+	@ManyToMany(cascade = CascadeType.REFRESH, mappedBy = "functions", fetch = FetchType.LAZY)
+	protected List<User> users;
 
 	public Integer getId() {
 		return id;
@@ -56,6 +63,14 @@ public class Function implements Serializable {
 
 	public void setDescription(Integer description) {
 		this.description = description;
+	}
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
 	}
 
 }

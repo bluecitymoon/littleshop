@@ -19,6 +19,7 @@ public class UserAction extends BaseAction {
 
 	private static final long serialVersionUID = -3519886427026056067L;
 	private String username;
+	private String name;
 
 	private List<User> users;
 
@@ -38,23 +39,56 @@ public class UserAction extends BaseAction {
 	}
 
 	public String doLogin() {
-
+		setupSession();
+		
 		String username = getParameter("username");
 		String password = getParameter("password");
 		
 		User user = userService.findUser(username, password);
 		
 		if (null == user) {
-			addActionMessage("ÄãÃ»ÓÐÍ¨¹ýÑéÖ¤¡£");
+			addActionMessage("ï¿½ï¿½Ã»ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½");
 			System.out.println("user not found : " + username + " " + password);
 			return INPUT;
 			
 		} else {
-			addActionMessage("µÇÂ½³É¹¦");System.out.println(user.toString());
+			user.getFunctions();
+			user.getLocations();
+			addActionMessage("ï¿½ï¿½Â½ï¿½É¹ï¿½");System.out.println(user.toString());
+			
+			setName(user.getName());
+			setUsername(user.getUsername());
+			
+			User storedUserInSession = (User) getSession().get(user.getUsername().toString());
+			if (storedUserInSession == null) {
+				getSession().put(user.getUsername().toString(), user);
+			}
 			
 			return SUCCESS;
 		}
 		
+	}
+	
+	public String doLogoff() {
+		setupSession();
+		
+		String username = getParameter("username");
+		
+		Object user = getSession().get(username);
+		if (null == user) {
+			getSession().remove(username);
+		}
+		
+		return SUCCESS;
+		
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String loadGrabPage() {

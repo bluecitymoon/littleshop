@@ -21,7 +21,7 @@ public class Location implements Serializable {
 	protected Integer id;
 	protected String name;
 	
-	@ManyToMany(cascade = CascadeType.REFRESH, mappedBy = "locations", fetch = FetchType.EAGER)
+	@ManyToMany(cascade = CascadeType.REFRESH, mappedBy = "locations", fetch = FetchType.LAZY)
 	protected List<User> users;
 	
 	public List<User> getUsers() {

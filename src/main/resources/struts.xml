@@ -34,6 +34,14 @@
 				<param name="namespace">/</param>
 			</result>
 		</action>
+		
+		<action name="logoff" class="userAction" method="doLogoff">
+			<result name="success" type="redirectAction">
+				<param name="actionName">home</param>
+				<param name="namespace">/</param>
+			</result>
+		</action>
+		
 		<action name="loadGrab" class="userAction" method="loadGrabPage">
 			<result name="success">bus/user_grab.jsp</result>
 		</action>

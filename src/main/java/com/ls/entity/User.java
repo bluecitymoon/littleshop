@@ -33,10 +33,14 @@ public class User implements Serializable {
 		this.username = username;
 		this.password = password;
 	}
-	@ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+	@ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
     @JoinTable(name = "ls_user_location", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "city_id") )
 	protected List<Location> locations;
 	
+	@ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+    @JoinTable(name = "ls_user_function", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "function_id") )
+	protected List<Function> functions;
+
 	public List<Location> getLocations() {
 		return locations;
 	}
@@ -66,6 +70,14 @@ public class User implements Serializable {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	
+	public List<Function> getFunctions() {
+		return functions;
+	}
+	public void setFunctions(List<Function> functions) {
+		this.functions = functions;
 	}
 	@Override
 	public String toString() {
