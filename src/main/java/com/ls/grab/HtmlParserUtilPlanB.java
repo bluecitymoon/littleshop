@@ -78,6 +78,9 @@ public class HtmlParserUtilPlanB {
 								
 								DefinitionListBullet nodeTranslated = (DefinitionListBullet) node;
 								String className = nodeTranslated.getAttribute("class");
+								if (className!= null && className.equals("w96")) {
+									company.setDistinct(nodeTranslated.getStringText());
+								}
 								if (className!= null && className.equals("w68")) {
 									company.setPublishDate(nodeTranslated.getStringText());
 								}

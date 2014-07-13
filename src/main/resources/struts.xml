@@ -109,4 +109,5 @@
 	</package>
 
 	<include file="data-struts.xml" />
+	<include file="grab-struts.xml" />
 </struts>

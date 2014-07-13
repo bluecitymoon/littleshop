@@ -53,20 +53,20 @@ public class TestGrabCompany {
 
 		String testURL = "http://su.58.com/meirongshi/pn0";
 
-//		String htmlForPage = HttpClientGrabUtil.fetchHTMLwithURL(testURL);
+		String htmlForPage = HttpClientGrabUtil.fetchHTMLwithURL(testURL);
 		
 		File file = new File("wholePagedcompanyList.html");
-//		if (!file.exists()) {
-//			file.createNewFile();
-//		}
-//		
-//		FileWriter fileWriter = new FileWriter(file);
-//		fileWriter.write(htmlForPage);
-//		fileWriter.close();
+		if (!file.exists()) {
+			file.createNewFile();
+		}
 		
-		String htmlForPage = Files.toString(file, Charset.defaultCharset());
+		FileWriter fileWriter = new FileWriter(file);
+		fileWriter.write(htmlForPage);
+		fileWriter.close();
 		
-		System.out.println(htmlForPage);
+	//	String htmlForPage = Files.toString(file, Charset.defaultCharset());
+		
+	//	System.out.println(htmlForPage);
 		
 		List<Company> companiesInThisPage = HtmlParserUtilPlanB.findPagedCompanyList(htmlForPage);
 		Assert.assertTrue(!companiesInThisPage.isEmpty());
@@ -192,6 +192,57 @@ public class TestGrabCompany {
 	//	fileWriter.close();
 	}
 	
+	
+	@Test
+	public void testGrabJobWithFile() throws Exception {
+		
+		File file = new File("wholePagedcompanyList.html");
+		
+		String htmlForPage = Files.toString(file, Charset.defaultCharset());
+
+		List<Company> companiesInThisPage = HtmlParserUtilPlanB.findPagedCompanyList(htmlForPage);
+		
+		StringBuilder stringBuilder = new StringBuilder();
+		for (Company company : companiesInThisPage) {
+			
+			synchronized (this) {
+				try {
+					String companyDetailUrl = company.getfEurl();
+					String detailPageHtml = HttpClientGrabUtil.fetchHTMLwithURL(companyDetailUrl);
+
+					String contactor = HtmlParserUtilPlanB.findContactorName(detailPageHtml);
+					company.setContactor(contactor);
+
+					String phoneImgSrc = HtmlParserUtilPlanB.findContactorPhoneNumberImgSrc(detailPageHtml);
+					company.setPhoneImgSrc(phoneImgSrc);
+					
+					String address = HtmlParserUtilPlanB.findCompanyAddress(detailPageHtml);
+					company.setAddress(address);
+
+					String imgFileNameAfterGrabed = GrapImgUtil.grabImgWithSrc(phoneImgSrc);
+					company.setPhoneSrc(imgFileNameAfterGrabed);
+					
+					String emailImgSrc = HtmlParserUtilPlanB.findContactorEmailImgSrc(detailPageHtml);
+					company.setEmailSrc(emailImgSrc);
+					
+					if (StringUtils.isNotBlank(emailImgSrc)) {
+						String emailImgFileNameAfterGrabed = GrapImgUtil.grabImgWithSrc(emailImgSrc);
+						company.setEmailSrc(emailImgFileNameAfterGrabed);
+					}
+					
+					System.out.println(company);
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				
+				//companyRepository.save(company);
+				
+				//stringBuilder.append(company.toString() + "\n");
+			}
+		}
+		
+	}
 
 	@Test
 	public void testSaveCompany() throws Exception {

@@ -85,4 +85,13 @@ public class GrabServiceImpl implements GrabService {
 		}
 	}
 
+	public List<Company> grabCompanyInPage(String indexPageURL) {
+		
+		String pagedCompanyHTML = HttpClientGrabUtil.fetchHTMLwithURL(indexPageURL);
+		
+		List<Company> companies = HtmlParserUtilPlanB.findPagedCompanyList(pagedCompanyHTML);
+		
+		return companies;
+	}
+
 }

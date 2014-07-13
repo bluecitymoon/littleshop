@@ -34,19 +34,30 @@
 					</div>
 					<div class="content">
 						<div class="row">
-							<div class="three columns"></div>
-							<div class="six columns">
-								<div class="row collapse">
-									<div class="eight columns">
-										<input id="userNameInput" type="text" class="addon-postfix" placeholder="" />
-									</div>
-									<div class="four columns">
-										<button class="small nice blue button postfix" data-bind="click : search">搜索</button>
-									</div>
-								</div>
+							<div class="three columns">
+								<label>公司名称</label>
+								<input type="text" class="addon-postfix" data-bind = "value : name"/>
 							</div>
-							<div class="three columns"></div>
-							<br>
+							<div class="three columns">
+								<label>联系人</label>
+								<input type="text" class="addon-postfix" data-bind = "value : name"/>
+							</div>
+							
+							<div class="three columns">
+								<label>所在区</label>
+								<input type="text" class="addon-postfix" data-bind = "value : name"/>
+							</div>
+							<div class="three columns">
+								<label>星级</label>
+								<div id="starInput" data-bind="attr: { 'starInput' : starInput }"></div>
+							</div>
+						</div>
+						<hr>
+						<div class="row">
+							<div class="six columns centered">
+								<a class="small blue button"> 搜索符合条件的客户 </a>
+								<button class="small nice blue button" data-bind="click : search">全部的客户</button>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -163,7 +174,7 @@
 							</div>
 							<div class="three columns">
 								<div class="row">
-									<input type="text" data-bind="value : pageIndexToGo">
+									带我去第 <input type="text" data-bind="value : pageIndexToGo"> 波
 								</div>
 							</div>
 						</div>
@@ -177,10 +188,8 @@
 	<script src="/ls/js/list.js"></script>
 	<script src="/ls/js/jquery.raty.js"></script>
 	<script>
-		$(document).ready(
-				function() {
-					var Company = function(id, name, contractor, email,
-							email_src, phone, phone_src, star, address) {
+		$(document).ready( function() {
+					var Company = function(id, name, contractor, email, email_src, phone, phone_src, star, address, distinct) {
 						self.id = id;
 						self.name = name;
 						self.contractor = contractor;
@@ -190,6 +199,7 @@
 						self.phone_src = phone_src;
 						self.star = star;
 						self.address = address;
+						self.distinct = distinct;
 
 					};
 
@@ -198,8 +208,11 @@
 
 						self.companyList = ko.observableArray([]);
 						self.currentIndex = ko.observable(1);
+						self.pageIndexToGo = ko.observable(1);
 						self.totalPagesCount = ko.observable(1);
 						self.totalCompanyCount = ko.observable(0);
+						self.starInput = ko.observable();
+						self.distinctInput 
 						
 						self.search = function() {
 							$.ajax({
@@ -211,11 +224,7 @@
 									$.each(data, function(index, value) {
 										var new_phone_src = "/ls/img/" + value.phoneSrc;
 										var new_email_src = "/ls/img/" + value.emailSrc;
-										var company = new Company(value.id,
-												value.name, value.contactor,
-												value.email, new_email_src,
-												value.phone, new_phone_src,
-												value.star, value.address);
+										var company = new Company(value.id, value.name, value.contactor, value.email, new_email_src, value.phone, new_phone_src, value.star, value.address);
 
 										self.companyList.push(company);
 
@@ -259,7 +268,10 @@
 							$this.parent().parent().parent().parent().find(
 									'.companydetail').toggle('blind', {}, 200);
 						};
-
+						
+						self.searchCompany = function(name, star, index) {
+							
+						};
 					};
 					var model = new CompanyModel();
 					ko.applyBindings(model);

@@ -2,6 +2,8 @@ package com.ls.service;
 
 import java.util.List;
 
+import com.ls.entity.Company;
+
 public interface GrabService {
 	
 	List<String> findFeCityURLs();
@@ -9,4 +11,6 @@ public interface GrabService {
 	void grabCompanyResource(String cityURL);
 	
 	void grabAllCompanyResource();
+	
+	List<Company> grabCompanyInPage(String indexPageURL);
 }

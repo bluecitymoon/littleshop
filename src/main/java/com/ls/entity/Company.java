@@ -42,6 +42,8 @@ public class Company implements Serializable {
 	
 	protected Integer star;
 	
+	protected String distinct;
+	
 	@ManyToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     @JoinTable(name = "ls_company_problem", joinColumns = @JoinColumn(name = "company_id"), inverseJoinColumns = @JoinColumn(name = "problem_id") )
 	protected List<Problem> problems;
@@ -179,16 +181,23 @@ public class Company implements Serializable {
 		this.star = star;
 	}
 
+	public String getDistinct() {
+		return distinct;
+	}
+
+	public void setDistinct(String distinct) {
+		this.distinct = distinct;
+	}
+
 	@Override
 	public String toString() {
 		return "Company [id=" + id + ", name=" + name + ", contactor="
 				+ contactor + ", email=" + email + ", emailSrc=" + emailSrc
 				+ ", phone=" + phone + ", phoneSrc=" + phoneSrc
 				+ ", isTracked=" + isTracked + ", address=" + address
-				+ ", problems=" + problems + ", fEurl=" + fEurl
+				+ ", star=" + star + ", distinct=" + distinct + ", problems="
+				+ problems + ", steps=" + steps + ", fEurl=" + fEurl
 				+ ", phoneImgSrc=" + phoneImgSrc + ", publishDate="
 				+ publishDate + "]";
 	}
-
-	
 }
