@@ -3,6 +3,7 @@ package com.ls.jobs;
 import java.io.File;
 import java.io.FileWriter;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -18,15 +19,18 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import com.google.common.io.Files;
+import com.ls.entity.City;
 import com.ls.entity.Company;
 import com.ls.entity.Problem;
 import com.ls.entity.CompanyResource;
+import com.ls.entity.Province;
 import com.ls.grab.GrapImgUtil;
 import com.ls.grab.HtmlParserUtilPlanB;
 import com.ls.grab.HttpClientGrabUtil;
 import com.ls.repository.CompanyRepository;
 import com.ls.repository.ProblemRepository;
 import com.ls.repository.CompanyResourceRepository;
+import com.ls.repository.ProvinceRepository;
 import com.ls.service.GrabService;
 import com.ls.service.UserService;
 
@@ -44,6 +48,9 @@ public class TestGrabCompany {
 	
 	@Autowired
 	private CompanyResourceRepository companyResourceRepository;
+	
+	@Autowired
+	private ProvinceRepository provinceRepository;
 	
 	@Resource(name = "grabService")
 	private GrabService grabService;
@@ -296,5 +303,20 @@ public class TestGrabCompany {
 		
 		
 	}
-
+	
+	@Test
+	public void testGrabCities() throws Exception {
+		String urlString = "http://www.58.com/changecity.aspx";
+		String htmlForPage = HttpClientGrabUtil.fetchHTMLwithURL(urlString);
+		
+		List<Province> provinces = HtmlParserUtilPlanB.findCities(htmlForPage);
+		
+		for (Province province : provinces) {
+			
+			provinceRepository.save(province);
+		}
+		
+		
+	}
+	
 }

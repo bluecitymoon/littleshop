@@ -5,10 +5,15 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.google.common.collect.ImmutableList;
+import com.ls.entity.City;
 import com.ls.entity.Company;
+import com.ls.entity.Province;
+import com.ls.repository.CityRepository;
+import com.ls.repository.ProvinceRepository;
 import com.ls.service.GrabService;
 
 @Component("grabAction")
@@ -19,7 +24,17 @@ public class GrabAction extends BaseAction {
 	@Resource(name = "grabService")
 	private GrabService grabService;
 	
+	@Autowired
+	private CityRepository cityRepository;
+	
+	@Autowired 
+	private ProvinceRepository provinceRepository;
+	
 	private List<Company> companies;
+	
+	private List<City> jiangsuCities;
+	
+	private Object lock = new Object();
 
 	public String grabCompanyIndexPage() {
 		String url = getParameter("url");
@@ -32,15 +47,25 @@ public class GrabAction extends BaseAction {
 			//companies = grabService.grabCompanyInPage(url);
 			
 			Company company = new Company();
-			company.setName("蹇���版����");
 			company.setfEurl("http://su.58.com/meirongshi/?PGTID=14052432562410.5737352641994795&ClickID=1");
-			company.setDistinct("�垮���");
 			
 			companies = ImmutableList.of(company);
 		} else {
 			
 		}
 		
+
+		return SUCCESS;
+	}
+	
+	public String getcities() {
+		
+		synchronized (lock) {
+			String provinceName = getParameter("province");
+			List<Province> provinces = provinceRepository.findByName(provinceName);
+
+			jiangsuCities = provinces.get(0).getCitys();
+		}
 
 		return SUCCESS;
 	}
@@ -51,6 +76,14 @@ public class GrabAction extends BaseAction {
 
 	public void setCompanies(List<Company> companies) {
 		this.companies = companies;
+	}
+
+	public List<City> getJiangsuCities() {
+		return jiangsuCities;
+	}
+
+	public void setJiangsuCities(List<City> jiangsuCities) {
+		this.jiangsuCities = jiangsuCities;
 	}
 
 	
