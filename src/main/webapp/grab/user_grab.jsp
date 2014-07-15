@@ -27,8 +27,58 @@
 	<s:include value="/jsps/common/menu.jsp" />
 	<section class="mainbg">
 		<div class="container">
+			<div class="app-wrapper ui-corner-top">
+								<div class="blue module ui-corner-top clearfix">
+									<h2>Email Stops</h2>
+								</div>
+								<div>
+									<ul style="border: 0; margin: 0;" class="smartlist nice">
+										<li>
+											<label>
+												<div class="row collapse">
+													<div class="one columns text-center">
+														<input type="checkbox">
+													</div>
+													<div class="eleven columns">Some details about this email stop</div>
+												</div>
+											</label>
+										</li>
+										<li>
+											<label>
+												<div class="row collapse">
+													<div class="one columns text-center">
+														<input type="checkbox">
+													</div>
+													<div class="eleven columns">Hey, look it's another stop</div>
+												</div>
+											</label>
+										</li>
+										<li>
+											<label>
+												<div class="row collapse">
+													<div class="one columns text-center">
+														<input type="checkbox">
+													</div>
+													<div class="eleven columns">And another, that makes three!</div>
+												</div>
+											</label>
+										</li>
+										<li>
+											<label>
+												<div class="row collapse">
+													<div class="one columns text-center">
+														<input type="checkbox">
+													</div>
+													<div class="eleven columns">Now this is just getting ridiculous.</div>
+												</div>
+											</label>
+										</li>
+									</ul>
+								</div>
+							</div>
 			<div class="row">
 				<div class="app-wrapper ui-corner-top">
+					
 					<div class="blue module ui-corner-top clearfix">
 						<h2>抓取任务</h2>
 					</div>

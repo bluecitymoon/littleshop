@@ -32,9 +32,9 @@ public class GrabAction extends BaseAction {
 			//companies = grabService.grabCompanyInPage(url);
 			
 			Company company = new Company();
-			company.setName("心悦数据公司");
+			company.setName("蹇���版����");
 			company.setfEurl("http://su.58.com/meirongshi/?PGTID=14052432562410.5737352641994795&ClickID=1");
-			company.setDistinct("长宁区");
+			company.setDistinct("�垮���");
 			
 			companies = ImmutableList.of(company);
 		} else {
