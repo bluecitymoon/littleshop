@@ -169,30 +169,8 @@
 				
 				self.initCities = function(city) {
 					
-					$.ajax({url : '/ls/grab/getcities.ls',
-						data : {province : "江苏"},
-						sync : false,
-						success: function(data) {
-
-							$.each(data, function(index, value) {
-								var city = new City( value.name, value.url );
-								self.jiangsuCities.push(city);
-
-								});
-						}
-					});
-					$.ajax({url : '/ls/grab/getcities.ls',
-						data : {province : "安徽"},
-						sync : false,
-						success: function(data) {
-
-							$.each(data, function(index, value) {
-								var city = new City( value.name, value.url );
-								self.anhuiCities.push(city);
-
-								});
-						}
-					});
+					
+					
 					$.ajax({url : '/ls/grab/getcities.ls',
 						data : {province : "浙江"},
 						sync : false,
@@ -203,6 +181,32 @@
 								self.zhejiangCities.push(city);
 
 								});
+							
+							$.ajax({url : '/ls/grab/getcities.ls',
+								data : {province : "江苏"},
+								sync : false,
+								success: function(data) {
+
+									$.each(data, function(index, value) {
+										var city = new City( value.name, value.url );
+										self.jiangsuCities.push(city);
+
+										});
+									
+									$.ajax({url : '/ls/grab/getcities.ls',
+										data : {province : "安徽"},
+										sync : false,
+										success: function(data) {
+
+											$.each(data, function(index, value) {
+												var city = new City( value.name, value.url );
+												self.anhuiCities.push(city);
+
+												});
+										}
+									});
+								}
+							});
 						}
 					});
 				};
