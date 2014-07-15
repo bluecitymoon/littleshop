@@ -34,7 +34,14 @@
 					</div>
 					<div class="content">
 						<div class="row">
-							
+							<label>示例链接</label>
+							<p>
+								http://su.58.com/meirongshi/pn2/?PGTID=14052516562690.6999314113601204&ClickID=1
+							</p>
+						</div>
+						<hr>
+						<div class="row">
+							<label>目标链接</label>
 							<input type="text" data-bind="value : url" >
 						</div>
 						<a class="nice radius blue button" href="#" data-bind="click : grab">开始抓取</a>

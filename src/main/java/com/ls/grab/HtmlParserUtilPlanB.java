@@ -174,7 +174,7 @@ public class HtmlParserUtilPlanB {
 								String tdConent = th.getStringText();
 
 								// found!!!!!!
-								if (tdConent.trim().contains("��ϵ��")) {
+								if (tdConent.trim().contains("联系电话")) {
 									contactorHeaderFound = true;
 								}
 							}
@@ -245,7 +245,7 @@ public class HtmlParserUtilPlanB {
 								String tdConent = th.getStringText();
 
 								// found!!!!!!
-								if (tdConent.trim().contains("����")) {
+								if (tdConent.trim().contains("邮箱")) {
 									contactorHeaderFound = true;
 								}
 							}
@@ -313,7 +313,7 @@ public class HtmlParserUtilPlanB {
 								String tdConent = th.getStringText();
 
 								// found!!!!!!
-								if (tdConent.trim().contains("��ϵ��")) {
+								if (tdConent.trim().contains("联系人")) {
 									contactorHeaderFound = true;
 								}
 							}
@@ -409,7 +409,7 @@ public class HtmlParserUtilPlanB {
 								String tdConent = th.getStringText();
 
 								// found!!!!!!
-								if (tdConent.trim().contains("��˾��ַ")) {
+								if (tdConent.trim().contains("公司地址")) {
 									contactorHeaderFound = true;
 								}
 							}
