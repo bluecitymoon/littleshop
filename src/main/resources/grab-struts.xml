@@ -21,6 +21,8 @@
 			</result>
 		</action>
 		<action name="getcities" method="getcities" class="grabAction">
+			<interceptor-ref name="params"></interceptor-ref>
+			<interceptor-ref name="prepare"></interceptor-ref>
 			<result name="success" type="json">
 				<param name="root">jiangsuCities</param>
 			</result>

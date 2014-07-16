@@ -1,6 +1,7 @@
 package com.ls.controller;
 
 import java.net.URLDecoder;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -15,9 +16,10 @@ import com.ls.entity.Province;
 import com.ls.repository.CityRepository;
 import com.ls.repository.ProvinceRepository;
 import com.ls.service.GrabService;
+import com.opensymphony.xwork2.Preparable;
 
 @Component("grabAction")
-public class GrabAction extends BaseAction {
+public class GrabAction extends BaseAction implements Preparable{
 
 	private static final long serialVersionUID = 1504280162797333021L;
 
@@ -86,6 +88,8 @@ public class GrabAction extends BaseAction {
 		this.jiangsuCities = jiangsuCities;
 	}
 
-	
+	public void prepare() throws Exception {
+		jiangsuCities = new ArrayList<City>();
+	}
 	
 }

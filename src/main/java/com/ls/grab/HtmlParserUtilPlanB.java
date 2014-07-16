@@ -177,7 +177,7 @@ public class HtmlParserUtilPlanB {
 								String tdConent = th.getStringText();
 
 								// found!!!!!!
-								if (tdConent.trim().contains("联系电话")) {
+								if (tdConent.trim().contains("鑱旂郴鐢佃瘽")) {
 									contactorHeaderFound = true;
 								}
 							}
@@ -248,7 +248,7 @@ public class HtmlParserUtilPlanB {
 								String tdConent = th.getStringText();
 
 								// found!!!!!!
-								if (tdConent.trim().contains("邮箱")) {
+								if (tdConent.trim().contains("閭")) {
 									contactorHeaderFound = true;
 								}
 							}
@@ -312,8 +312,8 @@ public class HtmlParserUtilPlanB {
 									
 									DefinitionListBullet definitionListBullet = (DefinitionListBullet) nodelist[i];
 									
-									if (definitionListBullet.getStringText().equals("江苏") || 
-										definitionListBullet.getStringText().equals("安徽") ||
+									if (definitionListBullet.getStringText().equals("安徽") || 
+										definitionListBullet.getStringText().equals("江苏") ||
 										definitionListBullet.getStringText().equals("浙江") ) 
 									{
 										Province province = new Province();
@@ -484,7 +484,7 @@ public class HtmlParserUtilPlanB {
 								String tdConent = th.getStringText();
 
 								// found!!!!!!
-								if (tdConent.trim().contains("公司地址")) {
+								if (tdConent.trim().contains("鍏徃鍦板潃")) {
 									contactorHeaderFound = true;
 								}
 							}
