@@ -3,6 +3,7 @@ package com.ls.entity;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -20,7 +21,7 @@ public class Province implements Serializable {
 	protected Integer id;
 	protected String name;
 	
-	@OneToMany(mappedBy="province")
+	@OneToMany(mappedBy="province", cascade = CascadeType.PERSIST)
 	protected List<City> citys;
 	public Integer getId() {
 		return id;
@@ -39,6 +40,11 @@ public class Province implements Serializable {
 	}
 	public void setCitys(List<City> citys) {
 		this.citys = citys;
+	}
+	@Override
+	public String toString() {
+		return "Province [id=" + id + ", name=" + name + ", citys=" + citys
+				+ "]";
 	}
 	
 }

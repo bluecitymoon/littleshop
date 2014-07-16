@@ -19,6 +19,7 @@ public class City implements Serializable {
 	@GeneratedValue
 	protected Integer id;
 	protected String name;
+	protected String url;
 	
 	@ManyToOne
 	@JoinColumn(name="province_id")
@@ -34,6 +35,24 @@ public class City implements Serializable {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	
+	public Province getProvince() {
+		return province;
+	}
+	public void setProvince(Province province) {
+		this.province = province;
+	}
+	@Override
+	public String toString() {
+		return "City [id=" + id + ", name=" + name + ", url=" + url
+				+ ", province=" + province + "]";
 	}
 	
 }

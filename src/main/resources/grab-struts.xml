@@ -20,6 +20,12 @@
 				<param name="root">companies</param>
 			</result>
 		</action>
+		<action name="getcities" method="getcities" class="grabAction">
+			<result name="success" type="json">
+				<param name="root">jiangsuCities</param>
+			</result>
+		</action>
+		
 	</package>
 	
 </struts>

@@ -13,4 +13,6 @@ public interface GrabService {
 	void grabAllCompanyResource();
 	
 	List<Company> grabCompanyInPage(String indexPageURL);
+	
+	Company grabCompanyDetail(String detailPageUrl);
 }

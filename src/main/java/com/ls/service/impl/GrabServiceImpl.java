@@ -3,6 +3,7 @@ package com.ls.service.impl;
 import java.util.List;
 import java.util.Random;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -92,6 +93,18 @@ public class GrabServiceImpl implements GrabService {
 		List<Company> companies = HtmlParserUtilPlanB.findPagedCompanyList(pagedCompanyHTML);
 		
 		return companies;
+	}
+
+	@Override
+	public Company grabCompanyDetail(String detailPageUrl) {
+		Company company = new Company();
+		
+		if (StringUtils.isBlank(detailPageUrl)) {
+			throw new IllegalArgumentException("detail page url is empty");
+		}
+		String detailPageHtml =  HttpClientGrabUtil.fetchHTMLwithURL(detailPageUrl);
+		
+		return company;
 	}
 
 }
