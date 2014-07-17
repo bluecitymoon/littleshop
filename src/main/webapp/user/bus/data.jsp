@@ -56,7 +56,6 @@
 						<div class="row">
 							<div class="six columns centered">
 								<a class="small blue button"> 搜索符合条件的客户 </a>
-								<button class="small nice blue button" data-bind="click : search">全部的客户</button>
 							</div>
 						</div>
 					</div>
@@ -167,15 +166,13 @@
 							<div class="three columns">
 								共找到 <label class="yellow label" data-bind="text: totalCompanyCount"></label>个客户
 							</div>
-							<div class="six columns centered">
-								<a href="#" class="small blue button"  data-bind="click : lastPage" >上一波客户</a>
+							<div class="six columns">
+								<a href="#" class="small blue button"  data-bind="click : lastPage, disable : currentIndex() > 1" >上一波客户</a>
 								<label class="label yellow" data-bind="text : currentIndex"></label>
 								<a href="#" class="small blue button" data-bind="click : nextPage">下一波客户</a>
 							</div>
 							<div class="three columns">
-								<div class="row">
-									带我去第 <input type="text" data-bind="value : pageIndexToGo"> 波
-								</div>
+								 <span>去</span><input type="text" data-bind="value : pageIndexToGo" style="width:50px">
 							</div>
 						</div>
 					</div>
@@ -212,8 +209,15 @@
 						self.totalPagesCount = ko.observable(1);
 						self.totalCompanyCount = ko.observable(0);
 						self.starInput = ko.observable();
-						self.distinctInput 
+						self.distinctInput = ko.observable();
 						
+						self.init = function() {
+							$('#starInput').raty({
+								  click: function(score, evt) {
+									  	self.startInput(score);
+									  }
+								});
+						};
 						self.search = function() {
 							$.ajax({
 								url : '/ls/user/loadAllCompany.ls',
@@ -239,7 +243,7 @@
 						};
 
 						self.lastPage = function() {
-							self.test('a', 'b', 'c' , 'd');
+							
 							self.currentIndex(self.currentIndex() - 1);
 							
 							$.ajax({
@@ -274,6 +278,7 @@
 						};
 					};
 					var model = new CompanyModel();
+					model.init();
 					ko.applyBindings(model);
 
 				});
