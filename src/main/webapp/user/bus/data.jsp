@@ -36,26 +36,27 @@
 						<div class="row">
 							<div class="three columns">
 								<label>公司名称</label>
-								<input type="text" class="addon-postfix" data-bind = "value : name"/>
+								<input type="text" class="addon-postfix" data-bind = "value : seachCompany"/>
 							</div>
 							<div class="three columns">
 								<label>联系人</label>
-								<input type="text" class="addon-postfix" data-bind = "value : name"/>
+								<input type="text" class="addon-postfix" data-bind = "value : searchContactor"/>
 							</div>
 							
 							<div class="three columns">
 								<label>所在区</label>
-								<input type="text" class="addon-postfix" data-bind = "value : name"/>
+								<input type="text" class="addon-postfix" data-bind = "value : searchDistinct"/>
 							</div>
 							<div class="three columns">
 								<label>星级</label>
 								<div id="starInput" data-bind="attr: { 'starInput' : starInput }"></div>
+								<input type="checkbox" data-bind="checked : allStar"> 包含所有星级
 							</div>
 						</div>
 						<hr>
 						<div class="row">
 							<div class="six columns centered">
-								<a class="small blue button"> 搜索符合条件的客户 </a>
+								<a class="small blue button" href="#" data-bind="click : searchCompany" > 搜索符合条件的客户 </a>
 							</div>
 						</div>
 					</div>
@@ -208,13 +209,16 @@
 						self.pageIndexToGo = ko.observable(1);
 						self.totalPagesCount = ko.observable(1);
 						self.totalCompanyCount = ko.observable(0);
-						self.starInput = ko.observable();
+						self.starInput = ko.observable(0);
 						self.distinctInput = ko.observable();
-						
+						self.seachCompany = ko.observable('');
+						self.searchContactor =  ko.observable('');
+						self.searchDistinct =  ko.observable('');
+						self.allStar = ko.observable(false);
 						self.init = function() {
 							$('#starInput').raty({
 								  click: function(score, evt) {
-									  	self.startInput(score);
+									  	self.starInput(score);
 									  }
 								});
 						};
@@ -269,12 +273,23 @@
 
 						self.showDetail = function(item, event) {
 							var $this = $(event.target);
-							$this.parent().parent().parent().parent().find(
-									'.companydetail').toggle('blind', {}, 200);
+							$this.parent().parent().parent().parent().find('.companydetail').toggle('blind', {}, 200);
 						};
 						
-						self.searchCompany = function(name, star, index) {
+						self.searchCompany = function() {
 							
+							$.ajax({
+								url : '/ls/user/loadCompanyInPage.ls',
+								data : {pageNumber : self.currentIndex(), 
+										starInput : self.starInput(), 
+										searchDistinct: self.searchDistinct(),
+										seachCompany : self.seachCompany(), 
+										searchContactor : self.searchContactor(),
+										allStar : self.allStar()},
+								success : function(data) {
+									JSON.stringify(data);
+								}
+							});
 						};
 					};
 					var model = new CompanyModel();

@@ -42,9 +42,15 @@ public class CompanyAction extends BaseAction {
 			pageNumbersString = "1";
 		}
 		
+		String companyNameParam = getParameter("seachCompany");
+		String contactorParam = getParameter("searchContactor");
+		String starParam = getParameter("starInput");
+		String allStarCheckboxParam = getParameter("allStar");
+		String distinctParam = getParameter("searchDistinct");
+		
 		Integer pageNumber = Integer.valueOf(pageNumbersString);
 		
-		company = companyService.getCompanyInPage(pageNumber);
+		company = companyService.getCompanyInPage(companyNameParam, contactorParam, starParam, allStarCheckboxParam, distinctParam, pageNumber);
 		
 		return SUCCESS;
 	}

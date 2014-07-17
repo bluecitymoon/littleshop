@@ -10,11 +10,14 @@ import com.ls.entity.Step;
 
 public interface CompanyService {
 	List<Company> findCompany(String name);
+
 	List<Company> findAllCompanies();
-	
+
 	Page<Company> getCompanyInPage(Integer index);
-	
+
+	Page<Company> getCompanyInPage(String companyNameParam, String contactorParam, String starParam, String allStarCheckboxParam, String distinctParam, Integer pageNumber);
+
 	Problem saveProblem(Problem problem);
-	
+
 	Step saveStep(Step step);
 }
