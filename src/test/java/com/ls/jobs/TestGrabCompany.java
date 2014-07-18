@@ -3,7 +3,9 @@ package com.ls.jobs;
 import java.io.File;
 import java.io.FileWriter;
 import java.nio.charset.Charset;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -254,9 +256,9 @@ public class TestGrabCompany {
 	@Test
 	public void testSaveCompany() throws Exception {
 		Company testCompany = new Company();
-		testCompany.setAddress("aaa");
-		testCompany.setContactor("");
-		testCompany.setEmail("jjiang");
+		testCompany.setAddress("长宁区玉屏南路");
+		testCompany.setContactor("江李明");
+		testCompany.setEmail("sdfasdfasdf");
 		testCompany.setPhone("1123345564");
 		
 		companyRepository.save(testCompany);
@@ -322,7 +324,20 @@ public class TestGrabCompany {
 	@Test
 	public void testGrabByService() throws Exception {
 		String city = "http://su.58.com/";
-		grabService.grabCompanyInformationByUrl(city, "7-17");
+		
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		
+		grabService.grabCompanyInformationByUrl(city, simpleDateFormat.parse("2014-7-17"));
+	}
+	
+	@Test
+	public void testSaveFile() throws Exception {
+		
+		System.out.println(System.getProperty("user.dir"));
+		File file = new File("D:\\workspace\\littleshop\\src\\main\\webapp\\img\\aa.txt");
+		if (!file.exists()) {
+			file.createNewFile();
+		}
 	}
 	
 }

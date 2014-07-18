@@ -1,6 +1,10 @@
 package com.ls.vo;
 
-public class GrabStatistic {
+import java.io.Serializable;
+
+public class GrabStatistic implements Serializable {
+	
+	private static final long serialVersionUID = 6542922502029110019L;
 	
 	private Integer success;
 	private Integer duplicate;

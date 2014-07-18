@@ -89,7 +89,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row" style="display:none;">
 				<div class="app-wrapper ui-corner-top">
 					
 					<div class="blue module ui-corner-top clearfix">
@@ -107,7 +107,37 @@
 							<label>目标链接</label>
 							<input type="text" data-bind="value : url" >
 						</div>
-						<a class="nice radius blue button" href="#" data-bind="click : grabSelected">开始抓取</a>
+						<!-- <a class="nice radius blue button" href="#" data-bind="click : grabSelected">开始抓取</a> -->
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="app-wrapper ui-corner-top">
+					
+					<div class="blue module ui-corner-top clearfix">
+						<h2>抓取任务</h2>
+					</div>
+					<div class="content">
+						<div class="row">
+							<div class="four columns"></div>
+							<div class="four columns">
+							<div class="row">
+								<div class="ten columns">
+									<label>数据源的最后更新时间</label>
+									<input type="text" class="medium input-text addon-postfix " id="lastPublishDate" data-bind="value:lastPublishDate">
+								</div>
+								<div class="two columns">
+									<a id="lastPublishDate-btn" href="javascript:void(0);"><span title="Choose Date" class="button-addon postfix"><i class="icon-calendar"></i></span></a>
+								</div>
+							</div>	
+							</div>
+							<div class="four columns">
+							<br>
+								<a class="nice radius blue button" href="#"
+									data-bind="click : grabSelected" style="border-radius : 50px">开始抓取</a>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -167,7 +197,7 @@
 				self.anhuiCities =  ko.observableArray([]);
 				self.zhejiangCities = ko.observableArray([]);
 				self.selectedURLs = ko.observableArray([]);
-				
+				self.lastPublishDate = ko.observable('');
 				self.initCities = function(city) {
 					
 					$.ajax({
@@ -210,6 +240,15 @@
 								});
 						}
 					});
+					
+					$("#lastPublishDate").datepicker();
+					$("#lastPublishDate-btn").click( function(){
+						if ( $("#lastPublishDate").datepicker("widget").is(":visible") ) {
+							$("#lastPublishDate").datepicker("hide");
+						} else {
+							$("#lastPublishDate").datepicker("show");
+						}
+					});
 				};
 				
 				self.grab = function() {
@@ -233,11 +272,11 @@
 					};
 					
 				self.grabSelected = function() {
-						
+						console.debug(self.lastPublishDate());
 						$.ajax({url : '/ls/grab/grabSelectedCities.ls',
-								data : {selectedURLs : JSON.stringify(self.selectedURLs())},
+								data : {selectedURLs : JSON.stringify(self.selectedURLs()), lastPublishDate : self.lastPublishDate()},
 								success: function(data) {
-									
+										alert(JSON.stringify(data));
 									}
 								});
 					

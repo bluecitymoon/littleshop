@@ -27,7 +27,7 @@
 		</action>
 		<action name="grabSelectedCities" method="grabSelectedCities" class="grabAction">
 			<result name="success" type="json">
-				<param name="root">statistic</param>
+				<param name="root">grabStatistic</param>
 			</result>
 		</action>
 	</package>

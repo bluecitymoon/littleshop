@@ -2,6 +2,7 @@ package com.ls.service.impl;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -116,7 +117,8 @@ public class GrabServiceImpl implements GrabService {
 		return company;
 	}
 
-	public GrabStatistic grabCompanyInformationByUrl(String url, String publishDateEnd) {
+	public GrabStatistic grabCompanyInformationByUrl(String url, Date publishDateEnd) {
+		
 		GrabStatistic grabStatistic = new GrabStatistic();
 		
 		// grab util the publish date
@@ -125,6 +127,7 @@ public class GrabServiceImpl implements GrabService {
 		int proccessCount = 0;
 		int saved = 0;
 		int error = 0;
+		int duplicate = 0;
 		while (true) {
 			proccessCount ++;
 			String pageURL = url + "meirongshi/pn" + pageNumber;
@@ -169,26 +172,43 @@ public class GrabServiceImpl implements GrabService {
 					
 					if (ifCompanyDataValueable(company)){
 						
-						try {
-							companyRepository.save(company);
-							saved ++;
-						} catch (Exception e) {
-							//
-							error ++;
+						List<Company> companyInDb = companyRepository.findByNameAndFEurl(company.getName(), company.getfEurl());
+						
+						if (null == companyInDb || companyInDb.isEmpty()) {
+							
+							try {
+								companyRepository.save(company);
+								saved ++;
+							} catch (Exception e) {
+								//
+								error ++;
+							}
+							
+						} else {
+							duplicate ++;
 						}
+						
+						
 						
 					} else {
 						error ++;
 					}
 					
 					String grabingPublishDate = company.getPublishDate();
-					SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-DD");
+					SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyy-MM-DD");
 					try {
-						if (StringUtils.isNotBlank(grabingPublishDate) && simpleDateFormat.parse(grabingPublishDate).after(simpleDateFormat.parse(publishDateEnd))) {
-							grabStatistic.setSaved(saved);
-							grabStatistic.setTotalReaded(proccessCount);
+						
+						if (StringUtils.isNotBlank(grabingPublishDate)) {
 							
-							return grabStatistic;
+						boolean ifChoosenDateBeforePublishDate = simpleDateFormat.parse("2014-" + grabingPublishDate).before(publishDateEnd);
+					
+						if ( ifChoosenDateBeforePublishDate) {
+								grabStatistic.setSaved(saved);
+								grabStatistic.setTotalReaded(proccessCount);
+								grabStatistic.setDuplicate(duplicate);
+								
+								return grabStatistic;
+							}
 						}
 					} catch (ParseException e) {
 						//
