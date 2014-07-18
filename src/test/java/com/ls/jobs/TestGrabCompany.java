@@ -319,4 +319,10 @@ public class TestGrabCompany {
 		
 	}
 	
+	@Test
+	public void testGrabByService() throws Exception {
+		String city = "http://su.58.com/";
+		grabService.grabCompanyInformationByUrl(city, "7-17");
+	}
+	
 }

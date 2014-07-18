@@ -74,7 +74,7 @@ public class CompanyServiceImpl implements CompanyService {
 				Predicate predicate = cb.conjunction();
 				
 				if (StringUtils.isNotBlank(companyNameParam)) {
-					predicate.getExpressions().add(cb.equal(root.<String> get("name"), companyNameParam.trim()));
+					predicate.getExpressions().add(cb.like(root.<String> get("name"), "%" + companyNameParam.trim() + "%"));
 				}
 				
 				if (StringUtils.isNotBlank(contactorParam)) {

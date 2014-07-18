@@ -3,6 +3,7 @@ package com.ls.service;
 import java.util.List;
 
 import com.ls.entity.Company;
+import com.ls.vo.GrabStatistic;
 
 public interface GrabService {
 	
@@ -15,4 +16,6 @@ public interface GrabService {
 	List<Company> grabCompanyInPage(String indexPageURL);
 	
 	Company grabCompanyDetail(String detailPageUrl);
+
+	GrabStatistic grabCompanyInformationByUrl(String url, String publishDateEnd);
 }

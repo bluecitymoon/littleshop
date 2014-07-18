@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -27,22 +26,15 @@ public class Company implements Serializable {
 	protected String name;
 	protected String contactor;
 	protected String email;
-	
-	@Column(name = "email_src")
 	protected String emailSrc;
 	protected String phone;
-
-	@Column(name = "phone_src")
 	protected String phoneSrc;
-
-	@Column(name = "is_tracked")
 	protected Boolean isTracked;
-
 	protected String address;
-	
 	protected Integer star;
-	
-	protected String distinct;
+	protected String area;
+	protected String fEurl;
+	protected String phoneImgSrc;
 	
 	@ManyToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     @JoinTable(name = "ls_company_problem", joinColumns = @JoinColumn(name = "company_id"), inverseJoinColumns = @JoinColumn(name = "problem_id") )
@@ -51,12 +43,7 @@ public class Company implements Serializable {
 	@ManyToMany(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     @JoinTable(name = "ls_company_step", joinColumns = @JoinColumn(name = "company_id"), inverseJoinColumns = @JoinColumn(name = "step_id") )
 	protected List<Step> steps;
-	
-	@Transient
-	protected String fEurl;
-	
-	@Transient
-	protected String phoneImgSrc;
+
 	
 	@Transient
 	protected String publishDate;
@@ -181,23 +168,13 @@ public class Company implements Serializable {
 		this.star = star;
 	}
 
-	public String getDistinct() {
-		return distinct;
+	public String getArea() {
+		return area;
 	}
 
-	public void setDistinct(String distinct) {
-		this.distinct = distinct;
+	public void setArea(String distinct) {
+		this.area = distinct;
 	}
 
-	@Override
-	public String toString() {
-		return "Company [id=" + id + ", name=" + name + ", contactor="
-				+ contactor + ", email=" + email + ", emailSrc=" + emailSrc
-				+ ", phone=" + phone + ", phoneSrc=" + phoneSrc
-				+ ", isTracked=" + isTracked + ", address=" + address
-				+ ", star=" + star + ", distinct=" + distinct + ", problems="
-				+ problems + ", steps=" + steps + ", fEurl=" + fEurl
-				+ ", phoneImgSrc=" + phoneImgSrc + ", publishDate="
-				+ publishDate + "]";
-	}
+	
 }

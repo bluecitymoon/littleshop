@@ -1,9 +1,13 @@
 package com.ls.service.impl;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Random;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.time.DateFormatUtils;
+import org.apache.commons.lang.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,11 +15,14 @@ import com.google.common.collect.ImmutableList;
 import com.ls.entity.CityURL;
 import com.ls.entity.Company;
 import com.ls.entity.CompanyResource;
+import com.ls.grab.GrapImgUtil;
 import com.ls.grab.HtmlParserUtilPlanB;
 import com.ls.grab.HttpClientGrabUtil;
 import com.ls.repository.CityURLRepository;
+import com.ls.repository.CompanyRepository;
 import com.ls.repository.CompanyResourceRepository;
 import com.ls.service.GrabService;
+import com.ls.vo.GrabStatistic;
 
 @Service("grabService")
 public class GrabServiceImpl implements GrabService {
@@ -25,6 +32,9 @@ public class GrabServiceImpl implements GrabService {
 	
 	@Autowired
 	private CompanyResourceRepository companyResourceRepository;
+	
+	@Autowired
+	private CompanyRepository companyRepository;
 	
 	public List<String> findFeCityURLs() {
 		
@@ -95,7 +105,6 @@ public class GrabServiceImpl implements GrabService {
 		return companies;
 	}
 
-	@Override
 	public Company grabCompanyDetail(String detailPageUrl) {
 		Company company = new Company();
 		
@@ -105,6 +114,100 @@ public class GrabServiceImpl implements GrabService {
 		String detailPageHtml =  HttpClientGrabUtil.fetchHTMLwithURL(detailPageUrl);
 		
 		return company;
+	}
+
+	public GrabStatistic grabCompanyInformationByUrl(String url, String publishDateEnd) {
+		GrabStatistic grabStatistic = new GrabStatistic();
+		
+		// grab util the publish date
+		int pageNumber = 0;
+		
+		int proccessCount = 0;
+		int saved = 0;
+		int error = 0;
+		while (true) {
+			proccessCount ++;
+			String pageURL = url + "meirongshi/pn" + pageNumber;
+			
+			String html = HttpClientGrabUtil.fetchHTMLwithURL(pageURL);
+			
+			List<Company> basicCompany = HtmlParserUtilPlanB.findPagedCompanyList(html);
+			
+			for (Company company : basicCompany) {
+				
+					try {
+						
+						String companyDetailUrl = company.getfEurl();
+						String detailPageHtml = HttpClientGrabUtil.fetchHTMLwithURL(companyDetailUrl);
+
+						String contactor = HtmlParserUtilPlanB.findContactorName(detailPageHtml);
+						company.setContactor(contactor);
+
+						String phoneImgSrc = HtmlParserUtilPlanB.findContactorPhoneNumberImgSrc(detailPageHtml);
+						company.setPhoneImgSrc(phoneImgSrc);
+						
+						String address = HtmlParserUtilPlanB.findCompanyAddress(detailPageHtml);
+						company.setAddress(address);
+						
+						if (StringUtils.isNotBlank(phoneImgSrc)) {
+							String imgFileNameAfterGrabed = GrapImgUtil.grabImgWithSrc(phoneImgSrc);
+							company.setPhoneSrc(imgFileNameAfterGrabed);
+						}
+						
+						String emailImgSrc = HtmlParserUtilPlanB.findContactorEmailImgSrc(detailPageHtml);
+						company.setEmailSrc(emailImgSrc);
+						
+						if (StringUtils.isNotBlank(emailImgSrc)) {
+							String emailImgFileNameAfterGrabed = GrapImgUtil.grabImgWithSrc(emailImgSrc);
+							company.setEmailSrc(emailImgFileNameAfterGrabed);
+						}
+						
+						
+					} catch (Exception e) {
+						error ++;
+					}
+					
+					if (ifCompanyDataValueable(company)){
+						
+						try {
+							companyRepository.save(company);
+							saved ++;
+						} catch (Exception e) {
+							//
+							error ++;
+						}
+						
+					} else {
+						error ++;
+					}
+					
+					String grabingPublishDate = company.getPublishDate();
+					SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-DD");
+					try {
+						if (StringUtils.isNotBlank(grabingPublishDate) && simpleDateFormat.parse(grabingPublishDate).after(simpleDateFormat.parse(publishDateEnd))) {
+							grabStatistic.setSaved(saved);
+							grabStatistic.setTotalReaded(proccessCount);
+							
+							return grabStatistic;
+						}
+					} catch (ParseException e) {
+						//
+					}
+			}
+			
+			pageNumber ++;
+		}
+		
+		
+	}
+	
+	private boolean ifCompanyDataValueable(Company company) {
+		if (StringUtils.isBlank(company.getName()) || StringUtils.isBlank(company.getContactor()) || StringUtils.isBlank(company.getfEurl()) || StringUtils.isEmpty(company.getPhoneSrc())) 
+		{
+			return false;
+		}
+		
+		return true;
 	}
 
 }

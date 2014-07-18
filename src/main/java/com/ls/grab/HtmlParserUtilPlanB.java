@@ -82,7 +82,7 @@ public class HtmlParserUtilPlanB {
 								DefinitionListBullet nodeTranslated = (DefinitionListBullet) node;
 								String className = nodeTranslated.getAttribute("class");
 								if (className!= null && className.equals("w96")) {
-									company.setDistinct(nodeTranslated.getStringText());
+									company.setArea(nodeTranslated.getStringText());
 								}
 								if (className!= null && className.equals("w68")) {
 									company.setPublishDate(nodeTranslated.getStringText());
@@ -177,7 +177,7 @@ public class HtmlParserUtilPlanB {
 								String tdConent = th.getStringText();
 
 								// found!!!!!!
-								if (tdConent.trim().contains("鑱旂郴鐢佃瘽")) {
+								if (tdConent.trim().contains("联系电话")) {
 									contactorHeaderFound = true;
 								}
 							}
@@ -248,7 +248,7 @@ public class HtmlParserUtilPlanB {
 								String tdConent = th.getStringText();
 
 								// found!!!!!!
-								if (tdConent.trim().contains("閭")) {
+								if (tdConent.trim().contains("邮箱")) {
 									contactorHeaderFound = true;
 								}
 							}
@@ -288,7 +288,6 @@ public class HtmlParserUtilPlanB {
 	
 	public static List<Province> findCities(final String detailPageHtml) {
 		final List<Province> provinces = new ArrayList<Province>();
-		final StringBuilder contactorsEmailSrcBuilder = new StringBuilder();
 
 		try {
 
@@ -484,7 +483,7 @@ public class HtmlParserUtilPlanB {
 								String tdConent = th.getStringText();
 
 								// found!!!!!!
-								if (tdConent.trim().contains("鍏徃鍦板潃")) {
+								if (tdConent.trim().contains("公司地址")) {
 									contactorHeaderFound = true;
 								}
 							}

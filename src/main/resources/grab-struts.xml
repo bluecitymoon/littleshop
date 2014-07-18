@@ -21,13 +21,15 @@
 			</result>
 		</action>
 		<action name="getcities" method="getcities" class="grabAction">
-			<interceptor-ref name="params"></interceptor-ref>
-			<interceptor-ref name="prepare"></interceptor-ref>
 			<result name="success" type="json">
 				<param name="root">jiangsuCities</param>
 			</result>
 		</action>
-		
+		<action name="grabSelectedCities" method="grabSelectedCities" class="grabAction">
+			<result name="success" type="json">
+				<param name="root">statistic</param>
+			</result>
+		</action>
 	</package>
 	
 </struts>

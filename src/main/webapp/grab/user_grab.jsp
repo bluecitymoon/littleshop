@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=gb2312"%>
+<%@ page contentType="text/html;charset=GBK"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
@@ -38,7 +38,7 @@
 								<li><label>
 										<div class="row collapse">
 											<div class="one columns text-center">
-												<input type="checkbox">
+												<input type="checkbox" data-bind="value : url, checked: $root.selectedURLs">
 											</div>
 											<div class="two columns" data-bind="text : name"></div>
 											<div class="nice columns" data-bind="text : url"></div>
@@ -58,7 +58,7 @@
 								<li><label>
 										<div class="row collapse">
 											<div class="one columns text-center">
-												<input type="checkbox">
+												<input type="checkbox" data-bind="value : url, checked: $root.selectedURLs">
 											</div>
 											<div class="two columns" data-bind="text : name"></div>
 											<div class="nice columns" data-bind="text : url"></div>
@@ -78,7 +78,7 @@
 								<li><label>
 										<div class="row collapse">
 											<div class="one columns text-center">
-												<input type="checkbox">
+												<input type="checkbox" data-bind="value : url, checked: $root.selectedURLs">
 											</div>
 											<div class="two columns" data-bind="text : name"></div>
 											<div class="nice columns" data-bind="text : url"></div>
@@ -107,12 +107,12 @@
 							<label>目标链接</label>
 							<input type="text" data-bind="value : url" >
 						</div>
-						<a class="nice radius blue button" href="#" data-bind="click : grab">开始抓取</a>
+						<a class="nice radius blue button" href="#" data-bind="click : grabSelected">开始抓取</a>
 					</div>
 				</div>
 			</div>
 			
-			<div class="row">
+			<div class="row" style="display : none;">
 				<div class="app-wrapper ui-corner-top">
 					<div class="blue module ui-corner-top clearfix">
 						<h2>抓取结果</h2>
@@ -166,10 +166,13 @@
 				self.jiangsuCities =  ko.observableArray([]);
 				self.anhuiCities =  ko.observableArray([]);
 				self.zhejiangCities = ko.observableArray([]);
+				self.selectedURLs = ko.observableArray([]);
 				
 				self.initCities = function(city) {
 					
-					$.ajax({url : '/ls/grab/getcities.ls',
+					$.ajax({
+						method : 'GET',
+						url : '/ls/grab/getcities.ls',
 						data : {province : "浙江"},
 						sync : false,
 						success: function(data) {
@@ -182,7 +185,7 @@
 						}
 					});
 					
-					$.ajax({url : '/ls/grab/getcities.ls',
+					$.ajax({method : 'get', url : '/ls/grab/getcities.ls',
 						data : {province : "江苏"},
 						sync : false,
 						success: function(data) {
@@ -195,7 +198,7 @@
 						}
 					});
 					
-					$.ajax({url : '/ls/grab/getcities.ls',
+					$.ajax({method : 'get', url : '/ls/grab/getcities.ls',
 						data : {province : "安徽"},
 						sync : false,
 						success: function(data) {
@@ -210,6 +213,9 @@
 				};
 				
 				self.grab = function() {
+					
+						self.selectedURLs.push('http://su.58.com/');
+						console.debug(self.selectedURLs());
 						$.ajax({url : '/ls/grab/grabCompanyIndexPage.ls',
 								data : {url : encodeURIComponent(self.url())},
 								success: function(data) {
@@ -222,6 +228,17 @@
 
 										});
 								}
+								});
+					
+					};
+					
+				self.grabSelected = function() {
+						
+						$.ajax({url : '/ls/grab/grabSelectedCities.ls',
+								data : {selectedURLs : JSON.stringify(self.selectedURLs())},
+								success: function(data) {
+									
+									}
 								});
 					
 					};
