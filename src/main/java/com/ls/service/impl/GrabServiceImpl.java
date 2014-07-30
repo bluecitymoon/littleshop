@@ -184,6 +184,7 @@ public class GrabServiceImpl implements GrabService {
 					String grabingPublishDate = company.getPublishDate();
 					SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-DD");
 					try {
+						//break condition
 						if (StringUtils.isNotBlank(grabingPublishDate) && simpleDateFormat.parse(grabingPublishDate).after(simpleDateFormat.parse(publishDateEnd))) {
 							grabStatistic.setSaved(saved);
 							grabStatistic.setTotalReaded(proccessCount);

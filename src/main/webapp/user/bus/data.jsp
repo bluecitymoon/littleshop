@@ -95,7 +95,7 @@
 									</label>
 									<div class="row companydetail" style="display: none;">
 										<div class="app-wrapper ui-corner-top">
-											<div class="blue module ui-corner-top clearfix">
+											<div class="gray module ui-corner-top clearfix">
 												<h2>
 													详细信息<span class="subheader line" data-bind="text : name"></span>
 												</h2>
@@ -104,7 +104,8 @@
 												<div class="row">
 													<div class="six columns">
 														<div class="row">
-															<label>地址 </label> <input type="text" data-bind="value : address">
+															<div class='two columns'><label>区域 </label><input type="text" data-bind="value : distinct"></div>
+															<div class='ten columns'><label>地址 </label> <input type="text" data-bind="value : address"></div>
 														</div>
 														<div class="row">
 															<label>电子邮件</label><label class="input-checkbox"> <img alt="电子邮箱" data-bind="attr: { 'src' : email_src }">
@@ -187,7 +188,16 @@
 	<script src="/ls/js/jquery.raty.js"></script>
 	<script>
 		$(document).ready( function() {
+					var Problem = function(id, name) {
+						var self = this;
+						
+						self.id= id;
+						self.name = name;
+					};
+					
 					var Company = function(id, name, contractor, email, email_src, phone, phone_src, star, address, distinct) {
+						var self = this;
+						
 						self.id = id;
 						self.name = name;
 						self.contractor = contractor;
@@ -214,14 +224,16 @@
 						self.seachCompany = ko.observable('');
 						self.searchContactor =  ko.observable('');
 						self.searchDistinct =  ko.observable('');
-						self.allStar = ko.observable(false);
+						self.allStar = ko.observable(true);
 						self.init = function() {
 							$('#starInput').raty({
 								  click: function(score, evt) {
 									  	self.starInput(score);
 									  }
 								});
+							self.searchCompany();
 						};
+						
 						self.search = function() {
 							$.ajax({
 								url : '/ls/user/loadAllCompany.ls',
@@ -249,17 +261,12 @@
 						self.lastPage = function() {
 							
 							self.currentIndex(self.currentIndex() - 1);
-							
-							$.ajax({
-								url : '/ls/user/loadCompanyInPage.ls',
-								data : {pageNumber : self.currentIndex()},
-								success : function(data) {
-								}
-							});
+							self.searchCompany();
 						};
 						
 						self.nextPage = function() {
-							self.test('a', 'b', 'c' , 'd');
+							self.currentIndex(self.currentIndex() + 1);
+							self.searchCompany();
 						};
 						
 						self.test = function(a,b,c,d) {
@@ -287,8 +294,26 @@
 										searchContactor : self.searchContactor(),
 										allStar : self.allStar()},
 								success : function(data) {
-									JSON.stringify(data);
+									self.fillCompany(data);
 								}
+							});
+						};
+						
+						self.fillCompany = function(data) {
+							self.companyList.removeAll();
+
+							$.each(data, function(index, value) {
+								var new_phone_src = "/ls/img/" + value.phoneSrc;
+								var new_email_src = "/ls/img/" + value.emailSrc;
+								var company = new Company(value.id, value.name, value.contactor, value.email, new_email_src, value.phone, new_phone_src, value.star, value.address, value.area);
+
+								self.companyList.push(company);
+
+								$('.star').raty({
+									score : function() {
+										return $(this).attr('star');
+									}
+								});
 							});
 						};
 					};

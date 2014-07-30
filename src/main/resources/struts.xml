@@ -16,6 +16,16 @@
 		<action name="home">
 			<result>index.jsp</result>
 		</action>
+		<action name="findAllProblems" class="commonAction" method="findAllProblems">
+			<result name="success" type="json">
+				<param name="root">problems</param>
+			</result>
+		</action>
+		<action name="findAllSteps" class="commonAction" method="findAllSteps">
+			<result name="success" type="json">
+				<param name="root">steps</param>
+			</result>
+		</action>
 	</package>
 	
 	<package name="user" namespace="/user" extends="struts-default">

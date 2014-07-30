@@ -81,6 +81,10 @@ public class CompanyServiceImpl implements CompanyService {
 					predicate.getExpressions().add(cb.equal(root.<String> get("contactor"), contactorParam.trim()));
 				}
 				
+				if (StringUtils.isNotBlank(distinctParam)) {
+					predicate.getExpressions().add(cb.equal(root.<String> get("area"), distinctParam.trim()));
+				}
+				
 				if (StringUtils.isNotBlank(allStarCheckboxParam)) {
 					
 					//all star true : ignore star value

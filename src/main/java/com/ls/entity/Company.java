@@ -36,7 +36,7 @@ public class Company implements Serializable {
 	protected String fEurl;
 	protected String phoneImgSrc;
 	
-	@ManyToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+	@ManyToMany(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     @JoinTable(name = "ls_company_problem", joinColumns = @JoinColumn(name = "company_id"), inverseJoinColumns = @JoinColumn(name = "problem_id") )
 	protected List<Problem> problems;
 	

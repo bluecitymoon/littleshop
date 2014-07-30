@@ -101,29 +101,10 @@
 <nav class="rg-site-nav" id="nav">
 	<div class="row">
 		<ul id="dropdown">
-			<li><a class="" title="" href="index.html">bbb</a>
-				<ul id="dropdown">
-			<li><a class="" title="" href="index.html">aaa</a>
-			
-			</li>
-			<li><a title="" href="forms.html">Forms</a></li>
-			<li><a title="" href="buttons.html">Buttons</a></li>
-			<li><a title="" href="tables.html">Tables</a></li>
-			<li><a title="" href="icons.html">Icons</a></li>
-			<li><a title="" href="misc.html">Misc</a></li>
-			<li><a title="" href="commandments.html">Commandments</a></li>
-			<li><a title="" href="release.html">Release Notes</a></li>
-			<li><a title="" href="resources.html">Resources</a></li>
-		</ul>
-			</li>
-			<li><a title="" href="forms.html">Forms</a></li>
-			<li><a title="" href="buttons.html">Buttons</a></li>
-			<li><a title="" href="tables.html">Tables</a></li>
-			<li><a title="" href="icons.html">Icons</a></li>
-			<li><a title="" href="misc.html">Misc</a></li>
-			<li><a title="" href="commandments.html">Commandments</a></li>
-			<li><a title="" href="release.html">Release Notes</a></li>
-			<li><a title="" href="resources.html">Resources</a></li>
+			<li><a title="" href="/ls/user/load.ls">Customer</a></li>
+			<li><a title="" href="/ls/user/loadUser.ls">User Management</a></li>
+			<li><a title="" href="/ls/user/conf.ls">Configuration</a></li>
+			<li><a title="" href="/ls/grab/load.ls">Grab</a></li>
 		</ul>
 	</div>
 </nav>
