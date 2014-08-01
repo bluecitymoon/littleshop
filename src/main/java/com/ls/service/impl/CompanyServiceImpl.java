@@ -58,9 +58,8 @@ public class CompanyServiceImpl implements CompanyService {
 		return stepRepository.save(step);
 	}
 
-	@Override
 	public Page<Company> getCompanyInPage(String companyNameParam, String contactorParam, String starParam, String allStarCheckboxParam, String distinctParam, Integer pageNumber) {
-		Page<Company> companyPage = companyRepository.findAll(generateSpecification(companyNameParam, contactorParam, starParam, allStarCheckboxParam, distinctParam), new PageRequest(pageNumber, 10));
+		Page<Company> companyPage = companyRepository.findAll(generateSpecification(companyNameParam, contactorParam, starParam, allStarCheckboxParam, distinctParam), new PageRequest(pageNumber, 5));
 		
 		return companyPage;
 	}
@@ -68,7 +67,6 @@ public class CompanyServiceImpl implements CompanyService {
 	private Specification<Company> generateSpecification(final String companyNameParam, final String contactorParam, final String starParam, final String allStarCheckboxParam, final String distinctParam) {
 		return new Specification<Company>() {
 
-			@Override
 			public Predicate toPredicate(Root<Company> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 
 				Predicate predicate = cb.conjunction();

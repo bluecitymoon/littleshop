@@ -3,7 +3,6 @@ package com.ls.entity;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -23,7 +22,7 @@ public class Problem implements Serializable {
 
 	protected String name;
 
-	@ManyToMany(cascade = CascadeType.REMOVE, mappedBy = "problems", fetch = FetchType.LAZY)
+	@ManyToMany(mappedBy = "problems", fetch = FetchType.LAZY)
 	protected List<Company> companies;
 
 	public Integer getId() {

@@ -214,8 +214,6 @@
 				
 				self.grab = function() {
 					
-						self.selectedURLs.push('http://su.58.com/');
-						console.debug(self.selectedURLs());
 						$.ajax({url : '/ls/grab/grabCompanyIndexPage.ls',
 								data : {url : encodeURIComponent(self.url())},
 								success: function(data) {

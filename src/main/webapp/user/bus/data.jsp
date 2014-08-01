@@ -26,7 +26,7 @@
 
 	<s:include value="/jsps/common/menu.jsp" />
 	<section class="mainbg">
-		<div class="container">
+		<div class="container" id="container">
 			<div class="row">
 				<div class="app-wrapper ui-corner-top">
 					<div class="blue module ui-corner-top clearfix">
@@ -101,6 +101,7 @@
 												</h2>
 											</div>
 											<div class="content">
+												<div class="currentId" data-bind="text : id, visible : false"></div>
 												<div class="row">
 													<div class="six columns">
 														<div class="row">
@@ -125,9 +126,17 @@
 																<h2>客户关注点</h2>
 															</div>
 															<div class="content">
-																<label class="input-checkbox selected" for="ex-chx-a"> <input type="checkbox" name="ex-checkbox" id="ex-chx-a" value="1" /> 留不住人
-																</label> <label class=".selected input-checkbox" for="ex-chx-b"> <input type="checkbox" name="ex-checkbox" id="ex-chx-b" value="2" /> 留不住客户
-																</label>
+																<ul data-bind="foreach : $root.allProblemsConstant">
+																	<li>
+																		<div class="row collapse">
+																			<label class="input-checkbox">
+																				<input type="checkbox" data-bind="value : $data, checked: $parent.problems, click: $root.updateProblem">
+																				<span data-bind="text : $data"></span>
+																			</label>
+																		</div>
+																	</li>
+																</ul>
+																<br>
 															</div>
 														</div>
 													</div>
@@ -195,7 +204,7 @@
 						self.name = name;
 					};
 					
-					var Company = function(id, name, contractor, email, email_src, phone, phone_src, star, address, distinct) {
+					var Company = function(id, name, contractor, email, email_src, phone, phone_src, star, address, distinct, problems) {
 						var self = this;
 						
 						self.id = id;
@@ -208,7 +217,7 @@
 						self.star = star;
 						self.address = address;
 						self.distinct = distinct;
-
+						self.problems = problems;
 					};
 
 					var CompanyModel = function() {
@@ -225,6 +234,8 @@
 						self.searchContactor =  ko.observable('');
 						self.searchDistinct =  ko.observable('');
 						self.allStar = ko.observable(true);
+						self.allProblemsConstant = ko.observableArray([]);
+						
 						self.init = function() {
 							$('#starInput').raty({
 								  click: function(score, evt) {
@@ -232,32 +243,22 @@
 									  }
 								});
 							self.searchCompany();
-						};
-						
-						self.search = function() {
+							
 							$.ajax({
-								url : '/ls/user/loadAllCompany.ls',
-								data : {pageNumber : self.currentIndex()},
+								url : '/ls/findAllProblems.ls',
 								success : function(data) {
-									self.companyList.removeAll();
 
 									$.each(data, function(index, value) {
-										var new_phone_src = "/ls/img/" + value.phoneSrc;
-										var new_email_src = "/ls/img/" + value.emailSrc;
-										var company = new Company(value.id, value.name, value.contactor, value.email, new_email_src, value.phone, new_phone_src, value.star, value.address);
+										var problem = new Problem(value.id, value.name);
 
-										self.companyList.push(company);
+										self.allProblemsConstant.push(value.name);
 
-										$('.star').raty({
-											score : function() {
-												return $(this).attr('star');
-											}
-										});
 									});
 								}
 							});
 						};
-
+						
+						
 						self.lastPage = function() {
 							
 							self.currentIndex(self.currentIndex() - 1);
@@ -305,7 +306,13 @@
 							$.each(data, function(index, value) {
 								var new_phone_src = "/ls/img/" + value.phoneSrc;
 								var new_email_src = "/ls/img/" + value.emailSrc;
-								var company = new Company(value.id, value.name, value.contactor, value.email, new_email_src, value.phone, new_phone_src, value.star, value.address, value.area);
+								
+								var problems = new Array();
+								$.each(value.problems, function(index, value) {
+									var problem = new Problem(value.id, value.name);
+									problems.push(value.name);
+								});
+								var company = new Company(value.id, value.name, value.contactor, value.email, new_email_src, value.phone, new_phone_src, value.star, value.address, value.area, problems);
 
 								self.companyList.push(company);
 
@@ -316,10 +323,27 @@
 								});
 							});
 						};
+						
+						self.updateProblem = function(item, event) {
+							
+							self.companyList()[0].problems.push(item);
+							
+							if (event.stopPropagation) {event.stopPropagation();}
+							
+							if ($(event.target).is(':selected')) {
+								$(event.target).attr('checked', false);
+							} else {
+								$(event.target).attr('checked', true);
+							}
+						};
 					};
+					
 					var model = new CompanyModel();
 					model.init();
-					ko.applyBindings(model);
+					var $container = $("#container")[0];
+					ko.applyBindings(model, $container);
+					
+					
 
 				});
 	</script>
