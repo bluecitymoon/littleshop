@@ -1,15 +1,16 @@
 package com.ls.controller;
 
 import java.net.URLDecoder;
-import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.struts2.json.JSONException;
 import org.apache.struts2.json.JSONUtil;
-import org.apache.struts2.util.DateFormatter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -43,6 +44,8 @@ public class GrabAction extends BaseAction {
 	private List<City> jiangsuCities = new ArrayList<City>();
 	
 	private String statistic;
+	
+	private GrabStatistic grabStatistic;
 
 	public String grabCompanyIndexPage() {
 		String url = getParameter("url");
@@ -85,11 +88,28 @@ public class GrabAction extends BaseAction {
 	public String grabSelectedCities() {
 		
 		String selectedURLs = getParameter("selectedURLs");
+		String lastPublishDate = getParameter("lastPublishDate");
+		
+		if (StringUtils.isBlank(lastPublishDate)) {
+			lastPublishDate = "2014/01/01";
+		}
+		
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/DD/yyyy");
+		java.util.Date lastDate = null;
+		try {
+			lastDate = simpleDateFormat.parse(lastPublishDate);
+			
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		
 		try {
 			List<String> cityURLs = (List<String>) JSONUtil.deserialize(selectedURLs);
 			
 			for (String url : cityURLs) {
-				GrabStatistic grabStatistic = grabService.grabCompanyInformationByUrl(url, "7-17");
+				 grabStatistic = grabService.grabCompanyInformationByUrl(url, lastDate);
 				
 			}
 		} catch (JSONException e) {
@@ -119,6 +139,14 @@ public class GrabAction extends BaseAction {
 
 	public void setStatistic(String statistic) {
 		this.statistic = statistic;
+	}
+
+	public GrabStatistic getGrabStatistic() {
+		return grabStatistic;
+	}
+
+	public void setGrabStatistic(GrabStatistic grabStatistic) {
+		this.grabStatistic = grabStatistic;
 	}
 	
 }

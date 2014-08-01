@@ -1,5 +1,6 @@
 package com.ls.service;
 
+import java.util.Date;
 import java.util.List;
 
 import com.ls.entity.Company;
@@ -17,5 +18,5 @@ public interface GrabService {
 	
 	Company grabCompanyDetail(String detailPageUrl);
 
-	GrabStatistic grabCompanyInformationByUrl(String url, String publishDateEnd);
+	GrabStatistic grabCompanyInformationByUrl(String url, Date publishDateEnd);
 }

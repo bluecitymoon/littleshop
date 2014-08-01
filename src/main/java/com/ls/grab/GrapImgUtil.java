@@ -73,7 +73,7 @@ public class GrapImgUtil {
 
 			String name = new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date());
 			
-			File storeFile = new File("D:\\data\\Jerry\\littleshop\\src\\main\\webapp\\img\\" + name + ".jpg");
+			File storeFile = new File("D:\\workspace\\littleshop\\src\\main\\webapp\\img\\" + name + ".jpg");
 
 			if (!storeFile.exists()) {
 				storeFile.createNewFile();
