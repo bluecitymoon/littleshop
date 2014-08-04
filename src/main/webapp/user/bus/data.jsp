@@ -59,6 +59,9 @@
 								<a class="small blue button" href="#" data-bind="click : searchCompany" > 搜索符合条件的客户 </a>
 							</div>
 						</div>
+						<div class="row">
+							<a class="small blue button" href="#" data-bind="click : test" > Test </a>
+						</div>
 					</div>
 				</div>
 
@@ -126,12 +129,12 @@
 																<h2>客户关注点</h2>
 															</div>
 															<div class="content">
-																<ul data-bind="foreach : $root.allProblemsConstant">
+																<ul data-bind="foreach : problems">
 																	<li>
 																		<div class="row collapse">
 																			<label class="input-checkbox">
-																				<input type="checkbox" data-bind="value : $data, checked: $parent.problems, click: $root.updateProblem">
-																				<span data-bind="text : $data"></span>
+																				<input type="checkbox" data-bind="attr: {id: id }, value : id, checked: checked, click : updateProblem">
+																				<span data-bind="text : name"></span>
 																			</label>
 																		</div>
 																	</li>
@@ -197,11 +200,14 @@
 	<script src="/ls/js/jquery.raty.js"></script>
 	<script>
 		$(document).ready( function() {
+			
 					var Problem = function(id, name) {
 						var self = this;
 						
 						self.id= id;
 						self.name = name;
+						self.checked = ko.observable(false);
+						
 					};
 					
 					var Company = function(id, name, contractor, email, email_src, phone, phone_src, star, address, distinct, problems) {
@@ -217,7 +223,7 @@
 						self.star = star;
 						self.address = address;
 						self.distinct = distinct;
-						self.problems = problems;
+						self.problems = ko.observableArray(problems);
 					};
 
 					var CompanyModel = function() {
@@ -242,6 +248,7 @@
 									  	self.starInput(score);
 									  }
 								});
+							
 							self.searchCompany();
 							
 							$.ajax({
@@ -251,7 +258,7 @@
 									$.each(data, function(index, value) {
 										var problem = new Problem(value.id, value.name);
 
-										self.allProblemsConstant.push(value.name);
+										self.allProblemsConstant.push(problem);
 
 									});
 								}
@@ -268,10 +275,6 @@
 						self.nextPage = function() {
 							self.currentIndex(self.currentIndex() + 1);
 							self.searchCompany();
-						};
-						
-						self.test = function(a,b,c,d) {
-							console.debug(a + b + c + d);
 						};
 						
 						self.detail = function(item, event) {
@@ -301,6 +304,7 @@
 						};
 						
 						self.fillCompany = function(data) {
+							
 							self.companyList.removeAll();
 
 							$.each(data, function(index, value) {
@@ -308,10 +312,18 @@
 								var new_email_src = "/ls/img/" + value.emailSrc;
 								
 								var problems = new Array();
-								$.each(value.problems, function(index, value) {
-									var problem = new Problem(value.id, value.name);
-									problems.push(value.name);
+								
+								$.each(self.allProblemsConstant(), function(index, problemConstant) {
+									
+									var checked = self.findProblemInItem(value.problems, problemConstant.id);
+									
+									var problem = new Problem(problemConstant.id, problemConstant.name);
+									problem.checked(checked);
+									
+									problems.push(problem);
+									
 								});
+								
 								var company = new Company(value.id, value.name, value.contactor, value.email, new_email_src, value.phone, new_phone_src, value.star, value.address, value.area, problems);
 
 								self.companyList.push(company);
@@ -324,18 +336,37 @@
 							});
 						};
 						
+						self.findProblemInItem = function(array, id) {
+							var found = false;
+							$.each(array, function(i, v) {
+								if (v.id == id) {
+									found = true;
+								}
+							});
+							
+							return found;
+						};
+						
 						self.updateProblem = function(item, event) {
 							
-							self.companyList()[0].problems.push(item);
+						//	self.companyList()[0].problems().push(item);
 							
-							if (event.stopPropagation) {event.stopPropagation();}
+						//	if (event.stopPropagation) {event.stopPropagation();}
 							
-							if ($(event.target).is(':selected')) {
-								$(event.target).attr('checked', false);
-							} else {
-								$(event.target).attr('checked', true);
-							}
+						//	if ($(event.target).is(':selected')) {
+						//		$(event.target).removeAttr('checked');
+						//		
+						//	} else {
+						//		$(event.target).attr('checked', 'checked');
+						//	}
+							
+							return true;
 						};
+						
+						self.test = function() {
+							self.companyList()[0].problems.push('关注点3');
+						};
+						
 					};
 					
 					var model = new CompanyModel();

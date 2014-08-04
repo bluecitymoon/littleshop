@@ -196,28 +196,22 @@ public class GrabServiceImpl implements GrabService {
 					
 					String grabingPublishDate = company.getPublishDate();
 					SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyy-MM-DD");
-					try {
-<<<<<<< HEAD
-						//break condition
-						if (StringUtils.isNotBlank(grabingPublishDate) && simpleDateFormat.parse(grabingPublishDate).after(simpleDateFormat.parse(publishDateEnd))) {
+				try {
+					// break condition
+
+					if (StringUtils.isNotBlank(grabingPublishDate)) {
+
+						boolean ifChoosenDateBeforePublishDate = simpleDateFormat.parse("2014-" + grabingPublishDate).before(publishDateEnd);
+
+						if (ifChoosenDateBeforePublishDate) {
 							grabStatistic.setSaved(saved);
 							grabStatistic.setTotalReaded(proccessCount);
-=======
-						
-						if (StringUtils.isNotBlank(grabingPublishDate)) {
->>>>>>> f730dc19e91654daacd313bf10cba13576b3d0ce
-							
-						boolean ifChoosenDateBeforePublishDate = simpleDateFormat.parse("2014-" + grabingPublishDate).before(publishDateEnd);
-					
-						if ( ifChoosenDateBeforePublishDate) {
-								grabStatistic.setSaved(saved);
-								grabStatistic.setTotalReaded(proccessCount);
-								grabStatistic.setDuplicate(duplicate);
-								
-								return grabStatistic;
-							}
+							grabStatistic.setDuplicate(duplicate);
+
+							return grabStatistic;
 						}
-					} catch (ParseException e) {
+					}
+				} catch (ParseException e) {
 						//
 					}
 			}
