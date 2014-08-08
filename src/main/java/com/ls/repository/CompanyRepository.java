@@ -11,4 +11,6 @@ import com.ls.entity.Company;
 public interface CompanyRepository extends JpaRepository<Company, Integer> , JpaSpecificationExecutor<Company>{
 	
 	List<Company> findByNameAndFEurl(String name, String fEurl);
+	
+	List<Company> findByNameAndContactorAndArea(String name, String contactor, String area);
 }

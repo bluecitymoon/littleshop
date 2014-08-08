@@ -12,6 +12,8 @@
 <meta name="viewport" content="width=device-width" />
 <title>Data Management</title>
 <link rel="stylesheet" href="/ls/css/jquery.raty.css">
+<link rel="stylesheet" href="/ls/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="/ls/css/flat-ui.css">
 <s:include value="/jsps/common/head.jsp" />
 
 </head>
@@ -33,6 +35,23 @@
 						<h2>搜索</h2>
 					</div>
 					<div class="content">
+					
+						<div class="row">
+							<div class="three columns">
+								<label>省/直辖市</label>
+								<select data-bind="options: provinces, optionsCaption: '全部', optionsText: 'name', optionsValue: 'id', value: selectedProvince, valueAllowUnset: true"></select>
+							</div>
+							<div class="three columns">
+								<label>市</label>
+								<select data-bind="options: cities, optionsCaption: '全部', optionsText: 'name', optionsValue: 'id', value: selectedCity, valueAllowUnset: true"></select>
+							</div>
+							
+							<div class="three columns">
+							</div>
+							<div class="three columns">
+							</div>
+						</div>
+						<hr>
 						<div class="row">
 							<div class="three columns">
 								<label>公司名称</label>
@@ -59,9 +78,6 @@
 								<a class="small blue button" href="#" data-bind="click : searchCompany" > 搜索符合条件的客户 </a>
 							</div>
 						</div>
-						<div class="row">
-							<a class="small blue button" href="#" data-bind="click : test" > Test </a>
-						</div>
 					</div>
 				</div>
 
@@ -73,11 +89,17 @@
 						<form class="nice custom"></form>
 						<ul class="smartlist nice" data-bind="foreach: companyList">
 							<li>
-								<div class="row" data-bind="click : $root.detail">
+								<div class="row">
 									<label class="input-checkbox">
 										<div class="row">
 											<div class="two columns">
-												<button class="tiny green button" style="margin-left: 20px;" data-bind="$root.showDetail">详细信息</button>
+												<div class="row">
+													<a class="tiny green " style="margin-left: 20px;" data-bind="attr : {'id': id, 'detailUrl' : detailUrl}, click : $root.showDetail, clickBubble : false" href="#">详细信息</a>
+												</div>
+												<br>
+												<div class="row">
+													<a class="tiny green " style="margin-left: 20px;" data-bind="click : $root.detail, clickBubble : false" href="#">展开/收起</a>
+												</div>
 											</div>
 											<div class="three columns text-center">
 												<h5>
@@ -96,7 +118,8 @@
 											</div>
 										</div>
 									</label>
-									<div class="row companydetail" style="display: none;">
+									<div style="display: none;" data-bind="attr : {'class': id}">
+									<div class="row companydetail">
 										<div class="app-wrapper ui-corner-top">
 											<div class="gray module ui-corner-top clearfix">
 												<h2>
@@ -129,13 +152,28 @@
 																<h2>客户关注点</h2>
 															</div>
 															<div class="content">
-																<ul data-bind="foreach : problems">
+																<ul >
+																	<li data-bind="foreach : problems">
+																	<div class="row">
+																		<div class="ten columns">
+																			<label class="btn btn-block btn-lg btn-success">
+																			<span data-bind="text : $data"></span>
+																		</label>
+																		</div>
+																		<div class="two columns">
+																			<button class="tiny blue button">删除</button>
+																		</div>
+																	</div>
+																		
+																	</li>
 																	<li>
-																		<div class="row collapse">
-																			<label class="input-checkbox">
-																				<input type="checkbox" data-bind="attr: {id: id }, value : id, checked: checked, click : updateProblem">
-																				<span data-bind="text : name"></span>
-																			</label>
+																		<div class="row">
+																		<div class="ten columns">
+																			<select data-bind="options:$root.allProblemsConstant, selectedOptions:$parent.selectedItem"> </select> 
+																		</div>
+																		<div class="two columns">
+																			<button class="tiny blue button">增加</button>
+																		</div>
 																		</div>
 																	</li>
 																</ul>
@@ -172,6 +210,7 @@
 											</div>
 										</div>
 									</div>
+									</div>
 								</div>
 							</li>
 						</ul>
@@ -207,10 +246,11 @@
 						self.id= id;
 						self.name = name;
 						self.checked = ko.observable(false);
+						self.selectedItem = ko.observable('');
 						
 					};
 					
-					var Company = function(id, name, contractor, email, email_src, phone, phone_src, star, address, distinct, problems) {
+					var Company = function(id, name, contractor, email, email_src, phone, phone_src, star, address, distinct, problems, detailUrl) {
 						var self = this;
 						
 						self.id = id;
@@ -224,8 +264,20 @@
 						self.address = address;
 						self.distinct = distinct;
 						self.problems = ko.observableArray(problems);
+						self.detailUrl = detailUrl;
 					};
 
+					var Province = function(id, name, cities) {
+						this.id = id;
+						this.name = name;
+						this.cities = cities;
+					};
+					
+					var City = function(id, name) {
+						this.id = id;
+						this.name = name;
+					};
+					
 					var CompanyModel = function() {
 						var self = this;
 
@@ -241,6 +293,18 @@
 						self.searchDistinct =  ko.observable('');
 						self.allStar = ko.observable(true);
 						self.allProblemsConstant = ko.observableArray([]);
+						self.provinces = ko.observableArray([]);
+						self.selectedProvince =  ko.observable('');
+						self.cities = ko.computed(function() {
+							var cityOptions;
+							$.each(self.provinces(), function(i, n){
+								if (n.id == self.selectedProvince()) {
+									cityOptions =  n.cities;
+								}
+							});
+							return cityOptions;
+						});
+						self.selectedCity = ko.observable('');
 						
 						self.init = function() {
 							$('#starInput').raty({
@@ -254,17 +318,33 @@
 							$.ajax({
 								url : '/ls/findAllProblems.ls',
 								success : function(data) {
-
+									
 									$.each(data, function(index, value) {
-										var problem = new Problem(value.id, value.name);
 
-										self.allProblemsConstant.push(problem);
+										self.allProblemsConstant.push(value.name);
 
 									});
 								}
 							});
+							
+							$.ajax({
+								url : '/ls/findAllProvinces.ls',
+								success : function(data) {
+									
+									$.each(data, function(index, value) {
+
+										//self.provinces.push(value.name);
+										var cities = new Array();
+										$.each(value.citys, function(i, n){
+											var city = new City(n.id, n.name);
+											cities.push(city);
+										});
+										var province = new Province(value.id, value.name, cities);
+										self.provinces.push(province);
+									});
+								}
+							});
 						};
-						
 						
 						self.lastPage = function() {
 							
@@ -278,13 +358,13 @@
 						};
 						
 						self.detail = function(item, event) {
-							var $this = $(event.target);
-							$this.parent().parent().find('.companydetail').toggle('blind', {}, 200);
+							$('.'+item.id).toggle('blind', {}, 200);
+							//var $this = $(event.target);
+							//$this.parent().parent().find('.companydetail').toggle('blind', {}, 200);
 						};
 
 						self.showDetail = function(item, event) {
-							var $this = $(event.target);
-							$this.parent().parent().parent().parent().find('.companydetail').toggle('blind', {}, 200);
+							window.open(item.detailUrl, '_blank');
 						};
 						
 						self.searchCompany = function() {
@@ -313,18 +393,11 @@
 								
 								var problems = new Array();
 								
-								$.each(self.allProblemsConstant(), function(index, problemConstant) {
-									
-									var checked = self.findProblemInItem(value.problems, problemConstant.id);
-									
-									var problem = new Problem(problemConstant.id, problemConstant.name);
-									problem.checked(checked);
-									
-									problems.push(problem);
-									
+								$.each(value.problems, function(i, n) {
+									problems.push(n.name);
 								});
 								
-								var company = new Company(value.id, value.name, value.contactor, value.email, new_email_src, value.phone, new_phone_src, value.star, value.address, value.area, problems);
+								var company = new Company(value.id, value.name, value.contactor, value.email, new_email_src, value.phone, new_phone_src, value.star, value.address, value.area, problems, value.fEurl);
 
 								self.companyList.push(company);
 
@@ -364,7 +437,7 @@
 						};
 						
 						self.test = function() {
-							self.companyList()[0].problems.push('关注点3');
+							window.open('/ls/user/conf.ls', '_blank');
 						};
 						
 					};
@@ -373,8 +446,6 @@
 					model.init();
 					var $container = $("#container")[0];
 					ko.applyBindings(model, $container);
-					
-					
 
 				});
 	</script>

@@ -7,9 +7,12 @@ import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.ls.entity.City;
 import com.ls.entity.Problem;
+import com.ls.entity.Province;
 import com.ls.entity.Step;
 import com.ls.repository.ProblemRepository;
+import com.ls.repository.ProvinceRepository;
 import com.ls.repository.StepRepository;
 import com.ls.service.CompanyService;
 
@@ -27,8 +30,13 @@ public class CommonAction extends BaseAction {
 	@Autowired
 	private StepRepository stepRepository;
 	
+	@Autowired
+	private ProvinceRepository provinceRepository;
+	
 	private List<Problem> problems;
 	private List<Step> steps;
+	private List<Province> provinces;
+	private List<City> cities;
 	
 	/**
 	 * static resources
@@ -45,6 +53,24 @@ public class CommonAction extends BaseAction {
 		steps = stepRepository.findAll();
 		
 		return SUCCESS;
+	}
+	
+	public String findAllProvinces() {
+		provinces = provinceRepository.findAll();
+		
+		return SUCCESS;
+	}
+	
+	public String findAllCities() {
+		return SUCCESS;
+	}
+
+	public List<Province> getProvinces() {
+		return provinces;
+	}
+
+	public void setProvinces(List<Province> provinces) {
+		this.provinces = provinces;
 	}
 
 	public List<Problem> getProblems() {
@@ -64,5 +90,12 @@ public class CommonAction extends BaseAction {
 		this.steps = steps;
 	}
 
+	public List<City> getCities() {
+		return cities;
+	}
+
+	public void setCities(List<City> cities) {
+		this.cities = cities;
+	}
 	
 }

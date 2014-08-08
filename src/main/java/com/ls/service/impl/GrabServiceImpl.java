@@ -137,7 +137,11 @@ public class GrabServiceImpl implements GrabService {
 			List<Company> basicCompany = HtmlParserUtilPlanB.findPagedCompanyList(html);
 			
 			for (Company company : basicCompany) {
-				
+					if (isDulpicate(company)) {
+						duplicate ++;
+						continue;
+					}
+					
 					try {
 						
 						String companyDetailUrl = company.getfEurl();
@@ -230,5 +234,13 @@ public class GrabServiceImpl implements GrabService {
 		
 		return true;
 	}
-
+	
+	private boolean isDulpicate(Company company) {
+		List<Company> companies = companyRepository.findByNameAndContactorAndArea(company.getName(), company.getContactor(), company.getArea());
+		
+		if(companies == null || companies.size() == 0) return false;
+		
+		
+		return true;
+	}
 }

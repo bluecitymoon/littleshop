@@ -26,6 +26,11 @@
 				<param name="root">steps</param>
 			</result>
 		</action>
+		<action name="findAllProvinces" class="commonAction" method="findAllProvinces">
+			<result name="success" type="json">
+				<param name="root">provinces</param>
+			</result>
+		</action>
 	</package>
 	
 	<package name="user" namespace="/user" extends="struts-default">
@@ -34,7 +39,10 @@
 			 <result-type name="redirect" class="org.apache.struts2.dispatcher.ServletRedirectResult"/> 
 		</result-types>
 		<action name="hello" class="userAction" method="doLogin">
-			<result name="success">bus/main.jsp</result>
+			<result name="success" type="redirectAction">
+				<param name="actionName">load</param>
+				<param name="namespace">/user</param>
+			</result>
 			<result name="error" type="redirectAction">
 				<param name="actionName">home</param>
 				<param name="namespace">/</param>

@@ -4,10 +4,12 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
 import com.ls.entity.Company;
+import com.ls.repository.CompanyRepository;
 import com.ls.service.CompanyService;
 
 @Component("companyAction")
@@ -18,9 +20,14 @@ public class CompanyAction extends BaseAction {
 	private List<Company> companies;
 	
 	private Page<Company> company;
+	
+	private Company c;
 
 	@Resource(name = "companyService")
 	private CompanyService companyService;
+	
+	@Autowired
+	private CompanyRepository companyRepository;
 
 	public String loadAllCompany() {
 		String pageNumbersString = getParameter("pageNumber");
@@ -55,6 +62,14 @@ public class CompanyAction extends BaseAction {
 		return SUCCESS;
 	}
 	
+	public String saveCompany() {
+		String companyId = getParameter("cid");
+		
+		c = companyRepository.findOne(Integer.valueOf(companyId));
+		
+		return SUCCESS;
+	}
+	
 	public List<Company> getCompanies() {
 		return companies;
 	}
@@ -71,6 +86,12 @@ public class CompanyAction extends BaseAction {
 		this.company = company;
 	}
 
-	
+	public Company getC() {
+		return c;
+	}
+
+	public void setC(Company c) {
+		this.c = c;
+	}
 	
 }

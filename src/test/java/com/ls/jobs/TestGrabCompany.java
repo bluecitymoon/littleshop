@@ -340,4 +340,13 @@ public class TestGrabCompany {
 		}
 	}
 	
+	@Test
+	public void testFindCompanyWithNameContactorArea() {
+		List<Company> companies = companyRepository.findByNameAndContactorAndArea("姑苏区欧泉伊妮美容美体馆", "唐先生", "苏州");
+		Assert.assertTrue(companies.size() > 0);
+		
+		System.out.println(companies);
+		
+	}
+	
 }
