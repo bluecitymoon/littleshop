@@ -7,18 +7,18 @@ import java.util.List;
 import java.util.Random;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.time.DateFormatUtils;
-import org.apache.commons.lang.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.google.common.collect.ImmutableList;
+import com.ls.entity.City;
 import com.ls.entity.CityURL;
 import com.ls.entity.Company;
 import com.ls.entity.CompanyResource;
 import com.ls.grab.GrapImgUtil;
 import com.ls.grab.HtmlParserUtilPlanB;
 import com.ls.grab.HttpClientGrabUtil;
+import com.ls.repository.CityRepository;
 import com.ls.repository.CityURLRepository;
 import com.ls.repository.CompanyRepository;
 import com.ls.repository.CompanyResourceRepository;
@@ -36,6 +36,9 @@ public class GrabServiceImpl implements GrabService {
 	
 	@Autowired
 	private CompanyRepository companyRepository;
+	
+	@Autowired
+	private CityRepository cityRepository;
 	
 	public List<String> findFeCityURLs() {
 		
@@ -117,7 +120,11 @@ public class GrabServiceImpl implements GrabService {
 		return company;
 	}
 
+	/**
+	 * 只抓10分钟,悠着点
+	 */
 	public GrabStatistic grabCompanyInformationByUrl(String url, Date publishDateEnd) {
+		long start = System.currentTimeMillis();
 		
 		GrabStatistic grabStatistic = new GrabStatistic();
 		
@@ -135,7 +142,8 @@ public class GrabServiceImpl implements GrabService {
 			String html = HttpClientGrabUtil.fetchHTMLwithURL(pageURL);
 			
 			List<Company> basicCompany = HtmlParserUtilPlanB.findPagedCompanyList(html);
-			
+			List<City> citys = cityRepository.findByUrl(url);
+			City myCity = citys.get(0);
 			for (Company company : basicCompany) {
 					if (isDulpicate(company)) {
 						duplicate ++;
@@ -169,6 +177,8 @@ public class GrabServiceImpl implements GrabService {
 							company.setEmailSrc(emailImgFileNameAfterGrabed);
 						}
 						
+						company.setCityId(myCity.getId());
+						company.setProvinceId(myCity.getProvince().getId());
 						
 					} catch (Exception e) {
 						error ++;
@@ -221,6 +231,19 @@ public class GrabServiceImpl implements GrabService {
 			}
 			
 			pageNumber ++;
+			
+			long now = System.currentTimeMillis();
+			
+			long timeLasts = now - start;
+			
+			if( timeLasts > 1000 * 60 * 10) {
+				
+				grabStatistic.setSaved(saved);
+				grabStatistic.setTotalReaded(proccessCount);
+				grabStatistic.setDuplicate(duplicate);
+
+				return grabStatistic;
+			}
 		}
 		
 		

@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -21,7 +22,7 @@ public class Province implements Serializable {
 	protected Integer id;
 	protected String name;
 	
-	@OneToMany(mappedBy="province", cascade = CascadeType.PERSIST)
+	@OneToMany(mappedBy="province", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
 	protected List<City> citys;
 	public Integer getId() {
 		return id;

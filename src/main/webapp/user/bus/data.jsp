@@ -86,7 +86,10 @@
 						<h2>客户追踪</h2>
 					</div>
 					<div class="content">
-						<form class="nice custom"></form>
+						<div class="row">
+							共找到<label class="green label" data-bind="text: totalPagesCount"></label> 波 ， <label class="yellow label" data-bind="text: totalCompanyCount"></label>个客户
+						</div>
+						<br>
 						<ul class="smartlist nice" data-bind="foreach: companyList">
 							<li>
 								<div class="row">
@@ -172,7 +175,7 @@
 																			<select data-bind="options:$root.allProblemsConstant, selectedOptions:$parent.selectedItem"> </select> 
 																		</div>
 																		<div class="two columns">
-																			<button class="tiny blue button">增加</button>
+																			<a href="#" class="tiny blue button" data-bind="click: $root.addProblem">增加</a>
 																		</div>
 																		</div>
 																	</li>
@@ -188,7 +191,7 @@
 															</div>
 															<div class="content">
 																<label class="input-checkbox selected" for="ex-chx-a"> <input type="checkbox" name="ex-checkbox" id="ex-chx-a" value="1" /> 第一次沟通
-																</label> <label class=".selected input-checkbox" for="ex-chx-b"> <input type="checkbox" name="ex-checkbox" id="ex-chx-b" value="2" /> 希望不大
+																</label> <label class=".selected input-checkbox" for="ex-chx-b"> <input type="checkbox" name="ex-checkbox" id="ex-chx-b" value="2" /> 第二次沟通
 																</label>
 															</div>
 														</div>
@@ -196,13 +199,13 @@
 													<div class="six columns">
 														<div class="app-wrapper ui-corner-top">
 															<div class="module ui-corner-top clearfix">
-																<h2>跟踪情况</h2>
+																<h2>跟踪情况(心得体会)</h2>
 																<h2 class="right">
 																	<a href="" class="nice radius blue tiny button">保存</a>
 																</h2>
 															</div>
 															<div class="content">
-																<textarea class="tall" name="ex-textarea-4">这个客户基本上没啥希望</textarea>
+																<textarea class="tall" name="ex-textarea-4">革命尚未成功，同志仍需努力！</textarea>
 															</div>
 														</div>
 													</div>
@@ -217,7 +220,7 @@
 						
 						<div class="row">
 							<div class="three columns">
-								共找到 <label class="yellow label" data-bind="text: totalCompanyCount"></label>个客户
+								
 							</div>
 							<div class="six columns">
 								<a href="#" class="small blue button"  data-bind="click : lastPage, disable : currentIndex() > 1" >上一波客户</a>
@@ -225,7 +228,7 @@
 								<a href="#" class="small blue button" data-bind="click : nextPage">下一波客户</a>
 							</div>
 							<div class="three columns">
-								 <span>去</span><input type="text" data-bind="value : pageIndexToGo" style="width:50px">
+								<!--  <span>去</span><input type="text" data-bind="value : pageIndexToGo" style="width:50px"> -->
 							</div>
 						</div>
 					</div>
@@ -283,9 +286,9 @@
 
 						self.companyList = ko.observableArray([]);
 						self.currentIndex = ko.observable(1);
-						self.pageIndexToGo = ko.observable(1);
-						self.totalPagesCount = ko.observable(1);
-						self.totalCompanyCount = ko.observable(0);
+						self.pageIndexToGo = ko.observable('');
+						self.totalPagesCount = ko.observable('1');
+						self.totalCompanyCount = ko.observable('0');
 						self.starInput = ko.observable(0);
 						self.distinctInput = ko.observable();
 						self.seachCompany = ko.observable('');
@@ -376,7 +379,10 @@
 										searchDistinct: self.searchDistinct(),
 										seachCompany : self.seachCompany(), 
 										searchContactor : self.searchContactor(),
-										allStar : self.allStar()},
+										allStar : self.allStar(),
+										cityId : self.selectedCity(),
+										provinceId : self.selectedProvince()
+										},
 								success : function(data) {
 									self.fillCompany(data);
 								}
@@ -387,7 +393,7 @@
 							
 							self.companyList.removeAll();
 
-							$.each(data, function(index, value) {
+							$.each(data.elements, function(index, value) {
 								var new_phone_src = "/ls/img/" + value.phoneSrc;
 								var new_email_src = "/ls/img/" + value.emailSrc;
 								
@@ -407,6 +413,9 @@
 									}
 								});
 							});
+							
+							self.totalCompanyCount(data.total);
+							self.totalPagesCount(data.totalPages);
 						};
 						
 						self.findProblemInItem = function(array, id) {
@@ -418,6 +427,10 @@
 							});
 							
 							return found;
+						};
+						
+						self.addProblem = function(item, event) {
+							console.debug(item);
 						};
 						
 						self.updateProblem = function(item, event) {
@@ -434,10 +447,6 @@
 						//	}
 							
 							return true;
-						};
-						
-						self.test = function() {
-							window.open('/ls/user/conf.ls', '_blank');
 						};
 						
 					};

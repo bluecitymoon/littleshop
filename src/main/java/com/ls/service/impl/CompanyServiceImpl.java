@@ -21,6 +21,7 @@ import com.ls.repository.CompanyRepository;
 import com.ls.repository.ProblemRepository;
 import com.ls.repository.StepRepository;
 import com.ls.service.CompanyService;
+import com.ls.vo.CompanySearchVo;
 
 @Service("companyService")
 public class CompanyServiceImpl implements CompanyService {
@@ -63,8 +64,17 @@ public class CompanyServiceImpl implements CompanyService {
 		
 		return companyPage;
 	}
-
+	
+	@Override
+	public Page<Company> getCompanyInPage(final CompanySearchVo companySearchVo) {
+		
+		 Page<Company> companyPage = companyRepository.findAll(generateSpecification(companySearchVo), new PageRequest(Integer.valueOf(companySearchVo.getPageNumber()), 5));
+		 
+		 return companyPage;
+	}
+	
 	private Specification<Company> generateSpecification(final String companyNameParam, final String contactorParam, final String starParam, final String allStarCheckboxParam, final String distinctParam) {
+		
 		return new Specification<Company>() {
 
 			public Predicate toPredicate(Root<Company> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
@@ -95,4 +105,46 @@ public class CompanyServiceImpl implements CompanyService {
 		};
 
 	}
+
+	private Specification<Company> generateSpecification(final CompanySearchVo companySearchVo) {
+		return new Specification<Company>() {
+
+			public Predicate toPredicate(Root<Company> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+
+				Predicate predicate = cb.conjunction();
+				
+				if (StringUtils.isNotBlank(companySearchVo.getCompanyNameParam())) {
+					predicate.getExpressions().add(cb.like(root.<String> get("name"), "%" + companySearchVo.getCompanyNameParam().trim() + "%"));
+				}
+				
+				if (StringUtils.isNotBlank(companySearchVo.getContactorParam())) {
+					predicate.getExpressions().add(cb.equal(root.<String> get("contactor"), companySearchVo.getContactorParam().trim()));
+				}
+				
+				if (StringUtils.isNotBlank(companySearchVo.getDistinctParam())) {
+					predicate.getExpressions().add(cb.equal(root.<String> get("area"), companySearchVo.getDistinctParam().trim()));
+				}
+				
+				if (StringUtils.isNotBlank(companySearchVo.getAllStarCheckboxParam())) {
+					
+					//all star true : ignore star value
+					if (companySearchVo.getAllStarCheckboxParam().trim().equalsIgnoreCase("false")) {
+						predicate.getExpressions().add(cb.equal(root.<String> get("star"), Integer.valueOf(companySearchVo.getAllStarCheckboxParam())));
+					}
+				}
+				
+				if (StringUtils.isNotBlank(companySearchVo.getCityId())) {
+					predicate.getExpressions().add(cb.equal(root.<String> get("cityId"), companySearchVo.getCityId().trim()));
+				}
+				
+				if (StringUtils.isNotBlank(companySearchVo.getProvinceId())) {
+					predicate.getExpressions().add(cb.equal(root.<String> get("provinceId"), companySearchVo.getProvinceId().trim()));
+				}
+				return predicate;
+			}
+		};
+
+	}
+	
+	
 }

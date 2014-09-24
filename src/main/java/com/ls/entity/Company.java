@@ -35,6 +35,8 @@ public class Company implements Serializable {
 	protected String area;
 	protected String fEurl;
 	protected String phoneImgSrc;
+	protected Integer cityId;
+	protected Integer provinceId;
 	
 	@ManyToMany
     @JoinTable(name = "ls_company_problem", joinColumns = @JoinColumn(name = "company_id"), inverseJoinColumns = @JoinColumn(name = "problem_id") )
@@ -176,5 +178,20 @@ public class Company implements Serializable {
 		this.area = distinct;
 	}
 
+	public Integer getCityId() {
+		return cityId;
+	}
+
+	public void setCityId(Integer cityId) {
+		this.cityId = cityId;
+	}
+
+	public Integer getProvinceId() {
+		return provinceId;
+	}
+
+	public void setProvinceId(Integer provinceId) {
+		this.provinceId = provinceId;
+	}
 	
 }

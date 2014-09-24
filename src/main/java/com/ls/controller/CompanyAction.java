@@ -11,6 +11,8 @@ import org.springframework.stereotype.Component;
 import com.ls.entity.Company;
 import com.ls.repository.CompanyRepository;
 import com.ls.service.CompanyService;
+import com.ls.vo.CompanySearchVo;
+import com.ls.vo.PagedElement;
 
 @Component("companyAction")
 public class CompanyAction extends BaseAction {
@@ -19,7 +21,7 @@ public class CompanyAction extends BaseAction {
 
 	private List<Company> companies;
 	
-	private Page<Company> company;
+	private PagedElement<Company> company;
 	
 	private Company c;
 
@@ -37,13 +39,13 @@ public class CompanyAction extends BaseAction {
 		
 		Integer pageNumber = Integer.valueOf(pageNumbersString);
 		
-		
 		companies = companyService.findAllCompanies();
 
 		return SUCCESS;
 	}
 
 	public String loadCompanyInPage() {
+		
 		String pageNumbersString = getParameter("pageNumber");
 		if (null == pageNumbersString) {
 			pageNumbersString = "1";
@@ -54,10 +56,23 @@ public class CompanyAction extends BaseAction {
 		String starParam = getParameter("starInput");
 		String allStarCheckboxParam = getParameter("allStar");
 		String distinctParam = getParameter("searchDistinct");
+		String cityId = getParameter("cityId");
+		String provinceId = getParameter("provinceId");
 		
-		Integer pageNumber = Integer.valueOf(pageNumbersString);
+		CompanySearchVo companySearchVo = new CompanySearchVo();
+		companySearchVo.setCompanyNameParam(companyNameParam);
+		companySearchVo.setContactorParam(contactorParam);
+		companySearchVo.setStarParam(starParam);
+		companySearchVo.setAllStarCheckboxParam(allStarCheckboxParam);
+		companySearchVo.setDistinctParam(distinctParam);
+		companySearchVo.setCityId(cityId);
+		companySearchVo.setProvinceId(provinceId);
+		companySearchVo.setPageNumber(pageNumbersString);
 		
-		company = companyService.getCompanyInPage(companyNameParam, contactorParam, starParam, allStarCheckboxParam, distinctParam, pageNumber);
+		
+		Page<Company> result = companyService.getCompanyInPage(companySearchVo);
+		
+		company = new PagedElement<Company>(result);
 		
 		return SUCCESS;
 	}
@@ -77,12 +92,12 @@ public class CompanyAction extends BaseAction {
 	public void setCompanies(List<Company> companies) {
 		this.companies = companies;
 	}
-
-	public Page<Company> getCompany() {
+	
+	public PagedElement<Company> getCompany() {
 		return company;
 	}
 
-	public void setCompany(Page<Company> company) {
+	public void setCompany(PagedElement<Company> company) {
 		this.company = company;
 	}
 

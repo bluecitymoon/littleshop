@@ -100,19 +100,24 @@ public class GrabAction extends BaseAction {
 			lastDate = simpleDateFormat.parse(lastPublishDate);
 			
 		} catch (ParseException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			
 		}
-		
 		
 		try {
 			List<String> cityURLs = (List<String>) JSONUtil.deserialize(selectedURLs);
 			
 			for (String url : cityURLs) {
 				 grabStatistic = grabService.grabCompanyInformationByUrl(url, lastDate);
+				 try {
+					Thread.sleep(60 * 2 * 1000);
+					
+				} catch (InterruptedException e) {
+					
+				}
 				
 			}
 		} catch (JSONException e) {
+			
 		}
 		return SUCCESS;
 	}
