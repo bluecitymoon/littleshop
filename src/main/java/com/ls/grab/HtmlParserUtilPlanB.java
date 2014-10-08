@@ -14,13 +14,11 @@ import org.htmlparser.tags.DefinitionList;
 import org.htmlparser.tags.DefinitionListBullet;
 import org.htmlparser.tags.Div;
 import org.htmlparser.tags.ImageTag;
-import org.htmlparser.tags.InputTag;
 import org.htmlparser.tags.LinkTag;
 import org.htmlparser.tags.Span;
 import org.htmlparser.tags.TableColumn;
 import org.htmlparser.tags.TableHeader;
 import org.htmlparser.tags.TableRow;
-import org.htmlparser.util.NodeList;
 import org.htmlparser.util.ParserException;
 import org.htmlparser.visitors.NodeVisitor;
 
@@ -47,7 +45,34 @@ public class HtmlParserUtilPlanB {
 		// e.printStackTrace();
 		// }
 	}
-
+	
+	public static Div findFirstOneWithClassName(String html, final String className) {
+		Node[] nodes = null;
+		try {
+			Parser htmlParser = new Parser();
+			htmlParser.setInputHTML(html);
+			
+			nodes = htmlParser.extractAllNodesThatMatch(new NodeFilter() {
+				
+				public boolean accept(Node node) {
+					if (node instanceof Div && StringUtils.isNotBlank(((Div) node).getAttribute("class")) && ((Div) node).getAttribute("class").equalsIgnoreCase(className)) {
+						return true;
+					}
+					return false;
+				}
+			}).toNodeArray();
+			
+		} catch (ParserException e) {
+			return null;
+		}
+		
+		if (nodes != null && nodes.length > 0) {
+			return (Div) nodes[0];
+		}
+		
+		return null;
+	}
+	
 	public static List<Company> findPagedCompanyList(String wholeCityPageHTML) {
 
 		final List<Company> companyList = new ArrayList<Company>();
@@ -522,5 +547,68 @@ public class HtmlParserUtilPlanB {
 		return address.toString();
 
 	
+	}
+	
+	public static String findCompanyEmployeeCount(String detailPageHtml) {
+		final StringBuilder description = new StringBuilder();
+		
+		try {
+
+			Parser htmlParser = new Parser();
+			htmlParser.setInputHTML(detailPageHtml);
+
+			htmlParser.extractAllNodesThatMatch(new NodeFilter() {
+
+				private static final long serialVersionUID = -93037936232004146L;
+
+				public boolean accept(Node node) {
+					if (node instanceof TableRow) {
+						TableRow row = (TableRow) node;
+
+						Node[] nodeList = row.getChildren().toNodeArray();
+
+						// find header, find column
+						boolean contactorHeaderFound = false;
+						for (int i = 0; i < nodeList.length; i++) {
+							Node current = nodeList[i];
+
+							// find title hardly
+							if (!contactorHeaderFound && current instanceof TableHeader) {
+
+								TableHeader th = (TableHeader) current;
+								String tdConent = th.getStringText();
+
+								// found!!!!!!
+								if (tdConent.trim().contains("公司规模")) {
+									contactorHeaderFound = true;
+								}
+							}
+
+							// find his name after title found!!
+							if (contactorHeaderFound && current instanceof TableColumn) {
+								TableColumn td = (org.htmlparser.tags.TableColumn) current;
+								
+								description.append(td.getStringText().trim());
+								
+								return true;
+							}
+
+						}
+					}
+					return false;
+				}
+			});
+
+		} catch (ParserException e) {
+
+		}
+
+		return description.toString();
+	}
+	
+	public static String findCompanyDescription(String html) {
+		Div descriptionDiv = findFirstOneWithClassName(html, "compIntro");
+		
+		return descriptionDiv == null ? "" : descriptionDiv.getStringText();
 	}
 }
