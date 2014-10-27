@@ -37,6 +37,8 @@ public class Company implements Serializable {
 	protected String phoneImgSrc;
 	protected Integer cityId;
 	protected Integer provinceId;
+	protected String employeeCount;
+	protected String description;
 	
 	@ManyToMany
     @JoinTable(name = "ls_company_problem", joinColumns = @JoinColumn(name = "company_id"), inverseJoinColumns = @JoinColumn(name = "problem_id") )
@@ -193,5 +195,20 @@ public class Company implements Serializable {
 	public void setProvinceId(Integer provinceId) {
 		this.provinceId = provinceId;
 	}
-	
+
+	public String getEmployeeCount() {
+		return employeeCount;
+	}
+
+	public void setEmployeeCount(String employeeCount) {
+		this.employeeCount = employeeCount;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 }

@@ -172,7 +172,7 @@
 																	<li>
 																		<div class="row">
 																		<div class="ten columns">
-																			<select data-bind="options:$root.allProblemsConstant, selectedOptions:$parent.selectedItem"> </select> 
+																			<select data-bind="options:$root.allProblemsConstant, optionsValue : 'id', optionsText : 'name', value : $parent.selectedProblem"> </select> 
 																		</div>
 																		<div class="two columns">
 																			<a href="#" class="tiny blue button" data-bind="click: $root.addProblem">Ôö¼Ó</a>
@@ -268,6 +268,7 @@
 						self.distinct = distinct;
 						self.problems = ko.observableArray(problems);
 						self.detailUrl = detailUrl;
+						self.selectedProblem = ko.observable('');
 					};
 
 					var Province = function(id, name, cities) {
@@ -324,7 +325,7 @@
 									
 									$.each(data, function(index, value) {
 
-										self.allProblemsConstant.push(value.name);
+										self.allProblemsConstant.push(value);
 
 									});
 								}
@@ -431,6 +432,7 @@
 						
 						self.addProblem = function(item, event) {
 							console.debug(item);
+							console.debug(item.selectedProblem());
 						};
 						
 						self.updateProblem = function(item, event) {

@@ -100,7 +100,7 @@ public class TestGrabCompany {
 	@Test
 	public void testGrabDetailedPage() throws Exception {
 		// http://qy.58.com/9880155593991/?PGTID=14042836308430.7793496957798185&ClickID=2
-		String testURL = "http://su.58.com/meirongshi/?PGTID=14046524485590.1552550873423818&ClickID=1";
+		String testURL = "http://qy.58.com/13571834103302/";
 		String htmlForPage = HttpClientGrabUtil.fetchHTMLwithURL(testURL, "detailedCompanyPageHtml.txt");
 
 		Assert.assertNotNull(htmlForPage);
@@ -115,6 +115,15 @@ public class TestGrabCompany {
 		Assert.assertEquals("", contactor);
 	}
 
+	@Test
+	public void testGrabEmployeeCountInDetailedPage() throws Exception {
+		String html = Files.toString(new File("detailedCompanyPageHtml.txt"), Charset.defaultCharset());
+		String contactor = HtmlParserUtilPlanB.findCompanyEmployeeCount(html);
+		
+		System.out.println(contactor);
+		Assert.assertEquals("1-49»À", contactor);
+	}
+	
 	@Test
 	public void testGrabContractorPhoneImgSrcInDetailedPage() throws Exception {
 		String html = Files.toString(new File("detailedCompanyPageHtml.txt"), Charset.defaultCharset());
@@ -139,6 +148,14 @@ public class TestGrabCompany {
 		Assert.assertEquals(contactorPhone, "");
 	}
 	
+	@Test
+	public void testGrabCompanyDescriptionInDetailedPage() throws Exception {
+		String html = Files.toString(new File("detailedCompanyPageHtml.txt"), Charset.defaultCharset());
+		String description = HtmlParserUtilPlanB.findCompanyDescription(html);
+
+		//Assert.assertEquals(description, "");
+		System.out.println(description);
+	}
 	@Test
 	public void testGrabImg() throws Exception {
 		String src = "http://image.58.com/showphone.aspx?t=v55&v=82319568EEFB84016CC4BEA34EC3736B6";
