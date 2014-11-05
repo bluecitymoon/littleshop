@@ -65,7 +65,6 @@ public class CompanyServiceImpl implements CompanyService {
 		return companyPage;
 	}
 	
-	@Override
 	public Page<Company> getCompanyInPage(final CompanySearchVo companySearchVo) {
 		
 		 Page<Company> companyPage = companyRepository.findAll(generateSpecification(companySearchVo), new PageRequest(Integer.valueOf(companySearchVo.getPageNumber()), 5));

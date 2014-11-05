@@ -87,6 +87,23 @@ public class TestGrabCompany {
 	}
 
 	@Test
+	public void testGrabCompanyDetail138() throws Exception{
+
+		String testURL = "http://www.138job.com/shtml/Company/18307/C_1212781.shtml";
+
+		String htmlForPage = HttpClientGrabUtil.fetchHTMLwithURL(testURL);
+		
+		File file = new File("C_1212781.html");
+		if (!file.exists()) {
+			file.createNewFile();
+		}
+		
+		FileWriter fileWriter = new FileWriter(file);
+		fileWriter.write(htmlForPage);
+		fileWriter.close();
+	}
+	
+	@Test
 	public void testGrabCompanyName() throws Exception {
 
 		String htmlForPage = Files.toString(file, Charset.defaultCharset());
@@ -209,7 +226,6 @@ public class TestGrabCompany {
 				
 				companyRepository.save(company);
 				
-				//stringBuilder.append(company.toString() + "\n");
 			}
 		}
 		
