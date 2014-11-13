@@ -32,7 +32,7 @@
 				<div class="six columns">
 					<div class="app-wrapper ui-corner-top">
 						<div class="blue module ui-corner-top clearfix">
-							<h2>公司关注点列点配置</h2>
+							<h2>公司问题配置</h2>
 						</div>
 						<div class="content">
 							<div data-bind="foreach : problems">

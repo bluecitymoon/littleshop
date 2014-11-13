@@ -19,7 +19,7 @@
 	<header id="brand">
 		<div class="container">
 			<div class="row">
-				<div class="appname hide-on-phones">客户助手</div>
+				<div class="appname hide-on-phones">欣心客户数据中心</div>
 			</div>
 		</div>
 	</header>
@@ -122,9 +122,9 @@
 						<div class="row">
 							<div class="four columns"></div>
 							<div class="four columns">
-							<div class="row">
+							<div class="row collapse">
+							<label>数据源的最后更新时间</label>
 								<div class="ten columns">
-									<label>数据源的最后更新时间</label>
 									<input type="text" class="medium input-text addon-postfix " id="lastPublishDate" data-bind="value:lastPublishDate">
 								</div>
 								<div class="two columns">

@@ -15,7 +15,7 @@
 	<header id="brand">
 		<div class="container">
 			<div class="row">
-				<div class="appname hide-on-phones">小店助手</div>
+				<div class="appname hide-on-phones">欣心客户数据中心</div>
 			</div>
 		</div>
 	</header>

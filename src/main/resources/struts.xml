@@ -16,6 +16,9 @@
 		<action name="home">
 			<result>index.jsp</result>
 		</action>
+		<action name="customer">
+			<result>customer.jsp</result>
+		</action>
 		<action name="findAllProblems" class="commonAction" method="findAllProblems">
 			<result name="success" type="json">
 				<param name="root">problems</param>

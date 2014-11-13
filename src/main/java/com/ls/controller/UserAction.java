@@ -47,14 +47,14 @@ public class UserAction extends BaseAction {
 		User user = userService.findUser(username, password);
 		
 		if (null == user) {
-			addActionMessage("��û��ͨ����֤��");
+			addActionMessage("锟斤拷没锟斤拷通锟斤拷锟斤拷证锟斤拷");
 			System.out.println("user not found : " + username + " " + password);
 			return INPUT;
 			
 		} else {
 			user.getFunctions();
 			user.getLocations();
-			addActionMessage("��½�ɹ�");System.out.println(user.toString());
+			addActionMessage("锟斤拷陆锟缴癸拷");System.out.println(user.toString());
 			
 			setName(user.getName());
 			setUsername(user.getUsername());
