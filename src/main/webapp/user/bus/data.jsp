@@ -102,9 +102,7 @@
 												<b data-bind="text : contractor"></b>
 											</div>
 											<div class="three columns">
-												
-												<label class="input-checkbox"> <img style="margin-left:45px" alt="电话号码" data-bind="attr: { 'src' : phone_src }">
-												</label>
+												<label class="input-checkbox"> <img style="margin-left:45px" alt="电话号码" data-bind="attr: { 'src' : phone_src }"></label>
 											</div>
 											<div class="two columns">
 												<div class="star" data-bind="attr: { 'star' : star }"></div>
@@ -116,8 +114,6 @@
 											</div>
 										</div>
 									</label>
-									<div style="display: none;" data-bind="attr : {'class': id}">
-									</div>
 								</div>
 							</li>
 						</ul>
@@ -131,109 +127,121 @@
 								<a href="#" class="small blue button" data-bind="click : nextPage">下一波客户</a>
 							</div>
 							<div class="three columns">
-								<!--  <span>去</span><input type="text" data-bind="value : pageIndexToGo" style="width:50px"> -->
 							</div>
 						</div>
 					</div>
 				</div>
-				<div id="selectedCompany" class="row" data-bind="with : selectedCompany" style="display:none;">
+				<div id="selectedCompany" class="row" data-bind="with : selectedCompany" style="display: none;">
+					<div class="app-wrapper ui-corner-top">
+						<div class="gray module ui-corner-top clearfix">
+							<h2>
+								详细信息<span class="subheader line" data-bind="text : name"></span>
+							</h2>
+							<h2 class="right">
+								<a class="small blue button" data-bind="click : $root.trackCustomer" href="#">返回客户列表</a>
+							</h2>
+						</div>
+						<div class="content">
+							<div class="currentId" data-bind="text : id, visible : false"></div>
+
+							<div class="row">
+								<div class="four columns">
+									<h4>基本信息</h4>
+								</div>
+								<div class="four columns">
+									<div id="detailStar" class="star" data-bind="attr: { 'star' : star }"></div>
+								</div>
+								<div class="four columns">
+									<a style="margin-left: 20px;" data-bind="click:$root.showDetail"><span data-bind="text : detailUrl"></span></a>
+								</div>
+							</div>
+							<br>
+							<div class="row">
+								<div class="row">
+									<div class='three columns'>
+										<label>名称 </label><input type="text" data-bind="value : name" disabled="disabled">
+									</div>
+									<div class='one columns'>
+										<label>区域 </label><input type="text" data-bind="value : distinct">
+									</div>
+									<div class='eight columns'>
+										<label>地址 </label> <input type="text" data-bind="value : address">
+									</div>
+								</div>
+
+								<div class="row">
+									<div class='four columns'>
+										<label>联系人 </label><input type="text" data-bind="value : contractor">
+									</div>
+									<div class='four columns'>
+										<label>联系电话</label><label class="input-checkbox"> <img alt="电话号码" data-bind="attr: { 'src' : phone_src }">
+										</label>
+									</div>
+									<div class='four columns'>
+										<label>Email</label> <label>电子邮件</label><label class="input-checkbox"> <img alt="电子邮箱" data-bind="attr: { 'src' : email_src }">
+										</label>
+									</div>
+								</div>
+								<div class="row"></div>
+
+
+							</div>
+							<div class="row">
+								<label>公司简介</label>
+								<textarea class="tall" name="ex-textarea-4"></textarea>
+							</div>
 							<div class="app-wrapper ui-corner-top">
-								<div class="gray module ui-corner-top clearfix">
-									<h2>
-										详细信息<span class="subheader line" data-bind="text : name"></span>
-									</h2>
+								<div class="module ui-corner-top clearfix">
+									<h2>跟踪情况(心得体会)</h2>
 									<h2 class="right">
-									<a class="small blue button" data-bind="click : $root.trackCustomer" href="#">返回客户列表</a>
+										<a href="" class="nice radius blue tiny button">保存</a>
 									</h2>
 								</div>
 								<div class="content">
-									<div class="currentId" data-bind="text : id, visible : false"></div>
-									<div class="row">
-										<div class="six columns">
-											<div class="row">
-												<div class='two columns'>
-													<label>区域 </label><input type="text" data-bind="value : distinct">
-												</div>
-												<div class='ten columns'>
-													<label>地址 </label> <input type="text" data-bind="value : address">
-												</div>
-											</div>
-											<div class="row">
-												<label>电子邮件</label><label class="input-checkbox"> <img alt="电子邮箱" data-bind="attr: { 'src' : email_src }">
-												</label>
-											</div>
+									<textarea class="tall" name="ex-textarea-4">革命尚未成功，同志仍需努力！</textarea>
+								</div>
+							</div>
+							<br>
+							<h4>客户问题</h4>
+							<br>
 
-										</div>
-										<div class="six columns">
-											<label>公司简介</label>
-											<textarea class="tall" name="ex-textarea-4" data-bind="text : name" data-bind="text : name"></textarea>
-										</div>
+							<div class="row">
+								<div class="six columns">
+									<div data-bind="foreach : $root.allProblemsConstant">
+										<label class="input-checkbox" for="ex-chx-a"> <input type="checkbox" name="ex-checkbox" /> <span data-bind="text : name, value : id"></span>
+										</label>
 									</div>
-									<div class="row">
-										<div class="three columns">
-											<div class="app-wrapper ui-corner-top">
-												<div class="module ui-corner-top clearfix">
-													<h2>客户关注点</h2>
-												</div>
-												<div class="content">
-													<ul>
-														<li data-bind="foreach : problems">
-															<div class="row">
-																<div class="ten columns">
-																	<label class="btn btn-block btn-lg btn-success"> <span data-bind="text : $data"></span>
-																	</label>
-																</div>
-																<div class="two columns">
-																	<button class="tiny blue button">删除</button>
-																</div>
-															</div>
-
-														</li>
-														<li>
-															<div class="row">
-																<div class="ten columns">
-																	<select data-bind="options:$root.allProblemsConstant, optionsValue : 'id', optionsText : 'name', value : $parent.selectedProblem">
-																	</select>
-																</div>
-																<div class="two columns">
-																	<a href="#" class="tiny blue button" data-bind="click: $root.addProblem">增加</a>
-																</div>
-															</div>
-														</li>
-													</ul>
-													<br>
-												</div>
-											</div>
-										</div>
-										<div class="three columns">
-											<div class="app-wrapper ui-corner-top">
-												<div class="module ui-corner-top clearfix">
-													<h2>跟踪进度</h2>
-												</div>
-												<div class="content">
-													<label class="input-checkbox selected" for="ex-chx-a"> <input type="checkbox" name="ex-checkbox" id="ex-chx-a" value="1" /> 第一次沟通
-													</label> <label class=".selected input-checkbox" for="ex-chx-b"> <input type="checkbox" name="ex-checkbox" id="ex-chx-b" value="2" /> 第二次沟通
-													</label>
-												</div>
-											</div>
-										</div>
-										<div class="six columns">
-											<div class="app-wrapper ui-corner-top">
-												<div class="module ui-corner-top clearfix">
-													<h2>跟踪情况(心得体会)</h2>
-													<h2 class="right">
-														<a href="" class="nice radius blue tiny button">保存</a>
-													</h2>
-												</div>
-												<div class="content">
-													<textarea class="tall" name="ex-textarea-4">革命尚未成功，同志仍需努力！</textarea>
-												</div>
-											</div>
-										</div>
+								</div>
+								<div class="six columns">
+									<div data-bind="foreach : $root.allProblemsConstant">
+										<label class="input-checkbox" for="ex-chx-a"> <input type="checkbox" name="ex-checkbox" /> <span data-bind="text : name, value : id"></span>
+										</label>
 									</div>
 								</div>
 							</div>
+
+							<br>
+							<h4>电话跟踪记录</h4>
+							<br>
+
+							<div class="row">
+								<div class="six columns">
+									<div data-bind="foreach : $root.allProblemsConstant">
+										<label class="input-checkbox" for="ex-chx-a"> <input type="checkbox" name="ex-checkbox" /> <span data-bind="text : name, value : id"></span>
+										</label>
+									</div>
+								</div>
+								<div class="six columns">
+									<div data-bind="foreach : $root.allProblemsConstant">
+										<label class="input-checkbox" for="ex-chx-a"> <input type="checkbox" name="ex-checkbox" /> <span data-bind="text : name, value : id"></span>
+										</label>
+									</div>
+								</div>
+							</div>
+
 						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -307,6 +315,12 @@
 							
 							$( "#selectedCompany" ).slideToggle();
 							$( "#companyList" ).slideToggle();
+							
+							$('#detailStar').raty({
+								  click: function(score, evt) {
+									  	self.starInput(score);
+									  }
+								});
 							
 						};
 						self.cities = ko.computed(function() {
