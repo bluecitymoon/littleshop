@@ -244,6 +244,7 @@
 			<artifactId>shiro-spring</artifactId>
 			<version>${shiro.version}</version>
 		</dependency>
+		<!-- 
 		<dependency>
 			<groupId>xalan</groupId>
 			<artifactId>xalan</artifactId>
@@ -259,7 +260,7 @@
 					<artifactId>xalan</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>
+		</dependency> -->
 	</dependencies>
 	<build>
 		<finalName>ls</finalName>

@@ -83,7 +83,7 @@
 
 				<div class="app-wrapper ui-corner-top" id="companyList">
 					<div class="blue module ui-corner-top clearfix">
-						<h2>客户追踪</h2>
+						<h2>客户列表</h2>
 					</div>
 					<div class="content">
 						<div class="row">
@@ -142,21 +142,26 @@
 							</h2>
 						</div>
 						<div class="content">
-							<div class="currentId" data-bind="text : id, visible : false"></div>
-
 							<div class="row">
 								<div class="four columns">
-									<h4>基本信息</h4>
 								</div>
-								<div class="four columns">
+								<div class="two columns">
 									<div id="detailStar" class="star" data-bind="attr: { 'star' : star }"></div>
 								</div>
 								<div class="four columns">
 									<a style="margin-left: 20px;" data-bind="click:$root.showDetail"><span data-bind="text : detailUrl"></span></a>
 								</div>
+								<div class="two columns">
+									<a class="small green button" href="#">成为意向客户</a>
+								</div>
 							</div>
 							<br>
-							<div class="row">
+							<div id="accordion">
+								<h4>
+									<a href="#">客户基本信息</a>
+								</h4>
+								<div>
+								<div class="row">
 								<div class="row">
 									<div class='three columns'>
 										<label>名称 </label><input type="text" data-bind="value : name" disabled="disabled">
@@ -182,63 +187,219 @@
 										</label>
 									</div>
 								</div>
-								<div class="row"></div>
-
-
 							</div>
 							<div class="row">
 								<label>公司简介</label>
-								<textarea class="tall" name="ex-textarea-4"></textarea>
-							</div>
-							<div class="app-wrapper ui-corner-top">
-								<div class="module ui-corner-top clearfix">
-									<h2>跟踪情况(心得体会)</h2>
-									<h2 class="right">
-										<a href="" class="nice radius blue tiny button">保存</a>
-									</h2>
-								</div>
-								<div class="content">
-									<textarea class="tall" name="ex-textarea-4">革命尚未成功，同志仍需努力！</textarea>
-								</div>
+								<textarea name="ex-textarea-4"></textarea>
 							</div>
 							<br>
-							<h4>客户问题</h4>
+							<h4>补充客户信息</h4>
 							<br>
-
 							<div class="row">
-								<div class="six columns">
-									<div data-bind="foreach : $root.allProblemsConstant">
-										<label class="input-checkbox" for="ex-chx-a"> <input type="checkbox" name="ex-checkbox" /> <span data-bind="text : name, value : id"></span>
-										</label>
-									</div>
+								<div class="three columns">
+									<label>院长姓名</label>
+									<input type="text"/>
 								</div>
-								<div class="six columns">
-									<div data-bind="foreach : $root.allProblemsConstant">
-										<label class="input-checkbox" for="ex-chx-a"> <input type="checkbox" name="ex-checkbox" /> <span data-bind="text : name, value : id"></span>
-										</label>
-									</div>
+								<div class="three columns">
+									<label>院长手机</label>
+									<input type="text"/>
+								</div>
+								<div class="three columns">
+									<label>院长电话</label>
+									<input type="text"/>
+								</div>
+								<div class="three columns">
+									<label>院长QQ或者微信号</label>
+									<input type="text"/>
 								</div>
 							</div>
-
-							<br>
-							<h4>电话跟踪记录</h4>
-							<br>
-
 							<div class="row">
-								<div class="six columns">
-									<div data-bind="foreach : $root.allProblemsConstant">
-										<label class="input-checkbox" for="ex-chx-a"> <input type="checkbox" name="ex-checkbox" /> <span data-bind="text : name, value : id"></span>
-										</label>
-									</div>
+								<div class="three columns">
+									<label>店个数</label>
+									<input type="text"/>
 								</div>
-								<div class="six columns">
-									<div data-bind="foreach : $root.allProblemsConstant">
-										<label class="input-checkbox" for="ex-chx-a"> <input type="checkbox" name="ex-checkbox" /> <span data-bind="text : name, value : id"></span>
-										</label>
-									</div>
+								<div class="three columns">
+									<label>店长人数</label>
+									<input type="text"/>
+								</div>
+								<div class="three columns">
+									<label>顾问人数</label>
+									<input type="text"/>
+								</div>
+								<div class="three columns">
+									<label>床位数</label>
+									<input type="text"/>
 								</div>
 							</div>
+							<div class="row">
+								<div class="three columns">
+									<label>规模（平方）</label>
+									<input type="text"/>
+								</div>
+								<div class="three columns">
+									<label>去年业绩（万）</label>
+									<input type="text"/>
+								</div>
+								<div class="three columns">
+									<label>现平均多少万</label>
+									<input type="text"/>
+								</div>
+								<div class="three columns">
+									<label>院长年龄大概多少岁？</label>
+									<input type="text"/>
+								</div>
+							</div>
+								
+								</div>
 
+								<h4>
+									<a href="#">问题归类</a>
+								</h4>
+								<div>
+									<div class="row">
+										<div class="four columns">
+											<div data-bind="foreach : $root.allProblemsConstant">
+												<label class="input-checkbox" for="ex-chx-a"> <input
+													type="checkbox" name="ex-checkbox" /> <span
+													data-bind="text : name, value : id"></span>
+												</label>
+											</div>
+										</div>
+										<div class="four columns">
+											<div data-bind="foreach : $root.allProblemsConstant">
+												<label class="input-checkbox" for="ex-chx-a"> <input
+													type="checkbox" name="ex-checkbox" /> <span
+													data-bind="text : name, value : id"></span>
+												</label>
+											</div>
+										</div>
+										<div class="four columns">
+											<div data-bind="foreach : $root.allProblemsConstant">
+												<label class="input-checkbox" for="ex-chx-a"> <input
+													type="checkbox" name="ex-checkbox" /> <span
+													data-bind="text : name, value : id"></span>
+												</label>
+											</div>
+										</div>
+									</div>
+
+								</div>
+
+								<h3>
+									<a href="#">电话跟踪</a>
+								</h3>
+								<div>
+									<div class="row">
+										<ul class="smartlist nice">
+											<label class="input-checkbox">
+												<li>
+													<div class="row">
+														<div class="three columns text-center">
+															<label>跟踪日期</label> <input type="text"
+																disabled="disabled" value="2013年4月25日" />
+														</div>
+														<div class="three columns">
+															<label>约定下次电话时间</label> <input type="text"
+																disabled="disabled" value="2013年4月26日" />
+														</div>
+														<div class="six columns">
+															<textarea name="ex-textarea-5"></textarea>
+														</div>
+													</div>
+											</li>
+											</label>
+											<label class="input-checkbox">
+												<li>
+													<div class="row">
+														<div class="three columns text-center">
+															<label>跟踪日期</label> <input type="text"
+																disabled="disabled" value="2013年4月25日" />
+														</div>
+														<div class="three columns">
+															<label>约定下次电话时间</label> <input type="text"
+																disabled="disabled" value="2013年4月26日" />
+														</div>
+														<div class="six columns">
+															<textarea name="ex-textarea-5"></textarea>
+														</div>
+													</div>
+											</li>
+											</label>
+											<label class="input-checkbox">
+												<li>
+													<div class="row">
+														<div class="three columns text-center">
+															<label>跟踪日期</label> <input type="text"
+																disabled="disabled" value="2013年4月25日" />
+														</div>
+														<div class="three columns">
+															<label>约定下次电话时间</label> <input type="text"
+																disabled="disabled" value="2013年4月26日" />
+														</div>
+														<div class="six columns">
+															<textarea name="ex-textarea-5"></textarea>
+														</div>
+													</div>
+											</li>
+											</label>
+											<label class="input-checkbox">
+												<li>
+													<div class="row">
+														<div class="three columns text-center">
+															<label>跟踪日期</label> <input type="text"
+																disabled="disabled" value="2013年4月25日" />
+														</div>
+														<div class="three columns">
+															<label>约定下次电话时间</label> <input type="text"
+																disabled="disabled" value="2013年4月26日" />
+														</div>
+														<div class="six columns">
+															<textarea name="ex-textarea-5"></textarea>
+														</div>
+													</div>
+											</li>
+											</label>
+											<label class="input-checkbox">
+												<li>
+													<div class="row">
+														<div class="three columns text-center">
+															<label>跟踪日期</label> <input type="text"
+																disabled="disabled" value="2013年4月25日" />
+														</div>
+														<div class="three columns">
+															<label>约定下次电话时间</label> <input type="text"
+																disabled="disabled" value="2013年4月26日" />
+														</div>
+														<div class="six columns">
+															<textarea name="ex-textarea-5"></textarea>
+														</div>
+													</div>
+											</li>
+											</label>
+											<label class="input-checkbox">
+												<li>
+													<div class="row">
+														<div class="three columns text-center">
+															<label>跟踪日期</label> <input type="text" value="" />
+														</div>
+														<div class="three columns">
+															<label>约定下次电话时间</label> <input type="text" id="nextScheduleDate"/>
+														</div>
+														<div class="six columns">
+															<textarea name="ex-textarea-5"></textarea>
+														</div>
+													</div>
+													<div>
+														<a class="small blue button">保存电话记录</a>
+													</div>
+											</li>
+											</label>
+										</ul>
+									</div>
+
+								</div>
+
+							</div>
 						</div>
 					</div>
 				</div>
@@ -251,7 +412,7 @@
 	<script src="/ls/js/jquery.raty.js"></script>
 	<script>
 		$(document).ready( function() {
-			
+					
 					var Problem = function(id, name) {
 						var self = this;
 						
@@ -321,7 +482,9 @@
 									  	self.starInput(score);
 									  }
 								});
+							$('#accordion').accordion({ heightStyle: "content"});
 							
+							$('#nextScheduleDate').datepicker();
 						};
 						self.cities = ko.computed(function() {
 							var cityOptions;
